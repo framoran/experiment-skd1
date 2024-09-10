@@ -9,7 +9,7 @@ const flowers2_points = 30; // default
 const collide_rock = 30; // default
 const fire_rock_success = 30; // default
 const fill_fuel = 300; // default
-const speed_g = 2; // default (min should be 1 and max 4 incrementing with 0.5)
+const speed_g = 1; // default (min should be 1 and max 4 incrementing with 0.5)
 const time_to_refuel = 60000; // default (min 10 seconds and max 60)
 const practice_length = 65000;
 const task_length = 65000;
@@ -74,62 +74,38 @@ var game = {
             } else {
                 clearInterval(game.Interval);
                 Start = function() {
-                    cnameScore = "score_practice";
-                    cnameStar = "star_practice";
-                    cnameImpact = "impact_practice";
-                    cname_checkEssence = "checkEssence_practice";
-                    cname_essenceRight = "essenceRight_practice";
-                    cname_essenceWrong = "essenceWrong_practice";
-                    cname_drawing = "drawing_practice";
-                    cname_tirMissile = "tirMissile_practice";
-                    cname_impactMissile = "impactMissile_practice";
+                    cnameFlower = "flower_practice";
+                    cnameFlower2 = "flower2_practice";
+                    cname_missedFlower = "missedFlower_practice";
+                    cname_missedFlower2 = "missedFlower2_practice";   
+                    cname_drawing = "cname_drawing";    
                     expires = "Thu, 30 Dec 2030 12:00:00 UTC";
-                    document.cookie = cnameScore + "= ;" + expires;
-                    document.cookie = cnameStar + "= ;" + expires;
-                    document.cookie = cnameImpact + "= ;" + expires;
-                    document.cookie = cname_checkEssence + "= ;" + expires;
-                    document.cookie = cname_essenceRight + "= ;" + expires;
-                    document.cookie = cname_essenceWrong + "= ;" + expires;
-                    document.cookie = cname_drawing + "= ;" + expires;
-                    document.cookie = cname_tirMissile + "= ;" + expires;
-                    document.cookie = cname_impactMissile + "= ;" + expires;
-                    cvalue1 = score;
-                    cvalue2 = star;
-                    cvalue3 = impact;
-                    cvalue4 = checkEssence;
-                    cvalue5 = essenceRight;
-                    cvalue6 = essenceWrong;
-                    cvalue7 = drawing;
-                    cvalue8 = tirMissile;
-                    cvalue9 = impactMissile;
-                    document.cookie = cnameScore + "=" + cvalue1 + ";" + expires;
-                    document.cookie = cnameStar + "=" + cvalue2 + ";" + expires;
-                    document.cookie = cnameImpact + "=" + cvalue3 + ";" + expires;
-                    document.cookie = cname_checkEssence + "=" + cvalue4 + ";" + expires;
-                    document.cookie = cname_essenceRight + "=" + cvalue5 + ";" + expires;
-                    document.cookie = cname_essenceWrong + "=" + cvalue6 + ";" + expires;
-                    document.cookie = cname_drawing + "=" + cvalue7 + ";" + expires;
-                    document.cookie = cname_tirMissile + "=" + cvalue8 + ";" + expires;
-                    document.cookie = cname_impactMissile + "=" + cvalue9 + ";" + expires;
-                    var g = c("score");
-                    var f = c("star");
-                    var e = c("impact");
-                    var n = c("checkEssence");
-                    var m = c("essenceRight");
-                    var l = c("essenceWrong");
+                    document.cookie = cnameFlower + "= ;" + expires;
+                    document.cookie = cnameFlower2 + "= ;" + expires;
+                    document.cookie = cname_missedFlower + "= ;" + expires;
+                    document.cookie = cname_missedFlower2 + "= ;" + expires;
+                    document.cookie = cname_drawing + "= ;" + expires;                    
+                    
+                    document.cookie = cnameFlower + "=" + flower + ";" + expires;
+                    document.cookie = cnameFlower2 + "=" + flower2 + ";" + expires;
+                    document.cookie = cname_missedFlower + "=" + missed_flower + ";" + expires;
+                    document.cookie = cname_missedFlower2 + "=" + missed_flower2 + ";" + expires;
+                    document.cookie = cname_drawing + "=" + drawing + ";" + expires;
+
+                    var f = c("flower");
+                    var e = c("flower2");
+                    var n = c("missedFlower");
+                    var m = c("missedFlower2");
                     var k = c("drawing");
-                    var j = c("tirMissile");
-                    var h = c("impactMissile");
-                    console.log("score=" + g);
-                    console.log("star=" + f);
-                    console.log("impact=" + e);
-                    console.log("checkEssence=" + n);
-                    console.log("essenceRight=" + m);
-                    console.log("essenceWrong=" + l);
-                    console.log("drawing=" + k);
-                    console.log("drawing=" + j);
-                    console.log("impactMissile=" + h);
+           
+                    console.log("flower=" + f);
+                    console.log("flower2=" + e);
+                    console.log("missedFlower=" + n);
+                    console.log("missedFlower2=" + m);
+                    console.log("drawing=" + l);          
+                    
                     setTimeout("stop()", 2000);
+
                     stop = function() {
                         $("#bouton").click()
                     }
@@ -258,15 +234,15 @@ var RockX = [];
 var RockY = [];
 
 impact = [];
-star = [];
-essenceRight = [];
-essenceWrong = [];
+flower = [];
+flower2 = [];
+missed_flower = [];
+missed_flower2 = [];
 checkEssence = [];
 var score = 0;
 var star_x = 0;
 var star_y = 0;
 var temps_essence = 0;
-time_to_refuel = time_to_refuel/1000;
 var drawing = 0;
 var tirMissile = 0;
 var impactMissile = 0;
@@ -533,21 +509,7 @@ function GrosRocher() {
                         myGamePiece_Affichage.score1 -= collide_rock
                     }
                 }
-            }
-            if ( (myGamePiece_Missile.nouveau_tir == true) && (myGamePiece_Missile.x > 0) && (myGamePiece_Missile.x < 1500) && (myGamePiece_Missile.x > (RockX[c] - 1)) && (myGamePiece_Missile.x < (RockX[c] + 30)) && (myGamePiece_Missile.y > (RockY[c] - 50)) && (myGamePiece_Missile.y < (RockY[c] + 50))) {
-                if (myGamePiece_Affichage.score1 >= 0) {
-                    myGamePiece_Affichage.score1 += fire_rock_success;
-                }
-                impactMissile += 1;
-                myGamePiece_Missile.x = RockX[c] + 50;
-                myGamePiece_Missile.Speed = 0;
-                myGamePiece_Missile.sizeMx = 150;
-                myGamePiece_Missile.sizeMy = 125;
-                myGamePiece_Missile.y = RockY[c] - 50;
-                RocherExplosion(myGamePiece_GrosRocher, myGamePiece_Missile);
-                RockX[c] = (getRandomInt(2000, 3000));
-                RockY[c] = (getRandomInt(25, 700))
-            }
+            }flowers2Y           
             for (var b = 0; b < 10; b++) {
                 if (((RockX[c]) > (RockX[b] - 300)) && ((RockX[c]) < (RockX[b] + 300)) && ((RockY[c]) > (RockY[b] - 300)) && ((RockY[c]) < (RockY[b] + 300)) && (b != c)) {
                     RockX[c] = (getRandomInt(2000, 3000));
@@ -571,11 +533,15 @@ function Fleurs() {
             flowersX[b] -= speed_g;
             if (flowersX[b] < -50) {
                 flowersX[b] = (getRandomInt(1600, 2500));
-                flowersY[b] = (getRandomInt(25, 700))
+                flowersY[b] = (getRandomInt(25, 700));
+                var a = new Date().getTime() - myGamePiece_Time.timeStart;
+                missed_flower.push(a);
+                console.log('missed green: ' + missed_flower);
             }
             if ((myGamePiece_Vaisseau.x > (flowersX[b] - 100)) && (myGamePiece_Vaisseau.x < (flowersX[b] + 25)) && (myGamePiece_Vaisseau.y > (flowersY[b] - 90)) && (myGamePiece_Vaisseau.y < (flowersY[b] + 50))) {
-                var c = new Date().getTime() - myGamePiece_Time.timeStart;
-                star.push(c);
+                var a = new Date().getTime() - myGamePiece_Time.timeStart;
+                flower.push(a);
+                console.log('catched green flower: ' + flower);
                 flowersX[b] = (getRandomInt(1600, 2500));
                 flowersY[b] = (getRandomInt(25, 700));
                 if (myGamePiece_Affichage.score1 >= 0) {
@@ -606,10 +572,14 @@ function Fleurs2() {
             if (flowers2X[b] < -50) {
                 flowers2X[b] = (getRandomInt(1600, 2500));
                 flowers2Y[b] = (getRandomInt(25, 700))
+                var a = new Date().getTime() - myGamePiece_Time.timeStart;
+                missed_flower2.push(a);
+                console.log('missed red: ' + missed_flower2);
             }
             if ((myGamePiece_Vaisseau2.x > (flowers2X[b] - 100)) && (myGamePiece_Vaisseau2.x < (flowers2X[b] + 25)) && (myGamePiece_Vaisseau2.y > (flowers2Y[b] - 90)) && (myGamePiece_Vaisseau2.y < (flowers2Y[b] + 50))) {
-                var c = new Date().getTime() - myGamePiece_Time.timeStart;
-                star.push(c);
+                var a = new Date().getTime() - myGamePiece_Time.timeStart;
+                flower2.push(a);
+                console.log('catched red flower: ' + flower2);
                 flowers2X[b] = (getRandomInt(1600, 2500));
                 flowers2Y[b] = (getRandomInt(25, 700));
                 if (myGamePiece_Affichage.score1 >= 0) {
@@ -670,8 +640,8 @@ function Evenement() {
         if (myGamePiece_Vaisseau.x < 1) {
             myGamePiece_Vaisseau.x = 1
         }
-        if (myGamePiece_Vaisseau.x > 1400) {
-            myGamePiece_Vaisseau.x = 1400
+        if (myGamePiece_Vaisseau.x > 1200) {
+            myGamePiece_Vaisseau.x = 1200
         }
         if (myGamePiece_Vaisseau.y > 725) {
             myGamePiece_Vaisseau.y = 725
@@ -683,23 +653,15 @@ function Evenement() {
         if (myGamePiece_Vaisseau2.x < 1) {
             myGamePiece_Vaisseau2.x = 1
         }
-        if (myGamePiece_Vaisseau2.x > 1400) {
-            myGamePiece_Vaisseau2.x = 1400
+        if (myGamePiece_Vaisseau2.x > 1200) {
+            myGamePiece_Vaisseau2.x = 1200
         }
         if (myGamePiece_Vaisseau2.y > 725) {
             myGamePiece_Vaisseau2.y = 725
         }
         if (myGamePiece_Vaisseau2.y < 0) {
             myGamePiece_Vaisseau2.y = 0
-        }
-
-        if (game.keyCode1 == true && myGamePiece_Missile.nouveau_tir == false) {
-            myGamePiece_Missile.x = myGamePiece_Vaisseau.x + 50;
-            myGamePiece_Missile.y = myGamePiece_Vaisseau.y;
-            myGamePiece_Missile.Speed = 10;
-            nouveau_missile(myGamePiece_Missile);
-            tirMissile += 1
-        }
+        }      
         if (myGamePiece_Drawing.x >= 800) {
             myGamePiece_Drawing.x = 0;
             drawing += 1

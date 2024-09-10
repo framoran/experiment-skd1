@@ -110,7 +110,7 @@
 
     </script>
 
-    <script src="/js/practice.js?v=2">
+    <script src="/js/practice_unclear.js">
 
     </script>
 </body>
