@@ -13,7 +13,10 @@ const speed_g = 2; // default (min should be 1 and max 4 incrementing with 0.5)
 const time_to_refuel = 60000; // default (min 10 seconds and max 60)
 const practice_length = 65000;
 const task_length = 65000;
-
+var flowerChangeInterval = 10000; // Time interval for changing flower properties (10 seconds)
+var lastFlowerChangeTime = new Date().getTime();
+var currentFlowerSize = { min: 30, max: 80 }; // Initial flower size range
+var currentFlowerSpeed = { min: 1, max: 4 }; // Initial flower speed range
 var Vaisseau;
 
 function startGame() {
@@ -520,107 +523,131 @@ function GrosRocher() {
     }
 }
 
+// Global variables to store the current flower properties
+var currentFlowerSize = getRandomInt(30, 80); // Initial size
+var currentFlowerSpeed = getRandomInt(1, 4);  // Initial speed
+
+// Function to update flower properties every 10 seconds
+function updateFlowerProperties() {
+    var currentTime = new Date().getTime();
+    if (currentTime - lastFlowerChangeTime >= flowerChangeInterval) {
+        // Update flower size and speed once every 10 seconds
+        currentFlowerSize = getRandomInt(20, 100); // Random size between 20 and 100
+        currentFlowerSpeed = Math.random() * (4 - 1) + 1; // Random speed between 1 and 4
+
+        lastFlowerChangeTime = currentTime; // Reset timer
+    }
+}
+
+// Modify the flower drawing logic
 function Fleurs() {
     this.gamearea = game;
     this.img = image_flowers;
-    const proportion = 1; // Set a constant proportion (1:1 here, change based on actual image ratio)
-    this.sizesX = Array(7).fill().map(() => getRandomInt(30, 80)); // Array of random sizes for width
-    this.sizesY = this.sizesX.map(sizeX => sizeX * proportion); // Calculate proportional height
-    this.speeds = Array(7).fill().map(() => Math.random() * 3 + 0.5); // Array of random speeds between 1 and 4
-
     this.draw = function() {
         context = game.context;
         for (var b = 0; b < 7; b++) {
             this.x = flowersX[b];
             this.y = flowersY[b];
 
-            // Draw the flower with its own size
-            context.drawImage(this.img, this.x, this.y, this.sizesX[b], this.sizesY[b]);
-            flowersX[b] -= this.speeds[b]; // Move with its own speed
+            // Draw the flower with the current size
+            context.drawImage(this.img, this.x, this.y, currentFlowerSize, currentFlowerSize);
+            flowersX[b] -= currentFlowerSpeed;
 
-            // If flower is off the screen, reset it with a new random speed and size
+            // Check if flower moves off-screen
             if (flowersX[b] < -50) {
                 flowersX[b] = getRandomInt(1600, 2500);
                 flowersY[b] = getRandomInt(25, 700);
-                this.speeds[b] = Math.random() * 3 + 1; // New random speed between 1 and 4
-                this.sizesX[b] = getRandomInt(30, 80); // New random width between 30 and 80
-                this.sizesY[b] = this.sizesX[b] * proportion; // Calculate proportional height
 
+                // Only update flower properties when it reappears after going off-screen
                 var a = new Date().getTime() - myGamePiece_Time.timeStart;
                 missed_flower.push(a);
                 console.log('missed green: ' + missed_flower);
             }
 
-            // Check for collisions with the spaceship
-            if ((myGamePiece_Vaisseau.x > (flowersX[b] - 100)) && (myGamePiece_Vaisseau.x < (flowersX[b] + 25)) && (myGamePiece_Vaisseau.y > (flowersY[b] - 90)) && (myGamePiece_Vaisseau.y < (flowersY[b] + 50))) {
+            // Handle collision with the player
+            if ((myGamePiece_Vaisseau.x > (flowersX[b] - 100)) && (myGamePiece_Vaisseau.x < (flowersX[b] + 25)) && 
+                (myGamePiece_Vaisseau.y > (flowersY[b] - 90)) && (myGamePiece_Vaisseau.y < (flowersY[b] + 50))) {
+                
                 var a = new Date().getTime() - myGamePiece_Time.timeStart;
                 flower.push(a);
-                console.log('caught green flower: ' + flower);
-
+                console.log('catched green flower: ' + flower);
                 flowersX[b] = getRandomInt(1600, 2500);
                 flowersY[b] = getRandomInt(25, 700);
-                this.speeds[b] = Math.random() * 3 + 1; // New random speed
-                this.sizesX[b] = getRandomInt(30, 80); // New random size
-                this.sizesY[b] = this.sizesX[b] * proportion; // Calculate proportional height
-
                 if (myGamePiece_Affichage.score1 >= 0) {
                     myGamePiece_Affichage.score1 += flowers_points;
                 }
-            }           
+            }
+
+            // Ensure flowers do not overlap
+            for (var a = 0; a < 7; a++) {
+                if (((flowersX[b]) > (flowersX[a] - 200)) && ((flowersX[b]) < (flowersX[a] + 200)) && 
+                    ((flowersY[b]) > (flowersY[a] - 200)) && ((flowersY[b]) < (flowersY[a] + 200)) && (a != b)) {
+                    flowersX[b] = getRandomInt(1600, 2500);
+                    flowersY[b] = getRandomInt(25, 700);
+                }
+            }
         }
-    };
+    }
 }
 
+// Update for red flowers
 function Fleurs2() {
     this.gamearea = game;
     this.img = image_flowers2;
-    const proportion = 1; // Set a constant proportion (1:1 here, change based on actual image ratio)
-    this.sizesX = Array(7).fill().map(() => getRandomInt(30, 80)); // Array of random sizes for width
-    this.sizesY = this.sizesX.map(sizeX => sizeX * proportion); // Calculate proportional height
-    this.speeds = Array(7).fill().map(() => Math.random() * 3 + 0.5); // Array of random speeds between 1 and 4
-
     this.draw = function() {
         context = game.context;
         for (var b = 0; b < 7; b++) {
             this.x = flowers2X[b];
             this.y = flowers2Y[b];
 
-            // Draw the flower with its own size
-            context.drawImage(this.img, this.x, this.y, this.sizesX[b], this.sizesY[b]);
-            flowers2X[b] -= this.speeds[b]; // Move with its own speed
+            // Draw the flower with the current size
+            context.drawImage(this.img, this.x, this.y, currentFlowerSize, currentFlowerSize);
+            flowers2X[b] -= currentFlowerSpeed;
 
-            // If flower is off the screen, reset it with a new random speed and size
+            // Check if flower moves off-screen
             if (flowers2X[b] < -50) {
                 flowers2X[b] = getRandomInt(1600, 2500);
                 flowers2Y[b] = getRandomInt(25, 700);
-                this.speeds[b] = Math.random() * 3 + 1; // New random speed between 1 and 4
-                this.sizesX[b] = getRandomInt(30, 80); // New random width between 30 and 80
-                this.sizesY[b] = this.sizesX[b] * proportion; // Calculate proportional height
 
+                // Only update flower properties when it reappears after going off-screen
                 var a = new Date().getTime() - myGamePiece_Time.timeStart;
                 missed_flower2.push(a);
                 console.log('missed red: ' + missed_flower2);
             }
 
-            // Check for collisions with the spaceship
-            if ((myGamePiece_Vaisseau2.x > (flowers2X[b] - 100)) && (myGamePiece_Vaisseau2.x < (flowers2X[b] + 25)) && (myGamePiece_Vaisseau2.y > (flowers2Y[b] - 90)) && (myGamePiece_Vaisseau2.y < (flowers2Y[b] + 50))) {
+            // Handle collision with the player
+            if ((myGamePiece_Vaisseau2.x > (flowers2X[b] - 100)) && (myGamePiece_Vaisseau2.x < (flowers2X[b] + 25)) && 
+                (myGamePiece_Vaisseau2.y > (flowers2Y[b] - 90)) && (myGamePiece_Vaisseau2.y < (flowers2Y[b] + 50))) {
+                
                 var a = new Date().getTime() - myGamePiece_Time.timeStart;
                 flower2.push(a);
-                console.log('caught red flower: ' + flower2);
-
+                console.log('catched red flower: ' + flower2);
                 flowers2X[b] = getRandomInt(1600, 2500);
                 flowers2Y[b] = getRandomInt(25, 700);
-                this.speeds[b] = Math.random() * 3 + 1; // New random speed
-                this.sizesX[b] = getRandomInt(30, 80); // New random size
-                this.sizesY[b] = this.sizesX[b] * proportion; // Calculate proportional height
-
                 if (myGamePiece_Affichage.score1 >= 0) {
                     myGamePiece_Affichage.score1 += flowers2_points;
                 }
             }
+
+            // Ensure flowers do not overlap
+            for (var a = 0; a < 7; a++) {
+                if (((flowers2X[b]) > (flowers2X[a] - 200)) && ((flowers2X[b]) < (flowers2X[a] + 200)) && 
+                    ((flowers2Y[b]) > (flowers2Y[a] - 200)) && ((flowers2Y[b]) < (flowers2Y[a] + 200)) && (a != b)) {
+                    flowers2X[b] = getRandomInt(1600, 2500);
+                    flowers2Y[b] = getRandomInt(25, 700);
+                }
+            }
         }
-    };
+    }
 }
+
+// Game loop to update the flower properties and redraw the game
+function gameLoop() {
+    updateFlowerProperties(); // Update flower properties every 10 seconds
+    updateGame(); // Continue with the usual game update logic
+}
+
+setInterval(gameLoop, 1000); // Call game loop every second
 
 function Evenement() {
     this.update = function() {
