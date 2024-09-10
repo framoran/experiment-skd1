@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ParticipantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,4 @@ Route::get('/{locale}/{instructions}', [App\Http\Controllers\ExperimentControlle
 Route::post('/{locale}/{instructions}', [App\Http\Controllers\ExperimentController::class, 'index_post']);
 
 // New participant
-Route::post('/new_participant', [App\Http\Controllers\ParticipantController::class, 'new_participant'])->name('new_participant');
+Route::post('/new-participant', [App\Http\Controllers\ParticipantController::class, 'store'])->name('new_participant');
