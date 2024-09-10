@@ -70,6 +70,8 @@ class GameHelper
             $impactMissile = htmlspecialchars($_COOKIE['impactMissile']);
             $scoreSum = htmlspecialchars($_COOKIE['sumScore']);
             $meanRTs = htmlspecialchars($_COOKIE['meanRTs']);
+            $prediction = isset($_COOKIE['prediction']) ? htmlspecialchars($_COOKIE['prediction']) : 0;
+            $postdiction = isset($_COOKIE['postdiction']) ? htmlspecialchars($_COOKIE['postdiction']) : 0;
 
             // Get score
             for ($i = 1; $i <= 42; $i++) {
@@ -92,6 +94,7 @@ class GameHelper
                 'dateFaitLePleinPractice' => $essenceRightPractice,
                 'dateFaitLePleinMauvaisMomentPractice' => $essenceWrongPractice,
                 'score' => $score,
+                'drawing' => $drawing,
                 'tirMissile' => $tirMissile,
                 'missileImpact' => $impactMissile,
                 'dateToucheEtoile' => $star,
@@ -186,7 +189,10 @@ class GameHelper
                 'interTaskScoreRTs39' => $scoreRTs39,
                 'interTaskScoreRTs40' => $scoreRTs40,
                 'interTaskScoreRTs41' => $scoreRTs41,
-                'interTaskScoreRTs42' => $scoreRTs42];
+                'interTaskScoreRTs42' => $scoreRTs42,
+                'prediction' => $prediction,
+                'postdiction' => $postdiction
+            ];
 
             DB::table('game')->insert($data);
 

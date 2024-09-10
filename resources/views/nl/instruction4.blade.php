@@ -21,10 +21,10 @@
                   <strong>Samenvatting van de doelen: </strong><br />
 
                   <ul>
-                    <li>Verzamel sterren – Voor iedere ster verdient u 30 punten.</li>
-                    <li>Vermijd stenen – iedere botsing kost u 100 punten.</li>
-                    <li>Vernietig stenen – voor iedere steen die u vernietigt, verdient u 30 punten.</li>
-                    <li>De brandstoftank bijvullen – iedere keer dat u tijdig bijvult (alleen wanneer de brandstofmeter op het rode niveau is), verdient u 300 punten.</li>
+                    <li>Verzamel sterren – Voor iedere ster verdient u {{$stars_points}} punten.</li>
+                    <li>Vermijd stenen – iedere botsing kost u {{$collide_rock}} punten.</li>
+                    <li>Vernietig stenen – voor iedere steen die u vernietigt, verdient u {{$fire_rock_success}} punten.</li>
+                    <li>De brandstoftank bijvullen – iedere keer dat u tijdig bijvult (alleen wanneer de brandstofmeter op het rode niveau is), verdient u {{$fill_fuel}} punten.</li>
                   </ul>
 
                   <ul>

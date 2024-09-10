@@ -20,10 +20,10 @@
                 <div style="text-align:left; margin-left:20%;">
                   <strong>Zusammenfassung der Ziele: <br /></strong>
                   <ul>
-                    <li> Versuchen Sie Sterne einzusammeln – für jeden Stern erhalten Sie 30 Punkte. </li>
-                    <li> Versuchen Sie den Felsen auszuweichen – für jede Kollision verlieren Sie 100 Punkte. </li>
-                    <li> Für jeden zerstörten Felsen erhalten Sie 30 Punkte. </li>
-                    <li> Versuchen Sie Treibstoff aufzutanken – für jedes Mal Tanken (wenn die Treibstoffanzeige im roten Bereich ist) erhalten Sie 300 Punkte. </li>
+                    <li> Versuchen Sie Sterne einzusammeln – für jeden Stern erhalten Sie {{$stars_points}} Punkte. </li>
+                    <li> Versuchen Sie den Felsen auszuweichen – für jede Kollision verlieren Sie {{$collide_rock}} Punkte. </li>
+                    <li> Für jeden zerstörten Felsen erhalten Sie {{$fire_rock_success}} Punkte. </li> 
+                    <li> Versuchen Sie Treibstoff aufzutanken – für jedes Mal Tanken (wenn die Treibstoffanzeige im roten Bereich ist) erhalten Sie {{$fill_fuel}} Punkte. </li>
                   </ul>
                 </div>
                 <br />

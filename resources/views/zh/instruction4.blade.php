@@ -9,10 +9,6 @@
 
             <div class="content elements-centered">
 
-              <h1>
-                指示指示
-              </h1>
-
               <div>
 
                 非常棒！你已经熟悉了这个游戏的不同元素，接下来可以进行一次完整的游戏练习了。 <br /> <br />
@@ -20,10 +16,10 @@
                 <div style="text-align:left; margin-left:20%;">
                   <strong>目标总结: <br /></strong>
                   <ul>
-                    <li> 收集星星：每收集一颗你将获得30分。 </li>
-                    <li> 避开石头：每次碰撞将扣除你100分。 </li>
-                    <li> 摧毁石头：每摧毁一块石头，你将获得30分。 </li>
-                    <li> 给飞船加油：每次你按时加油(只有当仪表显示红色时)，你将获得300分。 </li>
+                    <li> 收集星星：每收集一颗你将获得{{$stars_points}}分。 </li>
+                    <li> 避开石头：每次碰撞将扣除你{{$collide_rock}}分。 </li>
+                    <li> 摧毁石头：每摧毁一块石头，你将获得{{$fire_rock_success}}分。 </li>
+                    <li> 给飞船加油：每次你按时加油(只有当仪表显示红色时)，你将获得{{$fill_fuel}}分。 </li>
                   </ul>
                 </div>
                 <br />

@@ -49,7 +49,7 @@ class ExperimentsExport implements FromCollection, WithHeadings
             'missileImpact',
             'dateStarCollected',
             'dateCollisionObstacle',
-            'dateTryRefuelPractice',
+            'dateCheckRefuel',
             'dateRefuelCorrect',
             'dateRefuelIncorrect',
             'dateNewRefuelWindow',

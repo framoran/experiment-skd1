@@ -9,10 +9,6 @@
 
             <div class="content elements-centered">
 
-              <h1>
-                指示指示
-              </h1>
-
               <div>
                 <p>
                   任务即将开始，你将会看到一系列符号和数字。 <br /><br />

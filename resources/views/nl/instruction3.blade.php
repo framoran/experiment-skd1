@@ -20,7 +20,7 @@
 
                   U kunt de brandstofmeter weergeven door op de “C” toets te drukken.<br /><br />
 
-                  Zodra de brandstofmeter in het rood staat, kunt u de tank van uw ruimteschip vullen door de spatiebalk op uw toetsenbord in te drukken. Als u de tank of het juiste moment bijvult, verdient u 300 punten. <br /><br />
+                  Zodra de brandstofmeter in het rood staat, kunt u de tank van uw ruimteschip vullen door de spatiebalk op uw toetsenbord in te drukken. Als u de tank of het juiste moment bijvult, verdient u {{$fill_fuel}} punten. <br /><br />
 
                   Als u vergeet om de brandstoftank bij te vullen, zal deze zichzelf automatisch bijvullen, u zult dan echter geen punten verdienen.<br /><br />
 

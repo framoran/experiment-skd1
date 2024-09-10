@@ -10,7 +10,7 @@
             <div class="content elements-centered">
 
               <h1>
-                指示指示
+                指导语
               </h1>
 
               <div>

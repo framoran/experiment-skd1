@@ -10,27 +10,27 @@
             <div class="content elements-centered">
 
               <h1>
-                弄髒
+                任务
               </h1>
 
               <div id="content__elements">
 
                 <h5 id="content__essai">
-                  審判 1
+                  试次 1
                 </h5>
                 <div style="width:50%; margin: auto;">
                   <img id="element" src="{{ asset('/images/Image1.png') }}" alt="image example" class="is-centered"/> <br />
                 </div>
-                <div>
-                  <button id="1" class="button">1</button>
-                  <button id="2" class="button">2</button>
-                  <button id="3" class="button">3</button>
-                  <button id="4" class="button">4</button>
-                  <button id="5" class="button">5</button>
-                  <button id="6" class="button">6</button>
-                  <button id="7" class="button">7</button>
-                  <button id="8" class="button">8</button>
-                  <button id="9" class="button">9</button>
+                <div class="mt-5">
+                  <button id="1" class="button m-2">1</button>
+                  <button id="2" class="button m-2">2</button>
+                  <button id="3" class="button m-2">3</button>
+                  <button id="4" class="button m-2">4</button>
+                  <button id="5" class="button m-2">5</button>
+                  <button id="6" class="button m-2">6</button>
+                  <button id="7" class="button m-2">7</button>
+                  <button id="8" class="button m-2">8</button>
+                  <button id="9" class="button m-2">9</button>
                 </div>
             </div>
           </div>
@@ -90,15 +90,17 @@
 
               // Set response screen hidden
               document.getElementById("content__elements").style.visibility = "hidden";
+              
               // Replace image
               document.getElementById('element').src = "/images/Image"+imageCount+".png";
 
+              console.log(document.getElementById('element').src);
               setTimeout(function(){
 
                 // Run again
                 running = true;
 
-                document.getElementById("content__essai").innerHTML  = "審判 " + imageCount;
+                document.getElementById("content__essai").innerHTML  = "试次 " + imageCount;
 
                 if (imageCount > 42){
 
@@ -125,7 +127,7 @@
 
                   }
                   meanRTs = Number(meanRTs) / 42;
-                  // Write score in cookies$
+                  // Write score in cookies
                   expires = "Thu, 30 Dec 2030 12:00:00 UTC";
                   document.cookie = 'sumScore' + "=" + score + ";" + expires;
                   document.cookie = 'meanRTs' + "=" + meanRTs + ";" + expires;
@@ -143,7 +145,7 @@
 
                 }
 
-              }, 250);
+              }, 1000);
 
             }
 

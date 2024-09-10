@@ -159,6 +159,7 @@
                           <th>Language</th>
                           <th>Type of Experiment</th>
                           <th>Redirection link</th>
+                          <th>Settings</th>
                           <th>Created at</th>
                           <th>Edit link</th>
                           <th>Delete</th>
@@ -192,6 +193,10 @@
 
                           <th>
                             <span contenteditable="true" id="redirectionLink{{ $data->id }}">{{ $data->first_link }}</span>
+                          </th>
+
+                          <th>
+                            <a href="/settings/edit/{{$data->id}}" class="button is-warning">Modify settings</button>
                           </th>
 
                           <th>
@@ -263,15 +268,23 @@
                 </header>
                 <div class="modal-card-body">
 
-                    <a href="instruction1" class="button is-primary" target="blank"> French </a>
+                    <a href="instruction1" class="button is-primary mt-1" target="blank"> French </a>
 
-                    <a href="/de/instruction1" class="button is-primary" target="blank"> German </a>
+                    <a href="/de/instruction1" class="button is-primary mt-1" target="blank"> German </a>
 
-                    <a href="/en/instruction1" class="button is-primary" target="blank"> English </a>
+                    <a href="/en/instruction1" class="button is-primary mt-1" target="blank"> English </a>
 
-                    <a href="/it/instruction1" class="button is-primary" target="blank"> Italian </a>
+                    <a href="/it/instruction1" class="button is-primary mt-1" target="blank"> Italian </a>
 
-                    <a href="/nl/instruction1" class="button is-primary" target="blank"> Dutch </a>
+                    <a href="/nl/instruction1" class="button is-primary mt-1" target="blank"> Dutch </a>
+
+                    <a href="/fi/instruction1" class="button is-primary mt-1" target="blank"> Finnish </a>
+
+                    <a href="/zh/instruction1" class="button is-primary mt-1" target="blank"> Chinese </a>
+
+                    <a href="/fa/instruction1" class="button is-primary mt-1" target="blank"> Persian </a>
+
+                    <a href="/tr/instruction1" class="button is-primary mt-1" target="blank"> Turkish </a>
 
                 </div>
               </div>

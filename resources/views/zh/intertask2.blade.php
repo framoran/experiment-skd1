@@ -29,7 +29,7 @@
                   <button id="8" class="button">8</button>
                   <button id="9" class="button">9</button>
                 </div>
-                <a href="intertask3" class="button is-primary mt-3"> 繼續走下去 </a>
+                <a href="intertask3" class="button is-primary mt-3"> 继续 </a>
           	</div>
           </div>
     @endcomponent

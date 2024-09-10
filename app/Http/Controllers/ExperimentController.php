@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\App;
 
 class ExperimentController extends Controller
 {
@@ -19,15 +20,285 @@ class ExperimentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index', 'index_post');
     }
 
     /**
      * Show the application dashboard.
      */
+    public function index($locale, $instructions): View
+    {
+        App::setLocale($locale);
+
+        if (isset($_GET['Experiment_Id'])){
+
+            $id = $_GET['Experiment_Id'];
+            
+            // to prevent crashes, check that experiment exists
+            $count = DB::table('experiments')->where('id', '=', $id)->count();
+            if ($count > 0){
+                $data = DB::table('experiments')->where('id', '=', $id)->get()->first();
+
+                $event = $data->event;
+
+                if ($data->event_time < 60000){
+                    $practice_length = '65000';
+                }else{
+                    $practice_length = $data->event_time + 5000;
+                }
+
+                $task_length = ($data->event_time * 6) + 5000;
+               
+                $data = [
+                    'stars_points' => $data->stars_points,
+                    'collide_rock' => $data->collision_rocks_points,
+                    'fire_rock_success' => $data->fired_rocks_points,
+                    'fill_fuel' => $data->refuel_points,
+                    'speed_g' => $data->vitesse,
+                    'time_to_refuel' => $data->event_time,
+                    'practice_length' => $practice_length,
+                    'task_length' => $task_length,
+                    'prediction' => $data->prediction,
+                    'postdiction' => $data->postdiction,
+                ];
+                if (!isset($event) or $event == 1){
+                    return view("{$locale}/{$instructions}", $data);
+                }else{
+                    return view("{$locale}/event_based/{$instructions}", $data);
+                }
+            }else{
+                $data = [
+                    'stars_points' => '30',
+                    'collide_rock' => '100',
+                    'fire_rock_success' => '30',
+                    'fill_fuel' => '300',
+                    'speed_g' => '2',
+                    'time_to_refuel' => '20',
+                    'practice_length' => '65000',
+                    'task_length' => '370000',
+                    'prediction' => '0',
+                    'postdiction' => '0',
+                ];
+
+                return view("{$locale}/{$instructions}", $data);
+            }
+        // if cookie
+        }else if (isset($_COOKIE['experimentId'])){
+
+            $id = $_COOKIE['experimentId'];
+        
+            // to prevent crashes, check that experiment exists
+            $count = DB::table('experiments')->where('id', '=', $id)->count();
+            if ($count > 0){
+                $data = DB::table('experiments')->where('id', '=', $id)->get()->first();
+                $event = $data->event;
+
+                /*if ($data->event_time < 60000){
+                    $practice_length = '65000';
+                }else{
+                    $practice_length = $data->event_time + 5000;
+                }*/
+
+                $practice_length = $data->event_time+5000;
+
+                $task_length = ($data->event_time * 6)+5000;
+            
+                $data = [
+                    'stars_points' => $data->stars_points,
+                    'collide_rock' => $data->collision_rocks_points,
+                    'fire_rock_success' => $data->fired_rocks_points,
+                    'fill_fuel' => $data->refuel_points,
+                    'speed_g' => $data->vitesse,
+                    'time_to_refuel' => $data->event_time,
+                    'practice_length' => $practice_length,
+                    'task_length' => $task_length,
+                    'prediction' => $data->prediction,
+                    'postdiction' => $data->postdiction,
+                ];
+                
+                if (!isset($event) or $event == 1){
+                    return view("{$locale}/{$instructions}", $data);
+                }else{
+                    return view("{$locale}/event_based/{$instructions}", $data);
+                }
+            
+            // if experiment do not exists => demo
+            }else{
+                $data = [
+                    'stars_points' => '30',
+                    'collide_rock' => '100',
+                    'fire_rock_success' => '30',
+                    'fill_fuel' => '300',
+                    'speed_g' => '2',
+                    'time_to_refuel' => '60000',
+                    'practice_length' => '65000',
+                    'task_length' => '370000',
+                    'prediction' => '0',
+                    'postdiction' => '0',
+                ];
+
+                return view("{$locale}/{$instructions}", $data);
+            }
+
+        }else{
+            $data = [
+                'stars_points' => '30',
+                'collide_rock' => '100',
+                'fire_rock_success' => '30',
+                'fill_fuel' => '300',
+                'speed_g' => '2',
+                'time_to_refuel' => '60000',
+                'practice_length' => '65000',
+                'task_length' => '370000',
+                'prediction' => '0',
+                'postdiction' => '0',
+            ];
+            return view("{$locale}/{$instructions}", $data);
+        }      
+  
+    }
+
+    public function index_post($locale, $instructions): View
+    {
+      
+        App::setLocale($locale);
+
+        if (isset($_GET['Experiment_Id'])){
+
+            $id = $_GET['Experiment_Id'];
+            
+            // to prevent crashes, check that experiment exists
+            $count = DB::table('experiments')->where('id', '=', $id)->count();
+            if ($count > 0){
+                $data = DB::table('experiments')->where('id', '=', $id)->get()->first();
+
+                $event = $data->event;
+
+                if ($data->event_time < 60000){
+                    $practice_length = '65000';
+                }else{
+                    $practice_length = $data->event_time + 5000;
+                }
+
+                $task_length = ($data->event_time * 6) + 5000;
+               
+                $data = [
+                    'stars_points' => $data->stars_points,
+                    'collide_rock' => $data->collision_rocks_points,
+                    'fire_rock_success' => $data->fired_rocks_points,
+                    'fill_fuel' => $data->refuel_points,
+                    'speed_g' => $data->vitesse,
+                    'time_to_refuel' => $data->event_time,
+                    'practice_length' => $practice_length,
+                    'task_length' => $task_length,
+                    'prediction' => $data->prediction,
+                    'postdiction' => $data->postdiction,
+                ];
+                if (!isset($event) or $event == 1){
+                    return view("{$locale}/{$instructions}", $data);
+                }else{
+                    return view("{$locale}/event_based/{$instructions}", $data);
+                }
+            }else{
+                $data = [
+                    'stars_points' => '30',
+                    'collide_rock' => '100',
+                    'fire_rock_success' => '30',
+                    'fill_fuel' => '300',
+                    'speed_g' => '2',
+                    'time_to_refuel' => '20',
+                    'practice_length' => '65000',
+                    'task_length' => '370000',
+                    'prediction' => '0',
+                    'postdiction' => '0',
+                ];
+
+                return view("{$locale}/{$instructions}", $data);
+            }
+        // if cookie
+        }else if (isset($_COOKIE['experimentId'])){
+
+            $id = $_COOKIE['experimentId'];
+        
+            // to prevent crashes, check that experiment exists
+            $count = DB::table('experiments')->where('id', '=', $id)->count();
+            if ($count > 0){
+                $data = DB::table('experiments')->where('id', '=', $id)->get()->first();
+                $event = $data->event;
+
+                /*if ($data->event_time < 60000){
+                    $practice_length = '65000';
+                }else{
+                    $practice_length = $data->event_time + 5000;
+                }*/
+
+                $practice_length = $data->event_time + 5000;
+
+                $task_length = ($data->event_time * 6) + 5000;
+            
+                $data = [
+                    'stars_points' => $data->stars_points,
+                    'collide_rock' => $data->collision_rocks_points,
+                    'fire_rock_success' => $data->fired_rocks_points,
+                    'fill_fuel' => $data->refuel_points,
+                    'speed_g' => $data->vitesse,
+                    'time_to_refuel' => $data->event_time,
+                    'practice_length' => $practice_length,
+                    'task_length' => $task_length,
+                    'prediction' => $data->prediction,
+                    'postdiction' => $data->postdiction,
+                ];
+                
+                if (!isset($event) or $event == 1){
+                    return view("{$locale}/{$instructions}", $data);
+                }else{
+                    return view("{$locale}/event_based/{$instructions}", $data);
+                }
+            
+            // if experiment do not exists => demo
+            }else{
+                $data = [
+                    'stars_points' => '30',
+                    'collide_rock' => '100',
+                    'fire_rock_success' => '30',
+                    'fill_fuel' => '300',
+                    'speed_g' => '2',
+                    'time_to_refuel' => '60000',
+                    'practice_length' => '65000',
+                    'task_length' => '370000',
+                    'prediction' => '0',
+                    'postdiction' => '0',
+                ];
+
+                return view("{$locale}/{$instructions}", $data);
+            }
+
+        }else{
+            $data = [
+                'stars_points' => '30',
+                'collide_rock' => '100',
+                'fire_rock_success' => '30',
+                'fill_fuel' => '300',
+                'speed_g' => '2',
+                'time_to_refuel' => '60000',
+                'practice_length' => '65000',
+                'task_length' => '370000',
+                'prediction' => '0',
+                'postdiction' => '0',
+            ];
+            return view("{$locale}/{$instructions}", $data);
+        }  
+           
+    }
+    
     public function new(): View
     {
         return view('new');
+    }
+
+    public function edit($id): View
+    {
+        return view('edit');
     }
 
     public function create(Request $request): RedirectResponse
@@ -46,6 +317,27 @@ class ExperimentController extends Controller
         $experimentName = htmlspecialchars($request->input('experimentName'));
         $lang = htmlspecialchars($request->input('experimentLang'));
         $experimentGroup = htmlspecialchars($request->input('experimentGroup'));
+        $event = htmlspecialchars($request->input('event'));
+        $prediction = htmlspecialchars($request->input('prediction'));
+        $postdiction = htmlspecialchars($request->input('postdiction'));
+
+        // Ensure that empty values are set to baseline
+
+        if ($event == '') {
+            $event = 1;
+        }
+
+        if ($experimentGroup == '') {
+            $experimentGroup = 1;
+        }
+
+        if ($prediction == '') {
+            $prediction = 0;
+        }
+
+        if ($postdiction == '') {
+            $postdiction = 0;
+        }
 
         // Current time
         $timestamp = date('Y-m-d H:i:s');
@@ -65,15 +357,24 @@ class ExperimentController extends Controller
         } elseif ($lang == 'zh') {
             $link = 'zh/instruction1?Experiment_Id=';
             $lang = 'Chinese';
+        }elseif ($lang == 'fa') {
+            $link = 'fa/instruction1?Experiment_Id=';
+            $lang = 'Persian';
+        }elseif ($lang == 'fa') {
+            $link = 'tr/instruction1?Experiment_Id=';
+            $lang = 'Turkish';
+        }elseif ($lang == 'fi') {
+            $link = 'fi/instruction1?Experiment_Id=';
+            $lang = 'Finnish';
         }else {
-            $link = 'instruction1?Experiment_Id=';
+            $link = 'fr/instruction1?Experiment_Id=';
             $lang = 'French';
         }
 
         if (Auth::user()->validate == 1) {
 
             // insert experiment into database
-            $data = ['user_id' => $user_id, 'experiment' => $experimentName, 'experimentGroup' => $experimentGroup, 'link' => $link, 'lang' => $lang, 'created_at' => $timestamp];
+            $data = ['user_id' => $user_id, 'experiment' => $experimentName, 'experimentGroup' => $experimentGroup, 'link' => $link, 'lang' => $lang, 'prediction' => $prediction, 'postdiction' => $postdiction, 'event' =>$event, 'created_at' => $timestamp];
             DB::table('experiments')->insert($data);
 
             // complete link with experiment id
@@ -111,6 +412,28 @@ class ExperimentController extends Controller
     {
         return view('update');
     }
+
+    public function update_prediction($locale, $id): View
+    {
+        DB::table('experiments')->where('id', $id)->update([
+            
+            'prediction' => $request->input('prediction'),
+        ]);
+
+        return view("{$locale}/intertask", $data);
+
+    }
+
+    public function update_postiction($locale, $id): View
+    {
+        DB::table('experiments')->where('id', $id)->update([
+            
+            'prediction' => $request->input('prediction'),
+        ]);
+
+        return view("{$locale}/{$instructions}", $data);
+
+    }    
 
     public function delete(Request $request): RedirectResponse
     {

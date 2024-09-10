@@ -18,11 +18,11 @@
 
     {{-- Styles --}}
     <link rel="icon" href="{{ url('css/lives.png') }}">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="css/notiflix.css" />
+    <link rel="stylesheet" href="/css/notiflix.css" />
 
-    <script src="js/notiflix.js"></script>
+    <script src="/js/notiflix.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
@@ -182,6 +182,8 @@
     Notiflix.Notify.Failure('User exist');
   }else if (window.location.href.includes('result=error')){
     Notiflix.Notify.Failure('Unkown error');
+  }else if (window.location.href.includes('settingsUpdate=success')){
+    Notiflix.Notify.Success('Settings have been updated!');
   }
 
 

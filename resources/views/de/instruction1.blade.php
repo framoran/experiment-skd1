@@ -43,15 +43,15 @@
 
                 Sie werden ein Raumschiff steuern, dessen Ziel es ist Sterne einzusammeln.<br><br>
 
-                Für jeden eingesammelten Stern erhalten Sie 30 Punkte.<br><br>
+                Für jeden eingesammelten Stern erhalten Sie {{$stars_points}}  Punkte.<br><br> 
 
                 Um das Raumschiff zu steuern, können Sie die Pfeiltasten auf der Tastatur benutzen (oben, unten, links, rechts).<br><br>
 
-                Vermeiden Sie Kollisionen mit Felsen. Wenn Ihr Schiff einen der Felsen berührt, verlieren Sie 100 Punkte.<br><br>
+                Vermeiden Sie Kollisionen mit Felsen. Wenn Ihr Schiff einen der Felsen berührt, verlieren Sie {{$collide_rock}} Punkte.<br><br>
 
                 Versuchen Sie also den Felsen auszuweichen, indem Sie das Raumschiff darum herum steuern. Sie können die Felsen ebenfalls mit Raketen Ihres Raumschiffs zerstören.<br><br>
 
-                Um Raketen abzufeuern, müssen Sie die Taste "F" drücken. Wenn Sie einen Felsen zerstören, erhalten Sie 30 Punkte.<br><br>
+                Um Raketen abzufeuern, müssen Sie die Taste "F" drücken. Wenn Sie einen Felsen zerstören, erhalten Sie {{$fire_rock_success}} Punkte.<br><br>
 
                 Bitte klicken Sie auf <strong>"Weiter"</strong> um mit der Anleitung fortzufahren.<br><br>
 

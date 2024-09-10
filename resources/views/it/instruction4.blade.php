@@ -20,10 +20,10 @@
                 <div style="text-align:left; margin-left:20%;">
                   <strong>Riepilogo degli obiettivi: <br /></strong>
                   <ul>
-                    <li> Raccogli le stelle: per ognuna guadagnerai 30 punti. </li>
-                    <li> Evita le rocce: ogni collisione ti costerà 100 punti. </li>
-                    <li> Distruggi le rocce: per ogni roccia distrutta guadagnerai 30 punti. </li>
-                    <li> Rifornisci l'astronave: ogni volta che fai rifornimento in tempo (quando l'indicatore è solo nella sezione rossa), guadagnerai 300 punti. </li>
+                    <li> Raccogli le stelle: per ognuna guadagnerai {{$stars_points}} punti. </li>
+                    <li> Evita le rocce: ogni collisione ti costerà {{$collide_rock}} punti. </li>
+                    <li> Distruggi le rocce: per ogni roccia distrutta guadagnerai {{$fire_rock_success}} punti. </li>
+                    <li> Rifornisci l'astronave: ogni volta che fai rifornimento in tempo (quando l'indicatore è solo nella sezione rossa), guadagnerai {{$fill_fuel}} punti. </li>
                   </ul>
                 </div>
                 <br />

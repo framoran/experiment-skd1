@@ -19,7 +19,7 @@
 
                 Sie können die Tankanzeige durch Drücken der "C"-Taste anzeigen. <br /> <br />
 
-                Sobald sich die Tankanzeige im roten Bereich befindet, können Sie Treibstoff nachtanken indem Sie die Leertaste (Space) drücken. Wenn Sie zur richtigen Zeit tanken, erhalten Sie 300 Punkte. <br /> <br />
+                Sobald sich die Tankanzeige im roten Bereich befindet, können Sie Treibstoff nachtanken indem Sie die Leertaste (Space) drücken. Wenn Sie zur richtigen Zeit tanken, erhalten Sie {{$fill_fuel}} Punkte. <br /> <br />
 
                 Wenn Sie vergessen aufzutanken, wird der Tank zwar automatisch aufgefüllt, aber Sie erhalten keine Punkte. <br /> <br />
 

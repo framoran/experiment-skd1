@@ -14,11 +14,6 @@
               </script>
             @endif
             <div class="content elements-centered">
-
-              <h1>
-                指示指示
-              </h1>
-
               <div>
                 <p>
                   感谢你抽时间参与本项研究。<br /> <br />

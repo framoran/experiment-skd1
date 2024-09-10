@@ -492,7 +492,7 @@ this.timeStart = timeStart;
   // OBJET message
   function message() {
     this.x = "3500";
-	this.y = 150;
+	this.y = 50;
 	this.count = 0;
 	this.longueur = 150;
 	this.color = "#01DF01";
@@ -507,7 +507,7 @@ this.timeStart = timeStart;
 		context = game.context;
 		context.font = "25px Verdana";
 		context.fillStyle = "#FFFFFF";
-		context.fillText("燃料", this.x, this.y);
+		context.fillText("燃油", this.x, this.y);
 		context.fillStyle = this.color;
 		context.fillRect(this.x,this.y + 25,this.longueur,20);
 		context.font = "25px Verdana";

@@ -43,15 +43,15 @@
 
                 Per farlo, guiderai un'astronave il cui scopo è raccogliere stelle.<br><br>
 
-                Per ogni stella che raccogli, guadagnerai 30 punti.<br><br>
+                Per ogni stella che raccogli, guadagnerai {{$stars_points}} punti.<br><br>
 
                 Puoi guidare l'astronave usando i tasti freccia sulla tastiera (tasti su, giù, sinistra, destra).<br><br>
 
-                Dovrai anche evitare le rocce. Se la tua astronave si scontra con una roccia, perderai 100 punti.<br><br>
+                Dovrai anche evitare le rocce. Se la tua astronave si scontra con una roccia, perderai {{$collide_rock}} punti.<br><br>
 
                 Quindi, cerca di evitare le rocce manovrando l'astronave. Puoi anche distruggere le rocce sparando missili dalla tua astronave.<br><br>
 
-                Per sparare missili, premi il tasto "F". Se distruggi una roccia, guadagnerai 30 punti.<br><br>
+                Per sparare missili, premi il tasto "F". Se distruggi una roccia, guadagnerai {{$fire_rock_success}} punti.<br><br>
 
                 Clicca su <strong>"Continua" </strong> per procedere con le istruzioni.<br><br>
 

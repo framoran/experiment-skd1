@@ -43,15 +43,15 @@
 
                 Om dit te bereiken zult u een ruimteschip navigeren met het doel om sterren te verzamelen.<br><br>
 
-                Voor elke ster die u verzamelt, verdient u 30 punten.<br><br>
+                Voor elke ster die u verzamelt, verdient u {{$stars_points}} punten.<br><br>
 
                 U kunt het schip navigeren door de toetsen met pijltjes op het toetsenbord te gebruiken (omhoog, omlaag, links, rechts toetsen). <br><br>
 
-                U zult ook obstakels in de vorm van stenen moeten ontwijken. Als u ruimteschip in botsing komt met een van de stenen verliest u 100 punten. <br><br>
+                U zult ook obstakels in de vorm van stenen moeten ontwijken. Als u ruimteschip in botsing komt met een van de stenen verliest u {{$collide_rock}} punten. <br><br>
 
                 Probeer daarom de stenen de vermijden door het ruimteschip te navigeren, U kunt de stenen ook vernietigen door raketten vanuit uw ruimteschip af te vuren.<br><br>
 
-                Om raketten af te vuren, druk op de “F” toets. Als u een steen vernietigt zult u 30 punten verdienen.<br><br>
+                Om raketten af te vuren, druk op de “F” toets. Als u een steen vernietigt zult u {{$fire_rock_success}} punten verdienen.<br><br>
 
                 Klik op "Verder" om verder te gaan met de instructies.<br><br>
 
