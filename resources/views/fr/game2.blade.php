@@ -19,37 +19,28 @@
     <script>
       // Vaisseau1
       var image_Vaisseau1 = new Image(); // crée un nouvel objet Image
-        image_Vaisseau1.src = "{{ asset('/images/vaisseau_base.png') }}"; // définit le chemin vers la source
-        image_Vaisseau1.onload = function(){} // instructions appeblant drawImage ici -> permet d'éviter les bugs
+      image_Vaisseau1.src = "{{ asset('/images/bee_2.png') }}"; // définit le chemin vers la source
+      image_Vaisseau1.onload = function(){} // instructions appeblant drawImage ici -> permet d'éviter les bugs      
+      
       // Vaisseau2
       var image_Vaisseau2 = new Image(); // crée un nouvel objet Image
-      image_Vaisseau2.src = "{{ asset('/images/vaisseau_flame1.png') }}"; // définit le chemin vers la source
+      image_Vaisseau2.src = "{{ asset('/images/bee_3.png') }}"; // définit le chemin vers la source
       image_Vaisseau2.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
-
-      // Vaisseau3
-      var image_Vaisseau3 = new Image(); // crée un nouvel objet Image
-      image_Vaisseau3.src = "{{ asset('/images/vaisseau_flame2.png') }}"; // définit le chemin vers la source
-      image_Vaisseau3.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
-
-      // Vaisseau4
-      var image_Vaisseau4 = new Image(); // crée un nouvel objet Image
-      image_Vaisseau4.src = "{{ asset('/images/vaisseau_flame3.png') }}"; // définit lce chemin vers la source
-      image_Vaisseau4.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
-
-      // Vaisseau5
-      var image_Vaisseau5 = new Image(); // crée un nouvel objet Image
-      image_Vaisseau5.src = "{{ asset('/images/vaisseau_scores.png') }}"; // définit le chemin vers la source
-      image_Vaisseau5.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
 
       // Collision
       var collision = new Image(); // crée un nouvel objet Image
-      collision.src = "{{ asset('/images/vaisseau_touche.png') }}"; // définit le chemin vers la source
+      collision.src = "{{ asset('/images/bee_2.png') }}"; // définit le chemin vers la source
       collision.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
 
-      // étoiles
-      var image_stars = new Image(); // crée un nouvel objet Image
-      image_stars.src = "{{ asset('/images/etoile_magique1.png') }}"; // définit le chemin vers la source
-      image_stars.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
+      // fleurs
+      var image_flowers = new Image(); // crée un nouvel objet Image
+      image_flowers.src = "{{ asset('/images/flower_2.png') }}"; // définit le chemin vers la source
+      image_flowers.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
+
+      // fleurs
+      var image_flowers2 = new Image(); // crée un nouvel objet Image
+      image_flowers2.src = "{{ asset('/images/flower_3.png') }}"; // définit le chemin vers la source
+      image_flowers2.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
 
       // GrosRocher
       var Gros_Rocher = new Image(); // crée un nouvel objet Image
@@ -82,7 +73,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-image:url("{{ asset('/images/galaxie.jpg') }}");
+            background-image:url("{{ asset('/images/background.jpg') }}");
             background-size: cover
         }
 
@@ -125,7 +116,7 @@
 
     </script>
 
-    <script src="/js/game.js">
+    <script src="/js/game_unclear.js">
 
     </script>
 </body>

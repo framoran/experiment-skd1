@@ -11,7 +11,6 @@ const fire_rock_success = 30; // default
 const fill_fuel = 300; // default
 const speed_g = 2; // default (min should be 1 and max 4 incrementing with 0.5)
 const time_to_refuel = 60000; // default (min 10 seconds and max 60)
-const practice_length = 65000;
 const task_length = 65000;
 var flowerChangeInterval = 10000; // Time interval for changing flower properties (10 seconds)
 var lastFlowerChangeTime = new Date().getTime();
@@ -35,27 +34,40 @@ var game = {
         document.body.insertBefore(this.canvas1, document.body.childNodes[0]);
 
         function d() {
-            if (new Date().getTime() < +x_time + practice_length) {
-                updateGame()
+            if (new Date().getTime() < x_time + 3000) { // Adjust task_length or duration as needed
+                
+                updateGame();
+                
             } else {
+                // Stop the game updates
+                clearInterval(game.interval);
+        
+                // Display the black screen
                 context = game.context;
                 context.fillStyle = "#000000";
-                context.fillRect(0, 0, 2000, 2000);
+                context.fillRect(0, 0, game.canvas1.width, game.canvas1.height);
                 context.font = "25px Verdana";
                 context.fillStyle = "#FFFFFF";
-
-                var canvasWidth = 1250;
-                var canvasHeight = 850;
-                var text = text_end;
+        
+                var canvasWidth = game.canvas1.width;
+                var canvasHeight = game.canvas1.height;
+                var text = "L'entraînement est terminé !"; // Your end message
                 var textWidth = context.measureText(text).width;
                 var xPosition = (canvasWidth - textWidth) / 2;
-                var yPosition = (canvasHeight / 2) + 12.5; // Adding half of the font size to vertically center
-
+                var yPosition = (canvasHeight / 2) + 12.5; // Center vertically
+        
                 context.fillText(text, xPosition, yPosition);
+        
+                // Set the redirect flag
                 game.redirect = true;
+        
+                // Redirect after 2 seconds
+                setTimeout(function() {
+                    window.location.href = "instruction5"; // Replace with your target page
+                }, 5000);
             }
         }
-
+        
         function c(f) {
             var h = f + "=";
             var e = document.cookie.split(";");
@@ -75,13 +87,13 @@ var game = {
             if (game.redirect == false) {
                 d()
             } else {
-                clearInterval(game.Interval);
+                //clearInterval(game.Interval);
                 Start = function() {
                     cnameFlower = "flower_practice";
                     cnameFlower2 = "flower2_practice";
                     cname_missedFlower = "missedFlower_practice";
                     cname_missedFlower2 = "missedFlower2_practice";   
-                    cname_drawing = "cname_drawing";    
+                    cname_drawing = "draw";    
                     expires = "Thu, 30 Dec 2030 12:00:00 UTC";
                     document.cookie = cnameFlower + "= ;" + expires;
                     document.cookie = cnameFlower2 + "= ;" + expires;
@@ -95,10 +107,10 @@ var game = {
                     document.cookie = cname_missedFlower2 + "=" + missed_flower2 + ";" + expires;
                     document.cookie = cname_drawing + "=" + drawing + ";" + expires;
 
-                    var f = c("flower");
-                    var e = c("flower2");
-                    var n = c("missedFlower");
-                    var m = c("missedFlower2");
+                    var f = c("flower_practice");
+                    var e = c("flower2_practice");
+                    var n = c("missedFlower_practice");
+                    var m = c("missedFlower2_practice");
                     var k = c("drawing");
            
                     console.log("flower=" + f);
@@ -113,7 +125,7 @@ var game = {
                         $("#bouton").click()
                     }
                 };
-                setTimeout("Start()", 1000);
+                setTimeout("Start()", 3000);
                 clearInterval(game.interval)
             }
         }
@@ -524,17 +536,39 @@ function GrosRocher() {
 }
 
 // Global variables to store the current flower properties
-var currentFlowerSize = getRandomInt(30, 80); // Initial size
-var currentFlowerSpeed = getRandomInt(1, 4);  // Initial speed
+var currentFlowerSize = 80; // Initial size
+var currentFlowerSpeed = 1;  // Initial speed
+
+// array of Flower Size
+var FlowerSizeArray = [20, 50, 20, 80, 50]
+// array of Flower speed
+var FlowerSpeedArray = [4, 2, 4, 1, 4]
+// array of Time Interval speed
+var FlowerIntervalArray = [10000, 7000, 11000, 15000, 3000]
+
+for (i =0; i< 100; i++){
+    FlowerIntervalArray.push(getRandomInt(3000, 15000))
+}
+
+var index = 0
 
 // Function to update flower properties every 10 seconds
 function updateFlowerProperties() {
     var currentTime = new Date().getTime();
-    if (currentTime - lastFlowerChangeTime >= flowerChangeInterval) {
-        // Update flower size and speed once every 10 seconds
-        currentFlowerSize = getRandomInt(20, 100); // Random size between 20 and 100
-        currentFlowerSpeed = Math.random() * (4 - 1) + 1; // Random speed between 1 and 4
+    if (currentTime - lastFlowerChangeTime >= FlowerIntervalArray[index]) {
 
+        console.log('change time: '+ lastFlowerChangeTime + ' current_time ' + currentTime)
+        console.log('interval: '+ currentTime - lastFlowerChangeTime)
+        // Update flower size and speed once every 10 seconds
+        if (index > 4){
+            currentFlowerSize = getRandomInt(20, 100); // Random size between 20 and 100
+            currentFlowerSpeed = Math.random() * (4 - 1) + 1; // Random speed between 1 and 4
+
+        }else{
+            currentFlowerSize = FlowerSizeArray[index]
+            currentFlowerSpeed = FlowerSpeedArray[index]
+        }
+        index ++
         lastFlowerChangeTime = currentTime; // Reset timer
     }
 }
@@ -575,15 +609,6 @@ function Fleurs() {
                 flowersY[b] = getRandomInt(25, 700);
                 if (myGamePiece_Affichage.score1 >= 0) {
                     myGamePiece_Affichage.score1 += flowers_points;
-                }
-            }
-
-            // Ensure flowers do not overlap
-            for (var a = 0; a < 7; a++) {
-                if (((flowersX[b]) > (flowersX[a] - 200)) && ((flowersX[b]) < (flowersX[a] + 200)) && 
-                    ((flowersY[b]) > (flowersY[a] - 200)) && ((flowersY[b]) < (flowersY[a] + 200)) && (a != b)) {
-                    flowersX[b] = getRandomInt(1600, 2500);
-                    flowersY[b] = getRandomInt(25, 700);
                 }
             }
         }
@@ -627,16 +652,7 @@ function Fleurs2() {
                 if (myGamePiece_Affichage.score1 >= 0) {
                     myGamePiece_Affichage.score1 += flowers2_points;
                 }
-            }
-
-            // Ensure flowers do not overlap
-            for (var a = 0; a < 7; a++) {
-                if (((flowers2X[b]) > (flowers2X[a] - 200)) && ((flowers2X[b]) < (flowers2X[a] + 200)) && 
-                    ((flowers2Y[b]) > (flowers2Y[a] - 200)) && ((flowers2Y[b]) < (flowers2Y[a] + 200)) && (a != b)) {
-                    flowers2X[b] = getRandomInt(1600, 2500);
-                    flowers2Y[b] = getRandomInt(25, 700);
-                }
-            }
+            }            
         }
     }
 }
@@ -646,8 +662,6 @@ function gameLoop() {
     updateFlowerProperties(); // Update flower properties every 10 seconds
     updateGame(); // Continue with the usual game update logic
 }
-
-setInterval(gameLoop, 1000); // Call game loop every second
 
 function Evenement() {
     this.update = function() {
