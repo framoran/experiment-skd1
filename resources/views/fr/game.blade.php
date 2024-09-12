@@ -1,5 +1,8 @@
 @php
   session_start();
+  
+  $condition = 1;
+
 @endphp
 <!DOCTYPE html>
 <html>
@@ -110,9 +113,20 @@
 
     </script>
 
-    <script src="/js/practice_unclear.js">
+    @if ($condition == 1)
 
-    </script>
+        <script src="/js/practice_clear.js">
+
+        </script>
+
+    @else 
+    
+        <script src="/js/practice_unclear.js">
+
+        </script>
+
+    @endif
+
 </body>
 
 </html>

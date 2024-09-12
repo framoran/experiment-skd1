@@ -1,3 +1,10 @@
+@php
+
+  $condition = 1;
+
+@endphp
+
+
 @extends('layouts.game')
 
 @section('content')
@@ -7,37 +14,66 @@
                 {{ config('app.name') }}
             @endslot
 
+            <style>
+
+            body, html {
+                height: 100%; /* Make sure the body takes up the full viewport height */
+                margin: 0;
+              }
+
+              .content {
+                display: flex;
+                justify-content: center; /* Horizontally center */
+                align-items: center;     /* Vertically center */
+                text-align: center;      /* Center the text */
+                flex-direction: column;  /* Stack elements vertically */
+              }
+              
+            .container {
+              display: flex;
+              gap: 20px; /* Adds space between the boxes */
+              justify-content: center; /* Horizontally center */
+            }
+
+            .box1, .box2 {
+              padding: 20px;
+              border: 1px solid black;
+              border-radius: 15px; /* Rounds the corners */
+            }
+
+            .box1 {
+              background-color: #0080FF; /* Color for the first box */
+            }
+
+            .box2 {
+              background-color: orange; /* Color for the second box */
+            }
+          </style>
+
             <div class="content elements-centered">
 
               <h1>
-              	Consigne
+              	Consignes
               </h1>
-
+              @if ($condition ==1 || $condition == 2)
               <div>
 
-                Très bien. Maintenant que vous avez été familiarisé avec les différents éléments du jeu, vous allez pouvoir vous entrainer avec un exemple complet du jeu. <br /><br/>
-                <div style="text-align:left; margin-left:20%;">
-                  <strong>Résumé des buts : </strong><br />
+                Pendant les 8 minutes suivantes, vous visionnerez un extrait d'un film. Il est important que vous vous détendiez afin que nous puissions obtenir les mesures de votre activité cardiovasculaire au repos. <br /><br />
 
-                  <ul>
-                    <li>Récolter les étoiles – chacune vous fera gagner {{$stars_points}} points.</li>
-                    <li>Éviter les rochers – chaque collision vous fera perdre {{$collide_rock}} points.</li>
-                    <li>Détruire les rochers – chaque rocher détruit vous fera gagner {{$fire_rock_success}} points.</li>
-                    <li>Faire le plein de carburant – chaque plein réalisé à temps (uniquement quand la jauge est dans le secteur rouge) vous fera gagner {{$fill_fuel}} points.</li>
-                  </ul>
-                  <strong>Rappel des touches :</strong><br />
-                  <ul>                    
-                    <li>Flèches – piloter le vaisseau.</li>
-                    <li>F – tirer des missiles.</li>
-                    <li>C – afficher la jauge du niveau de carburant.</li>
-                    <li>Barre Espace – faire le plein de carburant.</li>
-                  </ul>
-                    <p>Vous pouvez à présent effectuer un entraînement.</p>
-                    <p> <strong>Appuyez sur le bouton « commencer » pour débuter l'entraînement. </strong></p>
+                Le contenu du film n'est absolument pas pertinent pour la suite de l'expérience, alors détendez-vous et profitez du film.<br /><br />
+                
+                <div class="container">
+                  <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, appuyez sur le bouton bleu.</b></div>
+                  <div class="box2"> <b>Abeille orange : pour passer à la page suivante, appuyez sur le bouton orange.</b></div>
                 </div>
-                <br /><br />
-          	</div>
-            <a href="game" class="button is-primary mt-3"> Commencer </a>
+              	</div>
+                <script>
+          const url = 'http://127.0.0.1:8000/fr/instruction5';
+          </script>
+            <script src="/js/keydown_handler.js">
+          <script/>
+              condizione 3 e 4
+              @endif
       </div>
     @endcomponent
   @endcomponent
