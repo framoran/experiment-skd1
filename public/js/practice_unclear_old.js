@@ -43,7 +43,7 @@ var game = {
 
                 var canvasWidth = 1250;
                 var canvasHeight = 850;
-                var text = text_end;
+                var text = "L'entraînement est terminé";
                 var textWidth = context.measureText(text).width;
                 var xPosition = (canvasWidth - textWidth) / 2;
                 var yPosition = (canvasHeight / 2) + 12.5; // Adding half of the font size to vertically center
