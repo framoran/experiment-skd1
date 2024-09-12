@@ -1,3 +1,9 @@
+@php
+
+  $condition = 1;
+
+@endphp
+
 @extends('layouts.game')
 
 @section('content')
@@ -29,34 +35,84 @@
 
               }
 
+              setcookie('condition',  '1', time() + (86400 * 30), "/"); // 86400 = 1 day
+
             @endphp
 
             <div class="content elements-centered">
 
+
+            <style>
+
+            body, html {
+                height: 100%; /* Make sure the body takes up the full viewport height */
+                margin: 0;
+              }
+
+              .content {
+                display: flex;
+                justify-content: center; /* Horizontally center */
+                align-items: center;     /* Vertically center */
+                text-align: center;      /* Center the text */
+                flex-direction: column;  /* Stack elements vertically */
+              }
+              
+            .container {
+              display: flex;
+              gap: 20px; /* Adds space between the boxes */
+              justify-content: center; /* Horizontally center */
+            }
+
+            .box1, .box2 {
+              padding: 20px;
+              border: 1px solid black;
+              border-radius: 15px; /* Rounds the corners */
+            }
+
+            .box1 {
+              background-color: #0080FF; /* Color for the first box */
+            }
+
+            .box2 {
+              background-color: orange; /* Color for the second box */
+            }
+          </style>
+
+            
+
               <h1>
-              	Consigne
+              	Consignes
               </h1>
-
+              @if($condition == 1 || $condition == 2)
               <div>
-                Dans cette expérience, il vous sera demandé de récolter le plus de points possible. <br><br>
 
-                Vous serez aux commandes d’un vaisseau qui a pour but de récolter des étoiles. <br><br>
+              Bienvenue à cette étude et merci de votre participation. <br><br>
 
-                Chaque étoile récoltée vous fera gagner {{$stars_points}} points. <br><br>
+              Il s'agit d'une étude <b>collaborative</b> dans laquelle vous devrez jouer ensemble en prenant le rôle d'abeilles travailleuses. <br><br>
 
-                Pour vous déplacer avec le vaisseau, vous pouvez utiliser les flèches du clavier (haut, bas, gauche, droite). <br><br>
+              <b> Important : pour passer d'une page à l'autre, il est nécessaire que tous·tes les participant·e·s aient appuyé sur le bouton demandé.</b><br><br>
 
-                Il vous faudra également éviter les rochers. Si votre vaisseau touche un des rochers, cela vous fera perdre {{$collide_rock}} points. <br><br>
+              Vérifiez sur votre bureau : vous trouverez une abeille de couleur <span style="color: #0080FF;"><b>bleu</b></span> ou <span style="color: orange;"><b>orange</b></span>.<br><br>
 
-                Essayez donc d’éviter les rochers en naviguant avec le vaisseau. Vous pouvez également détruire ces rochers avec les missiles de votre vaisseau. <br><br>
+              Dans les diapositives suivantes, vous trouverez davantage d'instructions.<br><br>
 
-                Pour tirer un missile, appuyez sur la touche "F". Si vous détruisez un rocher, cela vous fera gagner {{$fire_rock_success}} points. <br><br>
-
-                Cliquez sur « continuer » pour lire la suite des instructions. <br><br>
-
+            <div class="container">
+            <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, appuyez sur le bouton bleu.</b></div>
+            <div class="box2"> <b>Abeille orange : pour passer à la page suivante, appuyez sur le bouton orange.</b></div>
+            </div>
+               
               </div>
-              <a href="instruction2" class="button is-primary mt-5"> Continuer </a>
       </div>
+
+      <script>
+          const url = 'http://127.0.0.1:8000/fr/instruction2';
+      </script>
+
+      <script src="/js/keydown_handler.js">
+      <script/>
+      @else
+        Condition 3 ou 4
+      @endif
     @endcomponent
   @endcomponent
 @endsection
