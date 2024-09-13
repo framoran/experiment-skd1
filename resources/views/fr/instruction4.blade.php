@@ -14,6 +14,10 @@
                 {{ config('app.name') }}
             @endslot
 
+            
+            <script>
+                const url = 'http://127.0.0.1:8000/fr/instruction5';/* after this page, there should be the baseline, not instruction5 */
+            </script>
             <style>
 
             body, html {
@@ -43,10 +47,12 @@
 
             .box1 {
               background-color: #0080FF; /* Color for the first box */
+              line-height: 2; /* Adjust the line-height to increase space between lines */
             }
 
             .box2 {
               background-color: orange; /* Color for the second box */
+              line-height: 2; /* Adjust the line-height to increase space between lines */
             }
           </style>
 
@@ -63,18 +69,32 @@
                 Le contenu du film n'est absolument pas pertinent pour la suite de l'expérience, alors détendez-vous et profitez du film.<br /><br />
                 
                 <div class="container">
-                  <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, appuyez sur le bouton bleu.</b></div>
-                  <div class="box2"> <b>Abeille orange : pour passer à la page suivante, appuyez sur le bouton orange.</b></div>
+                  <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
+                  appuyez sur le bouton bleu.</b></div>
+                  <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
+                  appuyez sur le bouton orange.</b></div>
                 </div>
               	</div>
-                <script>
-          const url = 'http://127.0.0.1:8000/fr/instruction5';
-          </script>
-            <script src="/js/keydown_handler.js">
-          <script/>
-              condizione 3 e 4
+                  <script src="/js/keydown_handler.js">
+                <script/>
+              @else
+              <div>
+
+                Pendant les 8 minutes suivantes, vous visionnerez un extrait d'un film. Il est important que vous vous détendiez afin que nous puissions obtenir les mesures de votre activité cardiovasculaire au repos. <br /><br />
+
+                Le contenu du film n'est absolument pas pertinent pour la suite de l'expérience, alors détendez-vous et profitez du film.<br /><br />
+                
+                <div class="container">
+                  <div class="box1"> <b>Abeille bleue : pour passer à la page suivante,<br> 
+                  appuyez sur le bouton bleu.</b></div>
+                </div>
+              	</div>
+
+                  <script src="/js/keydown_handler_1player.js">
+                <script/>
               @endif
-      </div>
+            </div>
+      
     @endcomponent
   @endcomponent
 @endsection
