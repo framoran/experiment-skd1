@@ -12,10 +12,10 @@
             @slot('title')
                 {{ config('app.name') }}
             @endslot
-
             <script>
-                const url = 'http://127.0.0.1:8000/fr/instruction6';
+                const url = 'http://127.0.0.1:8000/fr/game';
             </script>
+            
             <style>
 
             body, html {
@@ -62,45 +62,45 @@
               @if ($condition == 1 || $condition == 2)
               <div>
                 <p>
-                Dans cette étude, vous jouerez le rôle d'abeilles chargées de récolter du pollen pour la ruche.<br> </br>
+                À la fin du jeu, vous verrez à quel point vos efforts combinés auront permis de remplir le pot de miel.<br></br>
 
-                Chacune d'entre vous est spécialisée dans un type spécifique de fleurs.<br> </br>
+                 <!-- Add the honey jar image here -->
+                 <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
 
-                Abeille bleue, tu seras chargée des fleurs bleues, et abeille orange, tu seras chargée des fleurs oranges. <br> </br>
-                
-                Votre objectif est de remplir un pot de miel autant que possible. <br> </br>
+                <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à accomplir ensemble !<br></br>
+
+                Bon travail et amusez-vous bien !<br></br>
                 </p>
           	  </div>
               <div class="container">
-                  <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
-                    appuyez sur le bouton bleu.</b></div>
-                  <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
-                    appuyez sur le bouton orange.</b></div>
-                </div>
-              	</div>
-                  <script src="/js/keydown_handler.js">
-                <script/>
+                <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
+                appuyez sur le bouton bleu.</b></div>
+                <div class="box2"> <b>Abeille orange : pour passer à la page suivante,<br>
+                 appuyez sur le bouton orange.</b></div>
+              </div>
+              </div>
+                <script src="/js/keydown_handler.js">
+              <script/>
               @else
-              <p>
-                Dans cette étude, vous jouerez le rôle d'abeilles chargées de récolter du pollen pour la ruche.<br> </br>
+              <div>
+                <p>
+                À la fin du jeu, vous verrez à quel point vos efforts combinés auront permis de remplir le pot de miel.<br></br>
 
-                Chacune d'entre vous est spécialisée dans un type spécifique de fleurs.<br> </br>
+                <!-- Add the honey jar image here -->
+                 <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
 
-                Abeille bleue, tu seras chargée des fleurs bleues, les fleurs oranges peuvent être ignoré. <br> </br>
-                
-                L'objectif est de remplir un pot de miel autant que possible. <br> </br>
+                Bon travail et amusez-vous bien !<br></br>
                 </p>
           	  </div>
               <div class="container">
-                  <div class="box1"> <b>Pour passer à la page suivante, <br>
-                  appuyez sur le bouton bleu.</b></div>
-                </div>
-              	</div>
-                  <script src="/js/keydown_handler_1player.js">
-                <script/>
-              @endif
-
+                <div class="box1"> <b>Pour passer à la page suivante, <br>
+                appuyez sur le bouton bleu.</b></div>
+              </div>
+              </div>
+                <script src="/js/keydown_handler_1player.js">
+              <script/>
             </div>
+            @endif
     @endcomponent
   @endcomponent
 @endsection
