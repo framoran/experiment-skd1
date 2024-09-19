@@ -1,7 +1,7 @@
+
 @php
-
-  $condition = 1;
-
+    // Retrieve the 'condition' cookie
+    $condition = request()->cookie('condition', 1); // Default to 1 if the cookie is not set
 @endphp
 
 @extends('layouts.game')
@@ -11,33 +11,7 @@
         @component('components.card')
             @slot('title')
                 {{ config('app.name') }}
-            @endslot
-
-            @php
-
-              setcookie('eui',  'none', time() + (86400 * 30), "/"); // 86400 = 1 day
-
-              setcookie('data_recorded',  'none', time() + (86400 * 30), "/"); // 86400 = 1 day
-
-              if (isset($_GET['Experiment_Id'])){
-
-                setcookie('experimentId',  htmlspecialchars($_GET['Experiment_Id']), time() + (86400 * 30), "/"); // 86400 = 1 day
-
-              }else{
-
-                setcookie('experimentId',  'demo', time() + (86400 * 30), "/"); // 86400 = 1 day
-
-              }
-
-              if (isset($_GET['eui'])){
-
-                setcookie('eui',  'S_'.htmlspecialchars($_GET['eui']), time() + (86400 * 30), "/"); // 86400 = 1 day
-
-              }
-
-              setcookie('condition',  '1', time() + (86400 * 30), "/"); // 86400 = 1 day
-
-            @endphp
+            @endslot            
               
             <script>
               const url = 'http://127.0.0.1:8000/fr/instruction2';
@@ -112,11 +86,7 @@
                   
                   </div>
               </div>
-
-              <script>
-                  const url = 'http://127.0.0.1:8000/fr/instruction2';
-              </script>
-
+              
               <script src="/js/keydown_handler.js">
               <script/>
                     @else

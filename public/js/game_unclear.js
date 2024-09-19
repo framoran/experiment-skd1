@@ -80,7 +80,7 @@ var game = {
                     cnameFlower2 = "flower2_task";
                     cname_missedFlower = "missedFlower_task";
                     cname_missedFlower2 = "missedFlower2_task";   
-                    cname_drawing = "cname_drawing";    
+                    cname_drawing = "draw_task";    
                     expires = "Thu, 30 Dec 2030 12:00:00 UTC";
                     document.cookie = cnameFlower + "= ;" + expires;
                     document.cookie = cnameFlower2 + "= ;" + expires;
@@ -511,13 +511,13 @@ function GrosRocher() {
                         myGamePiece_Affichage.score1 -= collide_rock
                     }
                 }
-            }flowers2Y           
-            for (var b = 0; b < 10; b++) {
+            }           
+            /*for (var b = 0; b < 10; b++) {
                 if (((RockX[c]) > (RockX[b] - 300)) && ((RockX[c]) < (RockX[b] + 300)) && ((RockY[c]) > (RockY[b] - 300)) && ((RockY[c]) < (RockY[b] + 300)) && (b != c)) {
                     RockX[c] = (getRandomInt(2000, 3000));
                     RockY[c] = (getRandomInt(25, 700))
                 }
-            }
+            }*/
         }
     }
 }

@@ -11,7 +11,7 @@ const fire_rock_success = 30; // default
 const fill_fuel = 300; // default
 const speed_g = 2; // default (min should be 1 and max 4 incrementing with 0.5)
 const time_to_refuel = 60000; // default (min 10 seconds and max 60)
-const task_length = 65000;
+const practice_length = 65000;
 var flowerChangeInterval = 10000; // Time interval for changing flower properties (10 seconds)
 var lastFlowerChangeTime = new Date().getTime();
 var currentFlowerSize = { min: 30, max: 80 }; // Initial flower size range
@@ -34,40 +34,27 @@ var game = {
         document.body.insertBefore(this.canvas1, document.body.childNodes[0]);
 
         function d() {
-            if (new Date().getTime() < x_time + 3000) { // Adjust task_length or duration as needed
-                
-                updateGame();
-                
+            if (new Date().getTime() < +x_time + practice_length) {
+                updateGame()
             } else {
-                // Stop the game updates
-                clearInterval(game.interval);
-        
-                // Display the black screen
                 context = game.context;
                 context.fillStyle = "#000000";
-                context.fillRect(0, 0, game.canvas1.width, game.canvas1.height);
+                context.fillRect(0, 0, 2000, 2000);
                 context.font = "25px Verdana";
                 context.fillStyle = "#FFFFFF";
-        
-                var canvasWidth = game.canvas1.width;
-                var canvasHeight = game.canvas1.height;
-                var text = "L'entraînement est terminé !"; // Your end message
+
+                var canvasWidth = 1250;
+                var canvasHeight = 850;
+                var text = 'La tâche de concentration est terminée';
                 var textWidth = context.measureText(text).width;
                 var xPosition = (canvasWidth - textWidth) / 2;
-                var yPosition = (canvasHeight / 2) + 12.5; // Center vertically
-        
+                var yPosition = (canvasHeight / 2) + 12.5; // Adding half of the font size to vertically center
+
                 context.fillText(text, xPosition, yPosition);
-        
-                // Set the redirect flag
                 game.redirect = true;
-        
-                // Redirect after 2 seconds
-                setTimeout(function() {
-                    window.location.href = "instruction5"; // Replace with your target page
-                }, 5000);
             }
         }
-        
+
         function c(f) {
             var h = f + "=";
             var e = document.cookie.split(";");
@@ -87,13 +74,13 @@ var game = {
             if (game.redirect == false) {
                 d()
             } else {
-                //clearInterval(game.Interval);
+                clearInterval(game.Interval);
                 Start = function() {
                     cnameFlower = "flower_practice";
                     cnameFlower2 = "flower2_practice";
                     cname_missedFlower = "missedFlower_practice";
                     cname_missedFlower2 = "missedFlower2_practice";   
-                    cname_drawing = "draw";    
+                    cname_drawing = "cname_drawing";    
                     expires = "Thu, 30 Dec 2030 12:00:00 UTC";
                     document.cookie = cnameFlower + "= ;" + expires;
                     document.cookie = cnameFlower2 + "= ;" + expires;
@@ -119,13 +106,13 @@ var game = {
                     console.log("missedFlower2=" + m);
                     console.log("drawing=" + k);          
                     
-                    setTimeout("stop()", 2000);
+                    setTimeout("stop()", 5000);
 
                     stop = function() {
                         $("#bouton").click()
                     }
                 };
-                setTimeout("Start()", 3000);
+                setTimeout("Start()", 1000);
                 clearInterval(game.interval)
             }
         }
@@ -524,13 +511,7 @@ function GrosRocher() {
                         myGamePiece_Affichage.score1 -= collide_rock
                     }
                 }
-            }flowers2Y           
-            for (var b = 0; b < 10; b++) {
-                if (((RockX[c]) > (RockX[b] - 300)) && ((RockX[c]) < (RockX[b] + 300)) && ((RockY[c]) > (RockY[b] - 300)) && ((RockY[c]) < (RockY[b] + 300)) && (b != c)) {
-                    RockX[c] = (getRandomInt(2000, 3000));
-                    RockY[c] = (getRandomInt(25, 700))
-                }
-            }
+            }          
         }
     }
 }
@@ -660,8 +641,9 @@ function Fleurs2() {
 // Game loop to update the flower properties and redraw the game
 function gameLoop() {
     updateFlowerProperties(); // Update flower properties every 10 seconds
-    updateGame(); // Continue with the usual game update logic
 }
+
+setInterval(gameLoop, 1000); // Call game loop every second
 
 function Evenement() {
     this.update = function() {

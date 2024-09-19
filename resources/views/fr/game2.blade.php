@@ -19,7 +19,7 @@
     <script>
       // Vaisseau1
       var image_Vaisseau1 = new Image(); // crée un nouvel objet Image
-      image_Vaisseau1.src = "{{ asset('/images/bee_2.png') }}"; // définit le chemin vers la source
+      image_Vaisseau1.src = "{{ asset('/images/bee_4.png') }}"; // définit le chemin vers la source
       image_Vaisseau1.onload = function(){} // instructions appeblant drawImage ici -> permet d'éviter les bugs      
       
       // Vaisseau2
@@ -29,12 +29,12 @@
 
       // Collision
       var collision = new Image(); // crée un nouvel objet Image
-      collision.src = "{{ asset('/images/bee_2.png') }}"; // définit le chemin vers la source
+      collision.src = "{{ asset('/images/bee_4.png') }}"; // définit le chemin vers la source
       collision.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
 
       // fleurs
       var image_flowers = new Image(); // crée un nouvel objet Image
-      image_flowers.src = "{{ asset('/images/flower_2.png') }}"; // définit le chemin vers la source
+      image_flowers.src = "{{ asset('/images/flower_4.png') }}"; // définit le chemin vers la source
       image_flowers.onload = function(){} // instructions appelant drawImage ici -> permet d'éviter les bugs
 
       // fleurs
@@ -83,12 +83,12 @@
 
 <body onload=startGame() style=background-color:black>
     @if (isset($postdiction) && $postdiction)
-        <form id=bouton_consigne action="postdiction" method=POST>
+        <form id=bouton_consigne action="end_of_task" method=POST>
             @csrf
             <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
         </form>
     @else
-        <form id=bouton_consigne action="instruction7" method=POST>
+        <form id=bouton_consigne action="end_of_task" method=POST>
             @csrf
             <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
         </form>
@@ -116,9 +116,24 @@
 
     </script>
 
-    <script src="/js/game_unclear.js">
+    @php
+        // Retrieve the 'condition' cookie
+        $condition = request()->cookie('condition', 1); // Default to 1 if the cookie is not set
+    @endphp
 
-    </script>
+    @if ($condition == 1)
+
+        <script src="/js/game_easy.js">
+
+        </script>
+
+    @else 
+    
+        <script src="/js/game_unclear.js">
+
+        </script>
+
+    @endif
 </body>
 
 </html>
