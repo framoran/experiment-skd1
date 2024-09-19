@@ -138,6 +138,8 @@ var game = {
                 })
             },
         };
+        /************************** KEYCODE VAISSEAU 2 **************************/
+
         Controller.add(104, function() { // Key '8' (numpad up) to move up
             myGamePiece_Vaisseau2.speedY = -3;
         }, function() {
@@ -161,6 +163,32 @@ var game = {
         }, function() {
             myGamePiece_Vaisseau2.speedY = 0;
         });
+
+        /************************** KEYCODE VAISSEAU 1 **************************/
+        Controller.add(38, function() { // Key 'up' (numpad up) to move up
+            myGamePiece_Vaisseau.speedY = -3;
+        }, function() {
+            myGamePiece_Vaisseau.speedY = 0;
+        });
+        
+        Controller.add(37, function() { // Key 'down' (numpad left) to move left
+            myGamePiece_Vaisseau.speedX = -3;
+        }, function() {
+            myGamePiece_Vaisseau.speedX = 0;
+        });
+        
+        Controller.add(39, function() { // Key 'right' (numpad right) to move right
+            myGamePiece_Vaisseau.speedX = 3;
+        }, function() {
+            myGamePiece_Vaisseau.speedX = 0;
+        });
+        
+        Controller.add(40, function() { // Key 'down' (numpad down) to move down
+            myGamePiece_Vaisseau.speedY = 3;
+        }, function() {
+            myGamePiece_Vaisseau.speedY = 0;
+        });
+        
         Controller.add(70, function() {
             game.keyCode1 = true
         }, function() {
@@ -646,45 +674,7 @@ function gameLoop() {
 setInterval(gameLoop, 1000); // Call game loop every second
 
 function Evenement() {
-    this.update = function() {
-        myGamePiece_Vaisseau.speedX = -1.5;
-        myGamePiece_Vaisseau.speedY = 0;
-        myGamePiece_Vaisseau.Speed = 0;
-        if (game.keyCode5 == true && game.keyCode6 == true) {
-            myGamePiece_Vaisseau.speedX = -3;
-            myGamePiece_Vaisseau.speedY = -3
-        } else {
-            if (game.keyCode5 == true && game.keyCode8 == true) {
-                myGamePiece_Vaisseau.speedX = -3;
-                myGamePiece_Vaisseau.speedY = 3
-            } else {
-                if (game.keyCode7 == true && game.keyCode6 == true) {
-                    myGamePiece_Vaisseau.speedX = 3;
-                    myGamePiece_Vaisseau.speedY = -3
-                } else {
-                    if (game.keyCode7 == true && game.keyCode8 == true) {
-                        myGamePiece_Vaisseau.speedX = 3;
-                        myGamePiece_Vaisseau.speedY = 3
-                    } else {
-                        if (game.keyCode5 == true) {
-                            myGamePiece_Vaisseau.speedX = -3
-                        } else {
-                            if (game.keyCode6 == true) {
-                                myGamePiece_Vaisseau.speedY = -3
-                            } else {
-                                if (game.keyCode7 == true) {
-                                    myGamePiece_Vaisseau.speedX = 3
-                                } else {
-                                    if (game.keyCode8 == true) {
-                                        myGamePiece_Vaisseau.speedY = 3
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }       
+    this.update = function() {            
         
         if (myGamePiece_Vaisseau.x < 1) {
             myGamePiece_Vaisseau.x = 1
