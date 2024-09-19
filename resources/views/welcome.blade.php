@@ -50,109 +50,25 @@
                     @enderror
                 </div>
 
-                <!-- Gender for Player 1 -->
-                <div class="field mt-3">
-                    <label class="label" for="gender">Genre Joueur 1</label>
+                <div class="field">
+                    <label class="label" for="subject_code1">Code Joueur 1</label>
                     <div class="control">
-                        <div class="select is-fullwidth @error('gender') is-danger @enderror">
-                            <select id="gender" name="gender">
-                                <option value="1" {{ old('gender') == 1 ? 'selected' : '' }}>Homme</option>
-                                <option value="2" {{ old('gender') == 2 ? 'selected' : '' }}>Femme</option>
-                                <option value="3" {{ old('gender') == 3 ? 'selected' : '' }}>Non-binaire</option>
-                                <option value="4" {{ old('gender') == 4 ? 'selected' : '' }}>Préfère ne pas répondre</option>
-                            </select>
-                        </div>
+                        <input class="input @error('subject_code1') is-danger @enderror" type="text" id="subject_code1" name="subject_code1" value="{{ old('subject_code1') }}" required />
                     </div>
-                    @error('gender')
+                    @error('subject_code1')
                         <p class="help is-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Gender for Player 2 -->
-                <div class="field mt-3">
-                    <label class="label" for="gender2">Genre Joueur 2</label>
+                <div class="field">
+                    <label class="label" for="subject_code2">Code Joueur 2</label>
                     <div class="control">
-                        <div class="select is-fullwidth @error('gender2') is-danger @enderror">
-                            <select id="gender2" name="gender2">
-                                <option value="1" {{ old('gender2') == 1 ? 'selected' : '' }}>Homme</option>
-                                <option value="2" {{ old('gender2') == 2 ? 'selected' : '' }}>Femme</option>
-                                <option value="3" {{ old('gender2') == 3 ? 'selected' : '' }}>Non-binaire</option>
-                                <option value="4" {{ old('gender2') == 4 ? 'selected' : '' }}>Préfère ne pas répondre</option>
-                            </select>
-                        </div>
+                        <input class="input @error('subject_code2') is-danger @enderror" type="text" id="subject_code2" name="subject_code2" value="{{ old('subject_code2') }}" required />
                     </div>
-                    @error('gender2')
+                    @error('subject_code')
                         <p class="help is-danger">{{ $message }}</p>
                     @enderror
-                </div>
-
-                <!-- Age for Player 1 -->
-                <div class="field mt-3">
-                    <label class="label" for="age">Âge Joueur 1</label>
-                    <div class="control">
-                        <div class="select is-fullwidth @error('age') is-danger @enderror">
-                            <select id="age" name="age">
-                                @for ($i = 1; $i <= 100; $i++)
-                                    <option value="{{ $i }}" {{ old('age') == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                @endfor
-                            </select>
-                        </div>
-                    </div>
-                    @error('age')
-                        <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <!-- Age for Player 2 -->
-                <div class="field mt-3">
-                    <label class="label" for="age2">Âge Joueur 2</label>
-                    <div class="control">
-                        <div class="select is-fullwidth @error('age2') is-danger @enderror">
-                            <select id="age2" name="age2">
-                                @for ($i = 1; $i <= 100; $i++)
-                                    <option value="{{ $i }}" {{ old('age2') == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                @endfor
-                            </select>
-                        </div>
-                    </div>
-                    @error('age2')
-                        <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <!-- Laterality for Player 1 -->
-                <div class="field mt-3">
-                    <label class="label" for="laterality">Latéralité manuelle Joueur 1</label>
-                    <div class="control">
-                        <div class="select is-fullwidth @error('laterality') is-danger @enderror">
-                            <select id="laterality" name="laterality">
-                                <option value="1" {{ old('laterality') == 1 ? 'selected' : '' }}>Gaucher</option>
-                                <option value="2" {{ old('laterality') == 2 ? 'selected' : '' }}>Droitier</option>
-                                <option value="3" {{ old('laterality') == 3 ? 'selected' : '' }}>Ambidextre</option>
-                            </select>
-                        </div>
-                    </div>
-                    @error('laterality')
-                        <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <!-- Laterality for Player 2 -->
-                <div class="field mt-3">
-                    <label class="label" for="laterality2">Latéralité manuelle Joueur 2</label>
-                    <div class="control">
-                        <div class="select is-fullwidth @error('laterality2') is-danger @enderror">
-                            <select id="laterality2" name="laterality2">
-                                <option value="1" {{ old('laterality2') == 1 ? 'selected' : '' }}>Gaucher</option>
-                                <option value="2" {{ old('laterality2') == 2 ? 'selected' : '' }}>Droitier</option>
-                                <option value="3" {{ old('laterality2') == 3 ? 'selected' : '' }}>Ambidextre</option>
-                            </select>
-                        </div>
-                    </div>
-                    @error('laterality2')
-                        <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
+                </div>                
 
                 <!-- Condition -->
                 <div class="field mt-3">

@@ -30,23 +30,23 @@
                 }
 
                 // Get the data from the cookies
-                let flower_practice = getCookie("flower_practice");
-                let flower2_practice = getCookie("flower2_practice");
-                let missedFlower_practice = getCookie("missedFlower_practice");
-                let missedFlower2_practice = getCookie("missedFlower2_practice");
-                let draw_practice = getCookie("drawing_practice");
+                let flower_task = getCookie("flower_task");
+                let flower2_task = getCookie("flower2_task");
+                let missedFlower_task = getCookie("missedFlower_task");
+                let missedFlower2_task = getCookie("missedFlower2_task");
+                let draw_task = getCookie("draw_task");
 
                 // Prepare the data to send
                 let data = {
-                    flower_practice: flower_practice,
-                    flower2_practice: flower2_practice,
-                    missedFlower_practice: missedFlower_practice,
-                    missedFlower2_practice: missedFlower2_practice,
-                    draw_practice: draw_practice
+                    flower_task: flower_task,
+                    flower2_task: flower2_task,
+                    missedFlower_task: missedFlower_task,
+                    missedFlower2_task: missedFlower2_task,
+                    draw_task: draw_task
                 };
 
                 // Send the data via Axios
-                axios.post('{{ route('save.practice.data') }}', data)
+                axios.post('{{ route('save.task.data') }}', data)
                   .then(function (response) {
                       console.log(response);
                   })
@@ -98,49 +98,14 @@
               <h1>
                 Consignes
               </h1>
-              @if ($condition == 1 || $condition == 2)
+              
               <div>
+
                 <p>
-                  Dans cette étude, vous jouerez le rôle d'abeilles chargées de récolter du pollen pour la ruche.<br><br>
-
-                  Chacune d'entre vous est spécialisée dans un type spécifique de fleurs.<br><br>
-
-                  Abeille bleue, tu seras chargée des fleurs bleues, et abeille orange, tu seras chargée des fleurs oranges.<br><br>
-                  
-                  Votre objectif est de remplir un pot de miel autant que possible.<br><br>
+                  L'expérience est terminée. Merci pour votre participation!                  
                 </p>
-              </div>
-              <div class="container">
-                <div class="box1">
-                  <b>Abeille bleue : pour passer à la page suivante,<br>
-                  appuyez sur le bouton bleu.</b>
-                </div>
-                <div class="box2">
-                  <b>Abeille orange : pour passer à la page suivante,<br>
-                  appuyez sur le bouton orange.</b>
-                </div>
-              </div>
-              <script src="/js/keydown_handler.js"></script>
-              @else
-              <div>
-                <p>
-                  Dans cette étude, vous jouerez le rôle d'abeilles chargées de récolter du pollen pour la ruche.<br><br>
-
-                  Chacune d'entre vous est spécialisée dans un type spécifique de fleurs.<br><br>
-
-                  Abeille bleue, tu seras chargée des fleurs bleues, les fleurs oranges peuvent être ignorées.<br><br>
-                  
-                  L'objectif est de remplir un pot de miel autant que possible.<br><br>
-                </p>
-              </div>
-              <div class="container">
-                <div class="box1">
-                  <b>Pour passer à la page suivante,<br>
-                  appuyez sur le bouton bleu.</b>
-                </div>
-              </div>
-              <script src="/js/keydown_handler_1player.js"></script>
-              @endif
+                
+              </div>              
 
             </div>
         @endcomponent

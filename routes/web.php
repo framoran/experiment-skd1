@@ -47,10 +47,15 @@ Route::get('/delete', [App\Http\Controllers\ExperimentController::class, 'delete
 
 Route::get('/export', [App\Http\Controllers\ExperimentController::class, 'export'])->name('export');
 
-Route::get('/{locale}/instruction7', [App\Http\Controllers\GameController::class, 'insert_data']);
-Route::post('/{locale}/instruction7', [App\Http\Controllers\GameController::class, 'insert_data']);
+// Route pour créer un nouveau participant
+Route::post('/new-participant', [ParticipantController::class, 'store'])->name('new_participant');
+
+// Route pour sauvegarder les données de la pratique
+Route::post('/save-practice-data', [ParticipantController::class, 'savePracticeData'])->name('save.practice.data');
+
+// Route pour sauvegarder les données de la tâche
+Route::post('/save-task-data', [ParticipantController::class, 'saveTaskData'])->name('save.task.data');
+
+// Ensuite, placez les routes qui capturent tout
 Route::get('/{locale}/{instructions}', [App\Http\Controllers\ExperimentController::class, 'index']);
 Route::post('/{locale}/{instructions}', [App\Http\Controllers\ExperimentController::class, 'index_post']);
-
-// New participant
-Route::post('/new-participant', [App\Http\Controllers\ParticipantController::class, 'store'])->name('new_participant');

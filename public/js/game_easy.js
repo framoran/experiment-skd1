@@ -77,7 +77,7 @@ var game = {
                     cnameFlower2 = "flower2_task";
                     cname_missedFlower = "missedFlower_task";
                     cname_missedFlower2 = "missedFlower2_task";   
-                    cname_drawing = "cname_drawing";    
+                    cname_drawing = "draw_task";    
                     expires = "Thu, 30 Dec 2030 12:00:00 UTC";
                     document.cookie = cnameFlower + "= ;" + expires;
                     document.cookie = cnameFlower2 + "= ;" + expires;
@@ -508,13 +508,13 @@ function GrosRocher() {
                         myGamePiece_Affichage.score1 -= collide_rock
                     }
                 }
-            }flowers2Y           
-            for (var b = 0; b < 10; b++) {
+            }           
+            /*for (var b = 0; b < 10; b++) {
                 if (((RockX[c]) > (RockX[b] - 300)) && ((RockX[c]) < (RockX[b] + 300)) && ((RockY[c]) > (RockY[b] - 300)) && ((RockY[c]) < (RockY[b] + 300)) && (b != c)) {
                     RockX[c] = (getRandomInt(2000, 3000));
                     RockY[c] = (getRandomInt(25, 700))
                 }
-            }
+            }*/
         }
     }
 }
@@ -546,13 +546,7 @@ function Fleurs() {
                 if (myGamePiece_Affichage.score1 >= 0) {
                     myGamePiece_Affichage.score1 += flowers_points
                 }
-            }
-            for (var a = 0; a < 7; a++) {
-                if (((flowersX[b]) > (flowersX[a] - 200)) && ((flowersX[b]) < (flowersX[a] + 200)) && ((flowersY[b]) > (flowersY[a] - 200)) && ((flowersY[b]) < (flowersY[a] + 200)) && (a != b)) {
-                    flowersX[b] = (getRandomInt(1600, 2500));
-                    flowersY[b] = (getRandomInt(25, 700))
-                }
-            }
+            }           
         }
     }
 }
@@ -584,13 +578,7 @@ function Fleurs2() {
                 if (myGamePiece_Affichage.score1 >= 0) {
                     myGamePiece_Affichage.score1 += flowers2_points
                 }
-            }
-            for (var a = 0; a < 7; a++) {
-                if (((flowers2X[b]) > (flowers2X[a] - 200)) && ((flowers2X[b]) < (flowers2X[a] + 200)) && ((flowers2Y[b]) > (flowers2Y[a] - 200)) && ((flowers2Y[b]) < (flowers2Y[a] + 200)) && (a != b)) {
-                    flowers2X[b] = (getRandomInt(1600, 2500));
-                    flowers2Y[b] = (getRandomInt(25, 700))
-                }
-            }
+            }           
         }
     }
 }
