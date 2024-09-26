@@ -85,7 +85,7 @@
 </head>
 
 <body onload=startGame() style=background-color:black>
-    <form id=bouton_consigne action="instruction7" method=POST>
+    <form id=bouton_consigne action="instruction9" method=POST>
         @csrf
         <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
     </form>

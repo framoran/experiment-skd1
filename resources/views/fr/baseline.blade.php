@@ -57,7 +57,7 @@
                             setTimeout(() => {
                                 redirectAudio.pause();
                                 redirectAudio.currentTime = 0;
-                                window.location.href = '';
+                                window.location.href = 'instruction5';
                             }, 1000);
                         }, 480000); // 8 minutes
                     });

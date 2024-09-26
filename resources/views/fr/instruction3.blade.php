@@ -13,7 +13,7 @@
                 {{ config('app.name') }}
             @endslot
             <script>
-              const url = 'http://127.0.0.1:8000/fr/instruction4';
+              const url = 'http://127.0.0.1:8000/fr/baseline';
             </script>
             <style>
 

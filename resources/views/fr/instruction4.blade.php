@@ -16,7 +16,7 @@
 
             
             <script>
-                const url = 'http://127.0.0.1:8000/fr/instruction5';/* after this page, there should be the baseline, not instruction5 */
+                const url = 'http://127.0.0.1:8000/fr/baseline';
             </script>
             <style>
 

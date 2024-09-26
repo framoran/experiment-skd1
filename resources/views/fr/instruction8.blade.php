@@ -13,7 +13,7 @@
                 {{ config('app.name') }}
             @endslot
             <script>
-                const url = 'http://127.0.0.1:8000/fr/game';
+                const url = 'http://127.0.0.1:8000/fr/placeholdergame';
             </script>
             
             <style>
