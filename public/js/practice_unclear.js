@@ -724,11 +724,15 @@ function updateGame() {
     myGamePiece_Evenements.update();
     if (!multiplayer && controle1){
         updateVaisseau2(); // Update the new Vaisseau
+    }else if (multiplayer){
+        updateVaisseau2(); // Update the new Vaisseau
     }
     this.score = myGamePiece_Affichage.score1;
     context.font = "30px Verdana";
     context.fillStyle = "#FFFFFF";
     if (!multiplayer && !controle1){
+        myGamePiece_Vaisseau.update()
+    }else if (multiplayer){
         myGamePiece_Vaisseau.update()
     }   
 };

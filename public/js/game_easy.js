@@ -661,6 +661,8 @@ function updateGame() {
     if (!multiplayer && controle1){
         myGamePiece_Fleurs2.draw();
         updateVaisseau2(); // Update the new Vaisseau
+    }else if (multiplayer){
+        updateVaisseau2(); // Update the new Vaisseau
     }
     myGamePiece_Evenements.update();    
     this.score = myGamePiece_Affichage.score1;
@@ -668,5 +670,7 @@ function updateGame() {
     context.fillStyle = "#FFFFFF";
     if (!multiplayer && !controle1){
         myGamePiece_Vaisseau.update()
-    }
+    }else if (multiplayer){
+        myGamePiece_Vaisseau.update()
+    }   
 };
