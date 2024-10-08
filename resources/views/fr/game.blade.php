@@ -120,11 +120,77 @@
 
     @if ($condition == 1)
 
+        <script>
+
+            const multiplayer = true;
+            const controle1 = false;
+
+        </script>
+
+        <script src="/js/practice_easy.js?v=1">
+
+        </script>
+
+    @elseif ($condition == 2)
+
+        <script>
+
+            const multiplayer = true;
+            const controle1 = false;
+
+        </script>
+
+        <script src="/js/practice_unclear.js">
+
+        </script>
+
+    @elseif ($condition == 3)
+        
+        <script>
+
+            const multiplayer = false;
+            const controle1 = false;
+
+        </script>
+
         <script src="/js/practice_easy.js">
 
         </script>
 
-    @else 
+    @elseif ($condition == 4)
+        
+        <script>
+
+            const multiplayer = false;
+            const controle1 = false;
+
+        </script>
+
+        <script src="/js/practice_unclear.js">
+
+        </script>
+
+    @elseif ($condition == 5)
+        
+        <script>
+
+            const multiplayer = false;
+            const controle1 = true;
+
+        </script>
+
+        <script src="/js/practice_easy.js">
+
+        </script>
+
+    @else
+    
+        <script>
+
+            const multiplayer = false;
+            const controle1 = true;
+
+        </script>
     
         <script src="/js/practice_unclear.js">
 
