@@ -155,7 +155,7 @@ var game = {
             myGamePiece_Vaisseau2.speedX = 0;
         });
         
-        Controller.add(98, function() { // Key '2' (numpad down) to move down
+        Controller.add(101, function() { // Key '5' (numpad down) to move down
             myGamePiece_Vaisseau2.speedY = 3;
         }, function() {
             myGamePiece_Vaisseau2.speedY = 0;
@@ -654,15 +654,19 @@ function updateVaisseau2() {
 function updateGame() {
     game.clear();
     myGamePiece_Missile.draw();
-    myGamePiece_Fleurs.draw();
-    myGamePiece_Fleurs2.draw();
+    myGamePiece_Fleurs.draw();    
     myGamePiece_GrosRocher.draw();
     myGamePiece_Affichage.draw();
     myGamePiece_Drawing.draw();
-    myGamePiece_Evenements.update();
-    updateVaisseau2(); // Update the new Vaisseau
+    if (!multiplayer && controle1){
+        myGamePiece_Fleurs2.draw();
+        updateVaisseau2(); // Update the new Vaisseau
+    }
+    myGamePiece_Evenements.update();    
     this.score = myGamePiece_Affichage.score1;
     context.font = "30px Verdana";
     context.fillStyle = "#FFFFFF";
-    myGamePiece_Vaisseau.update()
+    if (!multiplayer && !controle1){
+        myGamePiece_Vaisseau.update()
+    }
 };
