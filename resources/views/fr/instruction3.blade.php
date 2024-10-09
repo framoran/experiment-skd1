@@ -64,13 +64,13 @@
                 <p>
                   @if ($condition == 1 || $condition == 2)
 
-
+                    <p>
                     Dans cette étude, nous nous intéressons à votre activité cardiovasculaire à deux phases spécifiques : la phase de repos et la phase de jeu.<br /><br />
 
                     Nous mesurerons votre activité cardiovasculaire grâce aux quatre électrodes qui vous ont été appliquées par l’expérimentatrice et au brassard pour la pression artérielle. <br /><br />
 
                     Veuillez trouver une position confortable que vous puissiez maintenir pendant toute l'expérience et vous déplacer le moins possible.<br /><br />
-
+                    <p>
                     <div class="container">
                         <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
                       appuyez sur le bouton bleu.</b></div>
@@ -81,31 +81,25 @@
                     <script src="/js/keydown_handler.js">
                     <script/>
 
-                  @else 
+                  @else if ($condition == 3 || $condition == 4 || $condition == 5 || $condition == 6)
 
-                  Dans cette étude, nous nous intéressons à votre activité cardiovasculaire à deux phases spécifiques : la phase de repos et la phase de jeu.<br /><br />
+                    <p>
+                    Dans cette étude, nous nous intéressons à votre activité cardiovasculaire à deux phases spécifiques : la phase de repos et la phase de jeu.<br /><br />
 
-                  Nous mesurerons votre activité cardiovasculaire grâce aux quatre électrodes qui vous ont été appliquées par l’expérimentatrice et au brassard pour la pression artérielle. <br /><br />
+                    Nous mesurerons votre activité cardiovasculaire grâce aux quatre électrodes qui vous ont été appliquées par l’expérimentatrice et au brassard pour la pression artérielle. <br /><br />
 
-                  Veuillez trouver une position confortable que vous puissiez maintenir pendant toute l'expérience et vous déplacer le moins possible.<br /><br />
+                    Veuillez trouver une position confortable que vous puissiez maintenir pendant toute l'expérience et vous déplacer le moins possible.<br /><br />
+                    <p>
 
-                  <div class="container">
-                    <div class="box1"> <b>Pour passer à la page suivante,<br> 
-                    appuyez sur le bouton bleu.</b></div>
-                  </div>
+                    <div class="container">
+                      <div class="box1"> <b>Pour passer à la page suivante,<br> 
+                      appuyez sur le bouton bleu.</b></div>
+                    </div>
 
-                  <script>
-                      const url = 'http://127.0.0.1:8000/fr/instruction4';
-                  </script>
-
-                  <script src="/js/keydown_handler_1player.js">
-                  <script/>
+                    <script src="/js/keydown_handler_1player.js">
+                    <script/>
 
                   @endif 
-
-                </p>
-                <script src="/js/keydown_handler.js">
-                <script/>
           	</div>
       </div>
     @endcomponent

@@ -59,14 +59,14 @@
               <h1>
               	Consignes
               </h1>
-              @if ($condition == 1)
+              @if ($condition == 1 || $condition == 2)
               <div>
                 <p>
                 Parfait !<br></br>
 
-                Maintenant que vous avez eu la possibilité de vous familiariser avec le jeu, voici les dernières informations importantes :<br></br>
+                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
 
-                Le jeu durera environ 5 minutes et, à des intervalles variables, les fleurs changeront de vitesse et de taille, alors faites attention !<br></br>
+                Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>
                 <div class="container">
                 <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
@@ -77,34 +77,15 @@
                 </div>
                 <script src="/js/keydown_handler.js">
                 <script/>
-              @elseif ($condition == 2)
 
-                <p>
-                  Parfait !<br></br>
-
-                  Maintenant que vous avez eu la possibilité de vous familiariser avec le jeu, voici les dernières informations importantes :<br></br>
-
-                  Le jeu durera environ 5 minutes <br></br>
-                  </p>
-                  <div class="container">
-                  <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
-                  appuyez sur le bouton bleu.</b></div>
-                  <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
-                  appuyez sur le bouton orange.</b></div>
-                  </div>
-                 </div>
-                  <script src="/js/keydown_handler.js">
-                  <script/>
-          	    </div>
-
-                @elseif ($condition == 3)
+                @elseif ($condition == 3 || $condition == 4 || $condition == 5 || $condition == 6)
                 <div>
                 <p>
                 Parfait !<br></br>
 
-                Maintenant que vous avez eu la possibilité de vous familiariser avec le jeu, voici les dernières informations importantes :<br></br>
+                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
 
-                Le jeu durera environ 5 minutes et, à des intervalles variables, les fleurs changeront de vitesse et de taille, alors faites attention !<br></br>
+                Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>
                 <div class="container">
                 <div class="box1"> 
@@ -114,24 +95,7 @@
                 </div>
                 <script src="/js/keydown_handler_1player.js">
                 <script/>
-                </div>
-                @else ($condition == 4)
-                <div>
-                <p>
-                Parfait !<br></br>
-
-                Maintenant que vous avez eu la possibilité de vous familiariser avec le jeu, voici les dernières informations importantes :<br></br>
-
-                Le jeu durera environ 5 minutes.<br></br>
-                </p>
-                <div class="container">
-                <div class="box1"> 
-                <b>Pour passer à la page suivante,<br>
-                 appuyez sur le bouton bleu.</b></div>
-                </div>
-                </div>
-                <script src="/js/keydown_handler_1player.js">
-                <script/>
+                </div>>
                 </div>
                 @endif
     @endcomponent
