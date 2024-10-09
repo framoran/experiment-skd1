@@ -726,8 +726,8 @@ function updateGame() {
     myGamePiece_GrosRocher.draw();
     myGamePiece_Affichage.draw();
     myGamePiece_Drawing.draw();
+    myGamePiece_Fleurs2.draw();
     if (!multiplayer && controle1){
-        myGamePiece_Fleurs2.draw();
         updateVaisseau2(); // Update the new Vaisseau
     }else if (multiplayer){
         updateVaisseau2(); // Update the new Vaisseau
