@@ -1,7 +1,6 @@
 @php
-
-  $condition = 1;
-
+    // Retrieve the 'condition' cookie
+    $condition = request()->cookie('condition', 1); // Default to 1 if the cookie is not set
 @endphp
 
 @extends('layouts.game')
@@ -84,7 +83,7 @@
               @else
               <div>
                 <p>
-                À la fin du jeu, vous verrez à quel point vos efforts combinés auront permis de remplir le pot de miel.<br></br>
+                À la fin du jeu, vous verrez à quel point vos efforts auront permis de remplir le pot de miel.<br></br>
 
                 <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>

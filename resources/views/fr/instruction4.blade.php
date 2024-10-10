@@ -1,7 +1,6 @@
 @php
-
-  $condition = 1;
-
+    // Retrieve the 'condition' cookie
+    $condition = request()->cookie('condition', 1); // Default to 1 if the cookie is not set
 @endphp
 
 
