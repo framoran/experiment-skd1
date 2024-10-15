@@ -1,11 +1,4 @@
-<div class="card">
-    @if (!empty($title))
-    <header class="card-header">
-        <p class="card-header-title">
-            Geneva Space Cruiser
-        </p>
-    </header>
-    @endif
+<div class="card">   
 
     <div class="card-content">
         {!! $slot !!}

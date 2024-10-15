@@ -34,8 +34,6 @@
   <nav class="navbar is-black">
      <div class="container">
          <div class="navbar-brand">
-             <a href="{{ url('/') }}" class="navbar-item">Geneva Space Cruiser</a>
-
              <div class="navbar-burger burger" id="navbar-burger-id">
                  <span></span>
                  <span></span>
