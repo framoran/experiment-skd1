@@ -14,7 +14,7 @@ const time_to_refuel = 60000; // default (min 10 seconds and max 60)
 const practice_length = 65000;
 var flowerChangeInterval = 10000; // Time interval for changing flower properties (10 seconds)
 var lastFlowerChangeTime = new Date().getTime();
-var currentFlowerSize = { min: 30, max: 80 }; // Initial flower size range
+var currentFlowerSize = { min: 40, max: 100 }; // Initial flower size range
 var currentFlowerSpeed = { min: 1, max: 4 }; // Initial flower speed range
 var Vaisseau;
 
@@ -45,7 +45,7 @@ var game = {
 
                 var canvasWidth = 1250;
                 var canvasHeight = 850;
-                var text = 'La tâche de concentration est terminée';
+                var text = "L'entraînement est terminé";
                 var textWidth = context.measureText(text).width;
                 var xPosition = (canvasWidth - textWidth) / 2;
                 var yPosition = (canvasHeight / 2) + 12.5; // Adding half of the font size to vertically center
@@ -549,9 +549,9 @@ var currentFlowerSize = 80; // Initial size
 var currentFlowerSpeed = 1;  // Initial speed
 
 // array of Flower Size
-var FlowerSizeArray = [20, 50, 20, 80, 50]
+var FlowerSizeArray = [40, 50, 40, 80, 50]
 // array of Flower speed
-var FlowerSpeedArray = [4, 2, 4, 1, 4]
+var FlowerSpeedArray = [3, 2, 3, 1, 3]
 // array of Time Interval speed
 var FlowerIntervalArray = [10000, 7000, 11000, 15000, 3000]
 
@@ -570,7 +570,7 @@ function updateFlowerProperties() {
         console.log('interval: '+ currentTime - lastFlowerChangeTime)
         // Update flower size and speed once every 10 seconds
         if (index > 4){
-            currentFlowerSize = getRandomInt(20, 100); // Random size between 20 and 100
+            currentFlowerSize = getRandomInt(40, 100); // Random size between 20 and 100
             currentFlowerSpeed = Math.random() * (4 - 1) + 1; // Random speed between 1 and 4
 
         }else{
