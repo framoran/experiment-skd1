@@ -15,9 +15,12 @@
                     <p>Pendant ce temps, vous regarderez un film documentaire.</p> <br>
                     <p>Note Importante : Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
                     <p>Maintenant, détendez-vous et essayer de bouger le moins possible pendant la phase de repos.</p> <br>
-                    <p>Appuyez sur Enter pour continuer</p> <br>
-
-                    <div class="button is-primary mt-5" id="startButton">Enter</div>
+                    <div class="container">
+                        <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
+                      appuyez sur le bouton bleu.</b></div>
+                        <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
+                        appuyez sur le bouton orange.</b></div>
+                    </div>
                 </div>
 
                 <!-- Video Section -->
@@ -30,36 +33,79 @@
             </div>
 
             <script>
+                // Define the key codes for both players
+                const blueKey = '/';   // For the blue bee
+                const orangeKey = '*'; // For the orange bee
+
+                let bluePressed = false;
+                let orangePressed = false;
+
+                // Function to check if both keys are pressed
+                function checkKeys() {
+                    if (bluePressed && orangePressed) {
+
+
+
+                    }
+                }
+
+                // Event listener for key presses
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === blueKey) {
+                        bluePressed = true;
+                        console.log('Blue key pressed');
+                    }
+                    if (event.key === orangeKey) {
+                        orangePressed = true;
+                        console.log('Orange key pressed');
+                    }
+
+                    checkKeys(); // Check if both keys are pressed after each keydown event
+                
+                });
+
                 document.addEventListener('DOMContentLoaded', function () {
                     const instructions = document.getElementById('instructions');
                     const videoSection = document.getElementById('videoSection');
                     const video = document.getElementById('myVideo');
-                    const startButton = document.getElementById('startButton');
+                    const startButton = document.getElementById('startButton');                    
 
-                    startButton.addEventListener('click', function() {
-                        // Change background to black and hide card
-                        document.body.style.backgroundColor = 'black';
-                        instructions.classList.add('hidden');
-                        videoSection.classList.remove('hidden');
-                        video.classList.remove('video');
-                        video.classList.add('video2');
+                    document.addEventListener('keydown', function(event) {
+                        if (event.key === blueKey) {
+                            bluePressed = true;
+                            console.log('Blue key pressed');
+                        }
+                        if (event.key === orangeKey) {
+                            orangePressed = true;
+                            console.log('Orange key pressed');
+                        }
+                        if (bluePressed && orangePressed){
 
-                        // Play video and handle audio
-                        video.play();
-                        decreaseSound(1);
+                            // Change background to black and hide card
+                            document.body.style.backgroundColor = 'black';
+                            instructions.classList.add('hidden');
+                            videoSection.classList.remove('hidden');
+                            video.classList.remove('video');
+                            video.classList.add('video2');
 
-                        // Redirect user after 8 minutes
-                        setTimeout(() => {
-                            const redirectAudio = new Audio('{{ asset('assets/chimes.wav') }}');
-                            redirectAudio.play();
-                            video.pause();
+                            // Play video and handle audio
+                            video.play();
+                            decreaseSound(1);
 
+                            // Redirect user after 8 minutes
                             setTimeout(() => {
-                                redirectAudio.pause();
-                                redirectAudio.currentTime = 0;
-                                window.location.href = '';
-                            }, 1000);
-                        }, 480000); // 8 minutes
+                                const redirectAudio = new Audio('{{ asset('assets/chimes.wav') }}');
+                                redirectAudio.play();
+                                video.pause();
+
+                                setTimeout(() => {
+                                    redirectAudio.pause();
+                                    redirectAudio.currentTime = 0;
+                                    window.location.href = '';
+                                }, 1000);
+                            }, 480000); // 8 minutes
+
+                        }
                     });
 
                     function decreaseSound(minutes) {
@@ -86,6 +132,28 @@
                     margin: 0; /* Remove default body margin */
                     overflow: hidden; /* Prevent scrolling */
                     height: 100vh; /* Ensure body takes up full viewport height */
+                }
+
+                .container {
+                    display: flex;
+                    gap: 20px; /* Adds space between the boxes */
+                    justify-content: center; /* Horizontally center */
+                }
+
+                .box1, .box2 {
+                    padding: 20px;
+                    border: 1px solid black;
+                    border-radius: 15px; /* Rounds the corners */
+                }
+
+                .box1 {
+                    background-color: #0080FF; /* Color for the first box */
+                    line-height: 2; /* Adjust the line-height to increase space between lines */
+                }
+
+                .box2 {
+                    background-color: orange; /* Color for the second box */
+                    line-height: 2; /* Adjust the line-height to increase space between lines */
                 }
 
                 .main {

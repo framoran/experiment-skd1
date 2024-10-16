@@ -30,6 +30,11 @@
                 }
 
                 // Get the data from the cookies
+                let flower_task_practice = getCookie("flower_practice");
+                let flower2_task_practice = getCookie("flower2_practice");
+                let missedFlower_task_practice = getCookie("missedFlower_practice");
+                let missedFlower2_task_practice = getCookie("missedFlower2_practice");
+                let draw_task = getCookie("draw_task");
                 let flower_task = getCookie("flower_task");
                 let flower2_task = getCookie("flower2_task");
                 let missedFlower_task = getCookie("missedFlower_task");
@@ -38,6 +43,10 @@
 
                 // Prepare the data to send
                 let data = {
+                    flower_task_practice: flower_task_practice,
+                    flower2_task_practice: flower2_task_practice,
+                    missedFlower_task_practice: missedFlower_task_practice,
+                    missedFlower2_task_practice : missedFlower2_task_practice,
                     flower_task: flower_task,
                     flower2_task: flower2_task,
                     missedFlower_task: missedFlower_task,

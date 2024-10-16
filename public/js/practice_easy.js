@@ -92,17 +92,17 @@ var game = {
                     document.cookie = cname_missedFlower2 + "=" + missed_flower2 + ";" + expires;
                     document.cookie = cname_drawing + "=" + drawing + ";" + expires;
 
-                    var f = c("flower");
-                    var e = c("flower2");
-                    var n = c("missedFlower");
-                    var m = c("missedFlower2");
-                    var k = c("drawing");
+                    var f = c("flower_practice");
+                    var e = c("flower2_practice");
+                    var n = c("missedFlower_practice");
+                    var m = c("missedFlower2_practice");
+                    var k = c("drawing_practice");
            
-                    console.log("flower=" + f);
-                    console.log("flower2=" + e);
-                    console.log("missedFlower=" + n);
-                    console.log("missedFlower2=" + m);
-                    console.log("drawing=" + k);          
+                    console.log("flower_practice=" + f);
+                    console.log("flower2_practice=" + e);
+                    console.log("missedFlower_practice=" + n);
+                    console.log("missedFlower2_practice=" + m);
+                    console.log("drawing_practice=" + k);          
                     
                     setTimeout("stop()", 2000);
 
