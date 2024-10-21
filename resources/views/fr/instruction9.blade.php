@@ -62,6 +62,48 @@
                     .catch(function (error) {
                         console.log(error);
                     });
+
+                // Count the number of elements in each array
+                  let flower_task_count = flower_task.length;
+                  let flower_task2_count = flower2_task.length;
+                  let missedFlower_task_count = missedFlower_task.length;
+                  let missedFlower_task2_count = missedFlower2_task.length;
+
+                  // Calculate accuracy: (flower_task_count + flower_task2_count) / (missedFlower_task_count + missedFlower_task2_count)
+                  let total_flower_count = flower_task_count + flower_task2_count;
+                  let total_missed_count = missedFlower_task_count + missedFlower_task2_count;
+
+                  // Ensure no division by zero in case there are no missed flowers
+                  let accuracy = (total_missed_count > 0) 
+                      ? (total_flower_count / total_missed_count) 
+                      : 0;
+
+                  console.log('Accuracy:', accuracy);
+                  
+                  // Image replacement based on accuracy
+                  document.addEventListener("DOMContentLoaded", function() {
+                      // Find the image elements by their IDs
+                      let flower1 = document.getElementById('flower');
+                      let flower2 = document.getElementById('flower2');
+
+                      // Determine the appropriate image based on accuracy
+                      if (accuracy > 0.5) {
+                          if (flower1) {
+                              flower1.src = '{{ asset("images/honeypot2.png") }}';
+                          }
+                          if (flower2) {
+                              flower2.src = '{{ asset("images/honeypot2.png") }}';
+                          }
+                      } else {
+                          if (flower1) {
+                              flower1.src = '{{ asset("images/honeypot3.png") }}';
+                          }
+                          if (flower2) {
+                              flower2.src = '{{ asset("images/honeypot3.png") }}';
+                          }
+                      }
+                  });
+                    
             </script>
 
             <style>
@@ -102,7 +144,7 @@
                     <div>
                         <p>
                             Le jeu est terminé! Voici le résultat de vos efforts: <br><br>
-                            <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
+                            <img id="flower" src="" alt="honeypot" width="200" height="200"><br><br>
                             Bien fait! <br><br>
                             Veuillez attendre l'experimentatrice SVP. <br>
                         </p>
@@ -111,7 +153,7 @@
                     <div>
                         <p>
                             Le jeu est terminé! Voici le résultat de vos efforts: <br><br>
-                            <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
+                            <img id="flower2" src="" alt="honeypot" width="200" height="200"><br><br>
                             Bien fait! <br><br>
                             Veuillez attendre l'experimentatrice SVP. <br>
                         </p>
