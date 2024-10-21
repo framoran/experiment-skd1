@@ -83,12 +83,12 @@
 
 <body onload=startGame() style=background-color:black>
     @if (isset($postdiction) && $postdiction)
-        <form id=bouton_consigne action="end_of_task" method=POST>
+        <form id=bouton_consigne action="instruction9" method=POST>
             @csrf
             <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
         </form>
     @else
-        <form id=bouton_consigne action="end_of_task" method=POST>
+        <form id=bouton_consigne action="instruction9" method=POST>
             @csrf
             <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
         </form>
