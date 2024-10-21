@@ -89,6 +89,11 @@ class ParticipantController extends Controller
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
+            'flower_task_practice' => 'nullable|string',
+            'flower2_task_practice' => 'nullable|string',
+            'missedFlower_task_practice' => 'nullable|string',
+            'missedFlower2_task_practice' => 'nullable|string',
+            'draw_practice' => 'nullable|string',
             'flower_task' => 'nullable|string',
             'flower2_task' => 'nullable|string',
             'missedFlower_task' => 'nullable|string',
