@@ -1,7 +1,7 @@
 @php
   session_start();
   
-  $condition = 1;
+  $condition = 2;
 
 @endphp
 <!DOCTYPE html>
@@ -85,7 +85,7 @@
 </head>
 
 <body onload=startGame() style=background-color:black>
-    <form id=bouton_consigne action="instruction5" method=POST>
+    <form id=bouton_consigne action="instruction7" method=POST>
         @csrf
         <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
     </form>

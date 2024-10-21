@@ -1,5 +1,8 @@
 @php
   session_start();
+  
+  $condition = 2;
+
 @endphp
 <!DOCTYPE html>
 <html>
@@ -82,25 +85,19 @@
 </head>
 
 <body onload=startGame() style=background-color:black>
-    @if (isset($postdiction) && $postdiction)
-        <form id=bouton_consigne action="instruction9" method=POST>
-            @csrf
-            <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
-        </form>
-    @else
-        <form id=bouton_consigne action="instruction9" method=POST>
-            @csrf
-            <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
-        </form>
-    @endif   
+    <form id=bouton_consigne action="instruction9" method=POST>
+        @csrf
+        <input style=visibility:hidden name="sendingData" id=bouton type=submit value=Commencer />
+    </form>
     
     <script>
 
-        stars_points = {{$stars_points}}; // default
+        flowers_points = {{$stars_points}}; // default
+        flowers2_points = {{$stars_points}}; // default
         collide_rock = {{$collide_rock}}; // default
         fire_rock_success = {{$fire_rock_success}}; // default
         fill_fuel = {{$fill_fuel}}; // default
-        speed_g = {{$speed_g}}; // default (min should be 1 and max 4 incrementing with 0.5)
+        speed_g = 2; // default (min should be 1 and max 4 incrementing with 0.5)
         time_to_refuel = {{$time_to_refuel}}; // default (min 10 seconds and max 60)
         practice_length = {{$practice_length}};
         task_length = {{$task_length}};
@@ -108,7 +105,7 @@
         text_score = '{{ __('game.text_score') }}';
         text_fuel = '{{ __('game.text_fuel') }}';
         text_refueled = '{{ __('game.text_refueled') }}';
-        text_end = '{{ __('game.text_end') }}';
+        text_end = '{!! __('game.text_end') !!}';
         text_press_fuel_display_1 = "{!! __('game.text_press_fuel_display_1') !!}";
         text_press_fuel_display_2 = "{!! __('game.text_press_fuel_display_2') !!}";
         text_press_fuel_touch_1 = "{!! __('game.text_press_fuel_touch_1') !!}";
@@ -123,79 +120,13 @@
 
     @if ($condition == 1)
 
-        <script>
-
-            const multiplayer = true;
-            const controle1 = false;
+        <script src="/js/practice_easy.js">
 
         </script>
 
-        <script src="/js/game_easy.js?v=1">
-
-        </script>
-
-    @elseif ($condition == 2)
-
-        <script>
-
-            const multiplayer = true;
-            const controle1 = false;
-
-        </script>
-
-        <script src="/js/game_unclear.js">
-
-        </script>
-
-    @elseif ($condition == 3)
-        
-        <script>
-
-            const multiplayer = false;
-            const controle1 = false;
-
-        </script>
-
-        <script src="/js/game_easy.js">
-
-        </script>
-
-    @elseif ($condition == 4)
-        
-        <script>
-
-            const multiplayer = false;
-            const controle1 = false;
-
-        </script>
-
-        <script src="/js/game_unclear.js">
-
-        </script>
-
-    @elseif ($condition == 5)
-        
-        <script>
-
-            const multiplayer = false;
-            const controle1 = true;
-
-        </script>
-
-        <script src="/js/game_easy.js">
-
-        </script>
-
-    @else
+    @else 
     
-        <script>
-
-            const multiplayer = false;
-            const controle1 = true;
-
-        </script>
-    
-        <script src="/js/game_unclear.js">
+        <script src="/js/practice_unclear.js">
 
         </script>
 
@@ -206,5 +137,7 @@
     @endif
 
 </body>
+
+
 
 </html>

@@ -11,10 +11,6 @@
             @slot('title')
                 {{ config('app.name') }}
             @endslot
-
-            <script>
-                const url = 'http://127.0.0.1:8000/fr/instruction8';
-            </script>
             
             <style>
 
@@ -53,6 +49,7 @@
               line-height: 2; /* Adjust the line-height to increase space between lines */
             }
           </style>
+
             <div class="content elements-centered">
 
               <h1>
@@ -61,42 +58,31 @@
               @if ($condition == 1 || $condition == 2)
               <div>
                 <p>
-                Parfait !<br></br>
+                Le jeu est terminé! Voici le résultat de vos efforts: <br></br>
 
-                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
+                 <!-- Add the honey jar image here -->
+                 <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
 
-                Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
+                Bien fait! <br></br>
+
+                Veuillez attendre l'experimentatrice SVP. <br></br>
                 </p>
-                <div class="container">
-                <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
-                appuyez sur le bouton bleu.</b></div>
-                <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
-                appuyez sur le bouton orange.</b></div>
-                </div>
-                </div>
-                <script src="/js/keydown_handler.js">
-                <script/>
+          	  </div>
+              @else
+              <div>
+              <p>
+                Le jeu est terminé! Voici le résultat de vos efforts: <br></br>
 
-                @elseif ($condition == 3 || $condition == 4 || $condition == 5 || $condition == 6)
-                <div>
-                <p>
-                Parfait !<br></br>
+                 <!-- Add the honey jar image here -->
+                 <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
 
-                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
+                Bien fait!<br></br>
 
-                Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
+                Veuillez attendre l'experimentatrice SVP.<br></br>
                 </p>
-                <div class="container">
-                <div class="box1"> 
-                <b>Pour passer à la page suivante, <br>
-                appuyez sur le bouton bleu.</b></div>
-                </div>
-                </div>
-                <script src="/js/keydown_handler_1player.js">
-                <script/>
-                </div>>
-                </div>
-                @endif
+          	  </div>
+            </div>
+            @endif
     @endcomponent
   @endcomponent
 @endsection

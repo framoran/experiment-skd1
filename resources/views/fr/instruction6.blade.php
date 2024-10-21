@@ -1,7 +1,6 @@
 @php
-
-  $condition = 1;
-
+    // Retrieve the 'condition' cookie
+    $condition = request()->cookie('condition', 1); // Default to 1 if the cookie is not set
 @endphp
 
 @extends('layouts.game')
@@ -15,7 +14,7 @@
 
             
             <script>
-                const url = 'http://127.0.0.1:8000/fr/instruction7'; //after the page, there should be the training, not instruction7
+                const url = 'http://127.0.0.1:8000/fr/game'; //after the page, there should be the training, not instruction7
             </script>
             
             <style>
@@ -66,7 +65,7 @@
                 <p>
                   Pour récolter le pollen, vous devrez déplacer votre abeille sur les fleurs qui se déplacent à travers l'écran. <br></br>
 
-                  Les touches pour vous déplacer sont les 4 touches marquées sur le clavier. <br></br>
+                  Les touches pour vous déplacer sont les 4 touches marquées en rouge sur le clavier. <br></br>
 
                   Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
                 </p>
@@ -85,7 +84,7 @@
                 <p>
                   Pour récolter le pollen, vous devrez déplacer votre abeille sur les fleurs qui se déplacent à travers l'écran. <br></br>
 
-                  Les touches pour vous déplacer sont les 4 touches marquées sur le clavier. <br></br>
+                  Les touches pour vous déplacer sont les 4 touches marquées en rouge sur le clavier. <br></br>
 
                   Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
                 </p>

@@ -1,7 +1,6 @@
 @php
-
-  $condition = 1;
-
+    // Retrieve the 'condition' cookie
+    $condition = request()->cookie('condition', 1); // Default to 1 if the cookie is not set
 @endphp
 
 
@@ -16,7 +15,7 @@
 
             
             <script>
-                const url = 'http://127.0.0.1:8000/fr/instruction5';/* after this page, there should be the baseline, not instruction5 */
+                const url = 'http://127.0.0.1:8000/fr/instruction5';
             </script>
             <style>
 
@@ -64,9 +63,9 @@
               @if ($condition ==1 || $condition == 2)
               <div>
 
-                Pendant les 8 minutes suivantes, vous visionnerez un extrait d'un film. Il est important que vous vous détendiez afin que nous puissions obtenir les mesures de votre activité cardiovasculaire au repos. <br /><br />
+                Le film est maintenant terminé. <br /><br />
 
-                Le contenu du film n'est absolument pas pertinent pour la suite de l'expérience, alors détendez-vous et profitez du film.<br /><br />
+                Dans les pages suivantes, vous trouverez les instructions pour le jeu collaboratif. <br /><br />
                 
                 <div class="container">
                   <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
@@ -80,9 +79,9 @@
               @else
               <div>
 
-                Pendant les 8 minutes suivantes, vous visionnerez un extrait d'un film. Il est important que vous vous détendiez afin que nous puissions obtenir les mesures de votre activité cardiovasculaire au repos. <br /><br />
+                Le film est maintenant terminé. <br /><br />
 
-                Le contenu du film n'est absolument pas pertinent pour la suite de l'expérience, alors détendez-vous et profitez du film.<br /><br />
+                Dans les pages suivantes, vous trouverez les instructions pour le jeu.<br /><br />
                 
                 <div class="container">
                   <div class="box1"> <b>Abeille bleue : pour passer à la page suivante,<br> 
