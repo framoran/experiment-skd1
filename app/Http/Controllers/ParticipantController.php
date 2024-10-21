@@ -38,15 +38,15 @@ class ParticipantController extends Controller
         // Extract the condition from the validated data
         $condition = $validatedData['condition'];
 
-        // Create a new Participant record and get the instance
+        // Create a new Participant record
         $participant = Participant::create($validatedData);
 
-        // Get the id of the inserted participant
+        // Get the ID of the inserted participant
         $participantId = $participant->id;
 
-        // Set the condition and id in cookies (valid for 60 minutes)
+        // Set the condition and ID in cookies (valid for 60 minutes)
         $cookieCondition = cookie('condition', $condition, 60);
-        $cookieId = cookie('id', $participantId, 60);
+        $cookieId = cookie('participant_id', $participantId, 60); // Save participant ID in cookie with key 'participant_id'
 
         // Redirect to a new page with a success message and set both cookies
         return redirect('/fr/instruction1')
@@ -55,67 +55,48 @@ class ParticipantController extends Controller
             ->withCookie($cookieId);
     }
 
-    public function savePracticeData(Request $request)
-    {
-        // Validate the incoming request data
-        $validatedData = $request->validate([
-            'flower_practice' => 'nullable|string',
-            'flower2_practice' => 'nullable|string',
-            'missedFlower_practice' => 'nullable|string',
-            'missedFlower2_practice' => 'nullable|string',
-            'draw_practice' => 'nullable|string',
-        ]);        
-
-        // Assuming you have a way to identify the participant (e.g., session or cookie)
-        // For example, using session:
-        $participantId = Cookie::get('id');
-        $participantIda = Cookie::get('id');
-
-        if ($participantId) {
-            $participant = Participant::find($participantId);
-
-            if ($participant) {
-                // Update the participant's data
-                $participant->update($validatedData);
-
-                return response()->json(['message' => 'Data saved successfully'.$participantIda ], 200);
-            }
-        }
-
-        return response()->json(['message' => 'Participant not found'], 404);
-    }
-
+    /**
+     * Save task data.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function saveTaskData(Request $request)
     {
-        // Validate the incoming request data
-        $validatedData = $request->validate([
-            'flower_task_practice' => 'nullable|string',
-            'flower2_task_practice' => 'nullable|string',
-            'missedFlower_task_practice' => 'nullable|string',
-            'missedFlower2_task_practice' => 'nullable|string',
-            'draw_practice' => 'nullable|string',
-            'flower_task' => 'nullable|string',
-            'flower2_task' => 'nullable|string',
-            'missedFlower_task' => 'nullable|string',
-            'missedFlower2_task' => 'nullable|string',
-            'draw_task' => 'nullable|string',
-        ]);        
+        // Retrieve the task data from the request
+        $taskData = [
+            'flower_practice' => $request->input('flower_practice'),
+            'flower2_practice' => $request->input('flower2_practice'),
+            'missedFlower_practice' => $request->input('missedFlower_practice'),
+            'missedFlower2_practice' => $request->input('missedFlower2_practice'),
+            'draw_practice' => $request->input('draw_practice'),
+            'flower_task' => $request->input('flower_task'),
+            'flower2_task' => $request->input('flower2_task'),
+            'missedFlower_task' => $request->input('missedFlower_task'),
+            'missedFlower2_task' => $request->input('missedFlower2_task'),
+            'draw_task' => $request->input('draw_task'),
+        ];
 
-        // Assuming you have a way to identify the participant (e.g., session or cookie)
-        // For example, using session:
-        $participantId = Cookie::get('id');
+        // Retrieve participant ID from cookie
+        $participantId = Cookie::get('participant_id');
 
         if ($participantId) {
+            // Find the participant by the ID stored in the cookie
             $participant = Participant::find($participantId);
 
             if ($participant) {
                 // Update the participant's data
-                $participant->update($validatedData);
+                $participant->update($taskData);
 
-                return response()->json(['message' => 'Data saved successfully'.$participantId ], 200);
+                return response()->json([
+                    'message' => 'Data saved successfully',
+                    'participant_id' => $participantId
+                ], 200);
             }
         }
 
-        return response()->json(['message' => 'Participant not found'], 404);
+        // Return an error response if the participant is not found or cookie is missing
+        return response()->json(['message' => 'Error: Participant not found or invalid data'], 202);
     }
+
 }
