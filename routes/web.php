@@ -7,12 +7,8 @@ use App\Http\Controllers\ParticipantController;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
+
 Auth::routes();
 
 Route::get('/', function () {
@@ -47,15 +43,10 @@ Route::get('/delete', [App\Http\Controllers\ExperimentController::class, 'delete
 
 Route::get('/export', [App\Http\Controllers\ExperimentController::class, 'export'])->name('export');
 
-// Route pour créer un nouveau participant
+// Specific routes for participant actions
 Route::post('/new-participant', [ParticipantController::class, 'store'])->name('new_participant');
+Route::post('/fr/save', [ParticipantController::class, 'saveTaskData'])->name('save_task');
 
-// Route pour sauvegarder les données de la pratique
-Route::post('/save-practice-data', [ParticipantController::class, 'savePracticeData'])->name('save.practice.data');
-
-// Route pour sauvegarder les données de la tâche
-Route::post('/save-task-data', [ParticipantController::class, 'saveTaskData'])->name('save.task.data');
-
-// Ensuite, placez les routes qui capturent tout
+// Catch-all routes (place these after specific routes)
 Route::get('/{locale}/{instructions}', [App\Http\Controllers\ExperimentController::class, 'index']);
 Route::post('/{locale}/{instructions}', [App\Http\Controllers\ExperimentController::class, 'index_post']);
