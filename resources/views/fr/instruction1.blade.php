@@ -49,12 +49,12 @@
             }
 
             .box1 {
-              background-color: #0080FF; /* Color for the first box */
+              background-color: rgb(255, 102, 255); /* Color for the first box */
               line-height: 2; /* Adjust the line-height to increase space between lines */
             }
 
             .box2 {
-              background-color: orange; /* Color for the second box */
+              background-color: rgb(255, 255, 51); /* Color for the second box */
               line-height: 2; /* Adjust the line-height to increase space between lines */
             }
           </style>
@@ -73,15 +73,15 @@
 
                       <b> Important : pour passer d'une page à l'autre, il est nécessaire que tous·tes les participant·e·s aient appuyé sur le bouton demandé.</b><br><br>
 
-                      Vérifiez sur votre bureau : vous trouverez une abeille de couleur <span style="color: #0080FF;"><b>bleu</b></span> ou <span style="color: orange;"><b>orange</b></span>.<br><br>
+                      Vérifiez sur votre bureau : vous trouverez une abeille de couleur <b>violet</b></span> ou <b>jaune</b></span>.<br><br>
 
                       Dans les diapositives suivantes, vous trouverez davantage d'instructions.<br><br>
 
                       <div class="container">
-                        <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
-                      appuyez sur le bouton bleu.</b></div>
-                        <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
-                        appuyez sur le bouton orange.</b></div>
+                        <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
+                      appuyez sur le bouton violet.</b></div>
+                        <div class="box2"> <b>Abeille jaune : pour passer à la page suivante, <br>
+                        appuyez sur le bouton jaune.</b></div>
                       </div>
                   
                   </div>
@@ -89,7 +89,7 @@
               
               <script src="/js/keydown_handler.js">
               <script/>
-                    @else
+                    @elseif ($condition == 3 || $condition == 5)
                     <div>
 
                       Bienvenue à cette étude et merci de votre participation. <br><br>
@@ -99,12 +99,28 @@
 
                       <div class="container">
                       <div class="box1"> <b>Pour passer à la page suivante, <br>
-                      appuyez sur le bouton bleu.</b></div>
+                      appuyez sur le bouton violet.</b></div>
                       </div>
                       </div>
                     
                     <script src="/js/keydown_handler_1player.js">
                     <script/>
+                    @else
+                    <div>
+
+                      Bienvenue à cette étude et merci de votre participation. <br><br>
+
+
+                      Dans les diapositives suivantes, vous trouverez davantage d'instructions.<br><br>
+
+                      <div class="container">
+                      <div class="box2"> <b>Pour passer à la page suivante, <br>
+                      appuyez sur le bouton jaune.</b></div>
+                      </div>
+                      </div>
+
+                      <script src="/js/keydown_handler_1player.js">
+                      <script/>
             </div>
       
       @endif

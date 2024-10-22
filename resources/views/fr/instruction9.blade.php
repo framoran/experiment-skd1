@@ -89,17 +89,17 @@
                       // Determine the appropriate image based on accuracy
                       if (accuracy > 0.5) {
                           if (flower1) {
-                              flower1.src = '{{ asset("images/honeypot2.png") }}';
+                              flower1.src = '{{ asset("images/honeypot_full.png") }}';
                           }
                           if (flower2) {
-                              flower2.src = '{{ asset("images/honeypot2.png") }}';
+                              flower2.src = '{{ asset("images/honeypot_full.png") }}';
                           }
                       } else {
                           if (flower1) {
-                              flower1.src = '{{ asset("images/honeypot3.png") }}';
+                              flower1.src = '{{ asset("images/honeypot_half_full.png") }}';
                           }
                           if (flower2) {
-                              flower2.src = '{{ asset("images/honeypot3.png") }}';
+                              flower2.src = '{{ asset("images/honeypot_half_full.png") }}';
                           }
                       }
                   });

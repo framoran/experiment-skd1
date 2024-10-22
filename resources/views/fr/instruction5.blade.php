@@ -84,12 +84,12 @@
               }
 
               .box1 {
-                background-color: #0080FF; /* Color for the first box */
+                background-color: rgb(255, 102, 255); /* Color for the first box */
                 line-height: 2; /* Adjust the line-height to increase space between lines */
               }
 
               .box2 {
-                background-color: orange; /* Color for the second box */
+                background-color: rgb(255, 255, 51); /* Color for the second box */
                 line-height: 2; /* Adjust the line-height to increase space between lines */
               }
             </style>
@@ -106,41 +106,60 @@
 
                   Chacune d'entre vous est spécialisée dans un type spécifique de fleurs.<br><br>
 
-                  Abeille bleue, tu seras chargée des fleurs bleues, et abeille orange, tu seras chargée des fleurs oranges.<br><br>
+                  Abeille violet, tu seras chargée des fleurs violets, et abeille jaunes, tu seras chargée des fleurs violets.<br><br>
                   
-                  Votre objectif est de remplir un pot de miel autant que possible.<br><br>
+                  Votre objectif est de remplir un pot de miel.<br><br>
                 </p>
               </div>
               <div class="container">
                 <div class="box1">
-                  <b>Abeille bleue : pour passer à la page suivante,<br>
-                  appuyez sur le bouton bleu.</b>
+                  <b>Abeille violet : pour passer à la page suivante,<br>
+                  appuyez sur le bouton violet.</b>
                 </div>
                 <div class="box2">
-                  <b>Abeille orange : pour passer à la page suivante,<br>
-                  appuyez sur le bouton orange.</b>
+                  <b>Abeille jaune : pour passer à la page suivante,<br>
+                  appuyez sur le bouton jaune.</b>
                 </div>
               </div>
               <script src="/js/keydown_handler.js"></script>
-              @else
+              @elseif ($condition == 3 || $condition == 5) 
               <div>
                 <p>
-                  Dans cette étude, vous jouerez le rôle d'abeilles chargées de récolter du pollen pour la ruche.<br><br>
+                  Dans cette étude, vous jouerez le rôle d'abeille chargé de récolter du pollen pour la ruche.<br><br>
 
-                  Chacune d'entre vous est spécialisée dans un type spécifique de fleurs.<br><br>
+                  Chaque abeille est spécialisée dans un type spécifique de fleurs.<br><br>
 
-                  Abeille bleue, tu seras chargée des fleurs bleues, les fleurs oranges peuvent être ignorées.<br><br>
+                  Abeille violet, tu seras chargée des fleurs violet, les fleurs jaunes peuvent être ignorées.<br><br>
                   
-                  L'objectif est de remplir un pot de miel autant que possible.<br><br>
+                  L'objectif est de remplir un pot de miel.<br><br>
                 </p>
               </div>
               <div class="container">
                 <div class="box1">
                   <b>Pour passer à la page suivante,<br>
-                  appuyez sur le bouton bleu.</b>
+                  appuyez sur le bouton violet.</b>
                 </div>
               </div>
               <script src="/js/keydown_handler_1player.js"></script>
+              @else
+              <p>
+                  Dans cette étude, vous jouerez le rôle d'abeille chargé de récolter du pollen pour la ruche.<br><br>
+
+                  Chaque abeille est spécialisée dans un type spécifique de fleurs.<br><br>
+
+                  Abeille violet, tu seras chargée des fleurs violet, les fleurs jaunes peuvent être ignorées.<br><br>
+                  
+                  L'objectif est de remplir un pot de miel.<br><br>
+                </p>
+
+                      <div class="container">
+                      <div class="box2"> <b>Pour passer à la page suivante, <br>
+                      appuyez sur le bouton jaune.</b></div>
+                      </div>
+                      </div>
+
+                      <script src="/js/keydown_handler_1player.js">
+                      <script/>
               @endif
 
             </div>
