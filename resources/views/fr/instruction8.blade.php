@@ -43,12 +43,12 @@
             }
 
             .box1 {
-              background-color: #0080FF; /* Color for the first box */
+              background-color: rgb(255, 102, 255); /* Color for the first box */
               line-height: 2; /* Adjust the line-height to increase space between lines */
             }
 
             .box2 {
-              background-color: orange; /* Color for the second box */
+              background-color: rgb(255, 255, 51); /* Color for the second box */
               line-height: 2; /* Adjust the line-height to increase space between lines */
             }
           </style>
@@ -64,7 +64,7 @@
                 À la fin du jeu, vous verrez à quel point vos efforts combinés auront permis de remplir le pot de miel.<br></br>
 
                  <!-- Add the honey jar image here -->
-                 <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
+                 <img src="{{ asset('images/honeypot_empty.png') }}" alt="honeypot" width="200" height="200"><br><br>
 
                 <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à accomplir ensemble !<br></br>
 
@@ -72,33 +72,52 @@
                 </p>
           	  </div>
               <div class="container">
-                <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
-                appuyez sur le bouton bleu.</b></div>
-                <div class="box2"> <b>Abeille orange : pour passer à la page suivante,<br>
-                 appuyez sur le bouton orange.</b></div>
+                <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
+                appuyez sur le bouton violet.</b></div>
+                <div class="box2"> <b>Abeille jaune : pour passer à la page suivante,<br>
+                 appuyez sur le bouton jaune.</b></div>
               </div>
               </div>
                 <script src="/js/keydown_handler.js">
               <script/>
-              @else
+              @elseif ($condition == 3 || $condition == 5)
               <div>
                 <p>
                 À la fin du jeu, vous verrez à quel point vos efforts auront permis de remplir le pot de miel.<br></br>
 
                 <!-- Add the honey jar image here -->
-                 <img src="{{ asset('images/honeypot.png') }}" alt="honeypot" width="200" height="200"><br><br>
+                 <img src="{{ asset('images/honeypot_empty.png') }}" alt="honeypot" width="200" height="200"><br><br>
 
                 Bon travail et amusez-vous bien !<br></br>
                 </p>
           	  </div>
               <div class="container">
                 <div class="box1"> <b>Pour passer à la page suivante, <br>
-                appuyez sur le bouton bleu.</b></div>
+                appuyez sur le bouton violet.</b></div>
               </div>
               </div>
                 <script src="/js/keydown_handler_1player.js">
               <script/>
             </div>
+            @else
+            <div>
+                <p>
+                À la fin du jeu, vous verrez à quel point vos efforts auront permis de remplir le pot de miel.<br></br>
+
+                <!-- Add the honey jar image here -->
+                 <img src="{{ asset('images/honeypot_empty.png') }}" alt="honeypot" width="200" height="200"><br><br>
+
+                Bon travail et amusez-vous bien !<br></br>
+                </p>
+
+                      <div class="container">
+                      <div class="box2"> <b>Pour passer à la page suivante, <br>
+                      appuyez sur le bouton jaune.</b></div>
+                      </div>
+                      </div>
+
+                      <script src="/js/keydown_handler_1player.js">
+                      <script/>
             @endif
     @endcomponent
   @endcomponent

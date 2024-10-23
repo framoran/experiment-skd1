@@ -45,12 +45,12 @@
             }
 
             .box1 {
-              background-color: #0080FF; /* Color for the first box */
+              background-color: rgb(255, 102, 255); /* Color for the first box */
               line-height: 2; /* Adjust the line-height to increase space between lines */
             }
 
             .box2 {
-              background-color: orange; /* Color for the second box */
+              background-color: rgb(255, 255, 51); /* Color for the second box */
               line-height: 2; /* Adjust the line-height to increase space between lines */
             }
           </style>
@@ -71,15 +71,15 @@
                 </p>
           	  </div>
               <div class="container">
-                <div class="box1"> <b>Abeille bleue : pour passer à la page suivante,<br>
-                 appuyez sur le bouton bleu.</b></div>
-                <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
-                appuyez sur le bouton orange.</b></div>
+                <div class="box1"> <b>Abeille violet : pour passer à la page suivante,<br>
+                 appuyez sur le bouton violet.</b></div>
+                <div class="box2"> <b>Abeille jaune : pour passer à la page suivante, <br>
+                appuyez sur le bouton jaune.</b></div>
               </div>
               </div>
                 <script src="/js/keydown_handler.js">
               <script/>
-              @else
+              @elseif ($condition == 3 || $condition == 5) 
               <div>
                 <p>
                   Pour récolter le pollen, vous devrez déplacer votre abeille sur les fleurs qui se déplacent à travers l'écran. <br></br>
@@ -91,12 +91,29 @@
           	  </div>
               <div class="container">
                 <div class="box1"> <b>Pour passer à la page suivante,<br>
-                 appuyez sur le bouton bleu.</b></div>
+                 appuyez sur le bouton violet.</b></div>
               </div>
               </div>
                 <script src="/js/keydown_handler_1player.js">
               <script/>
             </div>
+            @else
+            <p>
+                  Pour récolter le pollen, vous devrez déplacer votre abeille sur les fleurs qui se déplacent à travers l'écran. <br></br>
+
+                  Les touches pour vous déplacer sont les 4 touches marquées en rouge sur le clavier. <br></br>
+
+                  Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
+                </p>
+
+                      <div class="container">
+                      <div class="box2"> <b>Pour passer à la page suivante, <br>
+                      appuyez sur le bouton jaune.</b></div>
+                      </div>
+                      </div>
+
+                      <script src="/js/keydown_handler_1player.js">
+                      <script/>
             @endif
     @endcomponent
   @endcomponent
