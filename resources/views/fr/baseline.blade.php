@@ -33,21 +33,16 @@
             </div>
 
             <script>
+              const url = 'http://127.0.0.1:8000/fr/instruction4';
+            </script>
+
+            <script>
                 // Define the key codes for both players
                 const blueKey = '/';   // For the blue bee
                 const orangeKey = '*'; // For the orange bee
 
                 let bluePressed = false;
-                let orangePressed = false;
-
-                // Function to check if both keys are pressed
-                function checkKeys() {
-                    if (bluePressed && orangePressed) {
-
-
-
-                    }
-                }
+                let orangePressed = false;                
 
                 // Event listener for key presses
                 document.addEventListener('keydown', function(event) {
@@ -97,6 +92,7 @@
                                 const redirectAudio = new Audio('{{ asset('assets/chimes.wav') }}');
                                 redirectAudio.play();
                                 video.pause();
+                                window.location.href = url;
 
                                 setTimeout(() => {
                                     redirectAudio.pause();
