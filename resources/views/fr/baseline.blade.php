@@ -16,10 +16,10 @@
                     <p>Note Importante : Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
                     <p>Maintenant, détendez-vous et essayer de bouger le moins possible pendant la phase de repos.</p> <br>
                     <div class="container">
-                        <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
-                      appuyez sur le bouton violet.</b></div>
-                        <div class="box2"> <b>Abeille jaune : pour passer à la page suivante, <br>
-                        appuyez sur le bouton jaune.</b></div>
+                        <div class="box1"> <b>Abeille bleue : pour passer à la page suivante, <br>
+                      appuyez sur le bouton bleu.</b></div>
+                        <div class="box2"> <b>Abeille orange : pour passer à la page suivante, <br>
+                        appuyez sur le bouton orange.</b></div>
                     </div>
                 </div>
 
@@ -33,31 +33,26 @@
             </div>
 
             <script>
+              const url = 'http://127.0.0.1:8000/fr/instruction4';
+            </script>
+
+            <script>
                 // Define the key codes for both players
-                const purplekey = '/';   // For the purple bee
-                const yellowkey = '*'; // For the yellow bee
+                const blueKey = '/';   // For the blue bee
+                const orangeKey = '*'; // For the orange bee
 
-                let purplePressed = false;
-                let yellowPressed = false;
-
-                // Function to check if both keys are pressed
-                function checkKeys() {
-                    if (purplePressed && yellowPressed) {
-
-
-
-                    }
-                }
+                let bluePressed = false;
+                let orangePressed = false;                
 
                 // Event listener for key presses
                 document.addEventListener('keydown', function(event) {
-                    if (event.key === purplekey) {
-                        purplePressed = true;
-                        console.log('Purple key pressed');
+                    if (event.key === blueKey) {
+                        bluePressed = true;
+                        console.log('Blue key pressed');
                     }
-                    if (event.key === yellowkey) {
-                        yellowPressed = true;
-                        console.log('Yellow key pressed');
+                    if (event.key === orangeKey) {
+                        orangePressed = true;
+                        console.log('Orange key pressed');
                     }
 
                     checkKeys(); // Check if both keys are pressed after each keydown event
@@ -71,15 +66,15 @@
                     const startButton = document.getElementById('startButton');                    
 
                     document.addEventListener('keydown', function(event) {
-                        if (event.key === purplekey) {
-                            purplePressed = true;
-                            console.log('Purple key pressed');
+                        if (event.key === blueKey) {
+                            bluePressed = true;
+                            console.log('Blue key pressed');
                         }
-                        if (event.key === yellowkey) {
-                            yellowPressed = true;
-                            console.log('Yellow key pressed');
+                        if (event.key === orangeKey) {
+                            orangePressed = true;
+                            console.log('Orange key pressed');
                         }
-                        if (purplePressed && yellowPressed){
+                        if (bluePressed && orangePressed){
 
                             // Change background to black and hide card
                             document.body.style.backgroundColor = 'black';
@@ -97,6 +92,7 @@
                                 const redirectAudio = new Audio('{{ asset('assets/chimes.wav') }}');
                                 redirectAudio.play();
                                 video.pause();
+                                window.location.href = url;
 
                                 setTimeout(() => {
                                     redirectAudio.pause();
@@ -147,12 +143,12 @@
                 }
 
                 .box1 {
-                    background-color: rgb(255, 102, 255); /* Color for the first box */
+                    background-color: #0080FF; /* Color for the first box */
                     line-height: 2; /* Adjust the line-height to increase space between lines */
                 }
 
                 .box2 {
-                    background-color: rgb(255, 255, 51); /* Color for the second box */
+                    background-color: orange; /* Color for the second box */
                     line-height: 2; /* Adjust the line-height to increase space between lines */
                 }
 
