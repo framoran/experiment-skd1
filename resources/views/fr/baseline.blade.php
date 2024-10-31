@@ -19,7 +19,7 @@
                     <h1 class="title">Période de Repos</h1>
                     <p class="m1">Pendant les 8 prochaines minutes, votre activité physiologique au repos sera mesurée.</p> <br>
                     <p>Pendant ce temps, vous regarderez un film documentaire.</p> <br>
-                    <p>Note Importante : Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
+                    <p><b>Note Importante :</b> Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
                     <p>Maintenant, détendez-vous et essayez de bouger le moins possible pendant la phase de repos.</p> <br>
                     <div class="container">
                         <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
@@ -36,7 +36,7 @@
                     <h1 class="title">Période de Repos</h1>
                     <p class="m1">Pendant les 8 prochaines minutes, votre activité physiologique au repos sera mesurée.</p> <br>
                     <p>Pendant ce temps, vous regarderez un film documentaire.</p> <br>
-                    <p>Note Importante : Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
+                    <p><b>Note Importante :</b> Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
                     <p>Maintenant, détendez-vous et essayez de bouger le moins possible pendant la phase de repos.</p> <br>
                     <div class="container">
                         <div class="box1"> <b>Pour passer à la page suivante, <br>
@@ -51,7 +51,7 @@
                     <h1 class="title">Période de Repos</h1>
                     <p class="m1">Pendant les 8 prochaines minutes, votre activité physiologique au repos sera mesurée.</p> <br>
                     <p>Pendant ce temps, vous regarderez un film documentaire.</p> <br>
-                    <p>Note Importante : Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
+                    <p><b>Note Importante :</b> Veuillez essayer de maintenir la même position corporelle pendant toute l'expérience.</p> <br>
                     <p>Maintenant, détendez-vous et essayez de bouger le moins possible pendant la phase de repos.</p> <br>
                     <div class="container">
                         <div class="box2"> <b>Pour passer à la page suivante, <br>
