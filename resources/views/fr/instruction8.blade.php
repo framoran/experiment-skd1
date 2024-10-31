@@ -17,10 +17,16 @@
             
             <style>
 
-            body, html {
-                height: 100%; /* Make sure the body takes up the full viewport height */
-                margin: 0;
+              body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
+
 
               .content {
                 display: flex;
@@ -58,13 +64,15 @@
               <h1>
               	Consignes
               </h1>
-              @if ($condition == 1 || $condition == 2)
+              @if ($condition == 1)
               <div>
                 <p>
-                À la fin du jeu, vous verrez à quel point vos efforts combinés auront permis de remplir le pot de miel.<br></br>
+                Selon l'ancienne recette, il faut recolter le 80% des fleurs trouvés par deux abeilles en 5 minutes.<br></br>
+                
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que vous avez réussi!<br></br>
 
                  <!-- Add the honey jar image here -->
-                 <img src="{{ asset('images/honeypot_empty.png') }}" alt="honeypot" width="200" height="200"><br><br>
+                 <img src="{{ asset('images/HP_empty_duo.png') }}" alt="honeypot" width="600" height="600"><br><br>
 
                 <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à accomplir ensemble !<br></br>
 
@@ -80,13 +88,41 @@
               </div>
                 <script src="/js/keydown_handler.js">
               <script/>
-              @elseif ($condition == 3 || $condition == 5)
+
+              @elseif ( $condition == 2)
               <div>
                 <p>
-                À la fin du jeu, vous verrez à quel point vos efforts auront permis de remplir le pot de miel.<br></br>
+                Malheureusement, l'ancienne recette de la ruche est un peu effacée, donc on ne sait pas clairement combien de fleurs sont nécessaires.<br></br>
+                
+                Essayez donc de recueillir le plus de fleurs possible! À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que vous avez réussi!<br></br>
+
+                 <!-- Add the honey jar image here -->
+                 <img src="{{ asset('images/HP_empty_duo.png') }}" alt="honeypot" width="600" height="600"><br><br>
+
+                <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à accomplir ensemble !<br></br>
+
+                Bon travail et amusez-vous bien !<br></br>
+                </p>
+          	  </div>
+              <div class="container">
+                <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
+                appuyez sur le bouton violet.</b></div>
+                <div class="box2"> <b>Abeille jaune : pour passer à la page suivante,<br>
+                 appuyez sur le bouton jaune.</b></div>
+              </div>
+              </div>
+                <script src="/js/keydown_handler.js">
+              <script/>
+
+              @elseif ($condition == 3)
+              <div>
+                <p>
+                Selon l'ancienne recette, il faut recolter le 80% des fleurs trouvés par une abeille en 5 minutes.<br></br>
+                
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que vous avez réussi!<br></br>
 
                 <!-- Add the honey jar image here -->
-                 <img src="{{ asset('images/honeypot_empty.png') }}" alt="honeypot" width="200" height="200"><br><br>
+                 <img src="{{ asset('images/HP_empty_purple.png') }}" alt="honeypot" width="600" height="600"><br><br>
 
                 Bon travail et amusez-vous bien !<br></br>
                 </p>
@@ -96,16 +132,40 @@
                 appuyez sur le bouton violet.</b></div>
               </div>
               </div>
-                <script src="/js/keydown_handler_1player.js">
+                <script src="/js/keydown_handler_1player_purple.js">
               <script/>
             </div>
-            @else
-            <div>
+            @elseif ($condition == 4)
+              <div>
                 <p>
-                À la fin du jeu, vous verrez à quel point vos efforts auront permis de remplir le pot de miel.<br></br>
+                Malheureusement, l'ancienne recette de la ruche est un peu effacée, donc on ne sait pas clairement combien de fleurs sont nécessaires.<br></br>
+                
+                Essayez donc de recueillir le plus de fleurs possible! À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que vous avez réussi!<br></br>
 
                 <!-- Add the honey jar image here -->
-                 <img src="{{ asset('images/honeypot_empty.png') }}" alt="honeypot" width="200" height="200"><br><br>
+                 <img src="{{ asset('images/HP_empty_purple.png') }}" alt="honeypot" width="600" height="600"><br><br>
+
+                Bon travail et amusez-vous bien !<br></br>
+                </p>
+          	  </div>
+              <div class="container">
+                <div class="box1"> <b>Pour passer à la page suivante, <br>
+                appuyez sur le bouton violet.</b></div>
+              </div>
+              </div>
+                <script src="/js/keydown_handler_1player_purple.js">
+              <script/>
+            </div>
+
+            @elseif ($condition == 5)
+            <div>
+                <p>
+                Selon l'ancienne recette, il faut recolter le 80% des fleurs trouvés par une abeille en 5 minutes.<br></br>
+                
+                 À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que vous avez réussi!<br></br>
+
+                <!-- Add the honey jar image here -->
+                 <img src="{{ asset('images/HP_empty_yellow.png') }}" alt="honeypot" width="600" height="600"><br><br>
 
                 Bon travail et amusez-vous bien !<br></br>
                 </p>
@@ -116,7 +176,29 @@
                       </div>
                       </div>
 
-                      <script src="/js/keydown_handler_1player.js">
+                      <script src="/js/keydown_handler_1player_yellow.js">
+                      <script/>
+
+                      @elseif ($condition == 6)
+                      <div>
+                          <p>
+                          Malheureusement, l'ancienne recette de la ruche est un peu effacée, donc on ne sait pas clairement combien de fleurs sont nécessaires.<br></br>
+                          
+                          Essayez donc de recueillir le plus de fleurs possible! À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que vous avez réussi!<br></br>
+
+                          <!-- Add the honey jar image here -->
+                          <img src="{{ asset('images/HP_empty_yellow.png') }}" alt="honeypot" width="600" height="600"><br><br>
+
+                          Bon travail et amusez-vous bien !<br></br>
+                          </p>
+
+                      <div class="container">
+                      <div class="box2"> <b>Pour passer à la page suivante, <br>
+                      appuyez sur le bouton jaune.</b></div>
+                      </div>
+                      </div>
+
+                      <script src="/js/keydown_handler_1player_yellow.js">
                       <script/>
             @endif
     @endcomponent

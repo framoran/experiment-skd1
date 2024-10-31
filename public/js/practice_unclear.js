@@ -571,7 +571,7 @@ function updateFlowerProperties() {
         // Update flower size and speed once every 10 seconds
         if (index > 4){
             currentFlowerSize = getRandomInt(40, 100); // Random size between 20 and 100
-            currentFlowerSpeed = Math.random() * (4 - 1) + 1; // Random speed between 1 and 4
+            currentFlowerSpeed = Math.random() * (4 - 0.5) + 0.5; // Random speed between 1 and 4
 
         }else{
             currentFlowerSize = FlowerSizeArray[index]

@@ -19,10 +19,16 @@
             
             <style>
 
-            body, html {
-                height: 100%; /* Make sure the body takes up the full viewport height */
-                margin: 0;
+              body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
+
 
               .content {
                 display: flex;
@@ -63,11 +69,13 @@
               @if ($condition == 1 || $condition == 2)
               <div>
                 <p>
-                  Pour récolter le pollen, vous devrez déplacer votre abeille sur les fleurs qui se déplacent à travers l'écran. <br></br>
+                Pour récolter le pollen, déplacez-vous sur les fleurs qui traversent l’écran pour les attraper.<br></br>
 
-                  Les touches pour vous déplacer sont les 4 touches marquées en rouge sur le clavier. <br></br>
-
-                  Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
+                Les touches pour vous déplacer sont les quatre touches marquées en rouge sur le clavier.<br></br>
+                
+                Il est possible de garder les touches enfoncées (même plusieurs à la fois) pour se déplacer.<br></br>
+                
+                Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
                 </p>
           	  </div>
               <div class="container">
@@ -79,14 +87,16 @@
               </div>
                 <script src="/js/keydown_handler.js">
               <script/>
-              @elseif ($condition == 3 || $condition == 5) 
+              @elseif ($condition == 3 || $condition == 4) 
               <div>
                 <p>
-                  Pour récolter le pollen, vous devrez déplacer votre abeille sur les fleurs qui se déplacent à travers l'écran. <br></br>
+                Pour récolter le pollen, déplacez-vous sur les fleurs qui traversent l’écran pour les attraper.<br></br>
 
-                  Les touches pour vous déplacer sont les 4 touches marquées en rouge sur le clavier. <br></br>
-
-                  Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
+                Les touches pour vous déplacer sont les quatre touches marquées en rouge sur le clavier.<br></br>
+                
+                Il est possible de garder les touches enfoncées (même plusieurs à la fois) pour se déplacer.<br></br>
+                
+                Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
                 </p>
           	  </div>
               <div class="container">
@@ -94,16 +104,18 @@
                  appuyez sur le bouton violet.</b></div>
               </div>
               </div>
-                <script src="/js/keydown_handler_1player.js">
+                <script src="/js/keydown_handler_1player_purple.js">
               <script/>
             </div>
             @else
             <p>
-                  Pour récolter le pollen, vous devrez déplacer votre abeille sur les fleurs qui se déplacent à travers l'écran. <br></br>
+            Pour récolter le pollen, déplacez-vous sur les fleurs qui traversent l’écran pour les attraper.<br></br>
 
-                  Les touches pour vous déplacer sont les 4 touches marquées en rouge sur le clavier. <br></br>
+            Les touches pour vous déplacer sont les quatre touches marquées en rouge sur le clavier.<br></br>
 
-                  Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
+            Il est possible de garder les touches enfoncées (même plusieurs à la fois) pour se déplacer.<br></br>
+
+            Dans la minute qui suit, vous aurez la possibilité de vous familiariser avec les commandes et le fonctionnement du jeu.<br></br>
                 </p>
 
                       <div class="container">
@@ -112,7 +124,7 @@
                       </div>
                       </div>
 
-                      <script src="/js/keydown_handler_1player.js">
+                      <script src="/js/keydown_handler_1player_yellow.js">
                       <script/>
             @endif
     @endcomponent

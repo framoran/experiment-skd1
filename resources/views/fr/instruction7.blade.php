@@ -18,10 +18,16 @@
             
             <style>
 
-            body, html {
-                height: 100%; /* Make sure the body takes up the full viewport height */
-                margin: 0;
+              body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
+
 
               .content {
                 display: flex;
@@ -65,7 +71,7 @@
 
                 Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
 
-                Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
+                Attention: Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>
                 <div class="container">
                 <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
@@ -77,14 +83,14 @@
                 <script src="/js/keydown_handler.js">
                 <script/>
 
-                @elseif ($condition == 3 || $condition == 5)
+                @elseif ($condition == 3 || $condition == 4)
                 <div>
                 <p>
                 Parfait !<br></br>
 
                 Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
 
-                Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
+                Attention: le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>
                 <div class="container">
                 <div class="box1"> 
@@ -92,7 +98,7 @@
                 appuyez sur le bouton violet.</b></div>
                 </div>
                 </div>
-                <script src="/js/keydown_handler_1player.js">
+                <script src="/js/keydown_handler_1player_purple.js">
                 <script/>
                 </div>>
                 </div>
@@ -103,7 +109,7 @@
 
                 Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
 
-                Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
+                Attention: Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>
 
                       <div class="container">
@@ -112,7 +118,7 @@
                       </div>
                       </div>
 
-                      <script src="/js/keydown_handler_1player.js">
+                      <script src="/js/keydown_handler_1player_yellow.js">
                       <script/>
                 @endif
     @endcomponent

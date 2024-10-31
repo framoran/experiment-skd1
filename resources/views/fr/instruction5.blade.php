@@ -12,56 +12,21 @@
                 {{ config('app.name') }}
             @endslot
 
-            <!-- Include Axios from CDN -->
-            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
             <script>
                 const url = 'http://127.0.0.1:8000/fr/instruction6';
-
-                // Function to get a cookie by name
-                function getCookie(name) {
-                    let cookieArr = document.cookie.split(";");
-                    for (let i = 0; i < cookieArr.length; i++) {
-                        let cookiePair = cookieArr[i].split("=");
-                        if (name == cookiePair[0].trim()) {
-                            return decodeURIComponent(cookiePair[1]);
-                        }
-                    }
-                    return null;
-                }
-
-                // Get the data from the cookies
-                let flower_practice = getCookie("flower_practice");
-                let flower2_practice = getCookie("flower2_practice");
-                let missedFlower_practice = getCookie("missedFlower_practice");
-                let missedFlower2_practice = getCookie("missedFlower2_practice");
-                let draw_practice = getCookie("drawing_practice");
-
-                // Prepare the data to send
-                let data = {
-                    flower_practice: flower_practice,
-                    flower2_practice: flower2_practice,
-                    missedFlower_practice: missedFlower_practice,
-                    missedFlower2_practice: missedFlower2_practice,
-                    draw_practice: draw_practice
-                };
-
-                // Send the data via Axios
-                axios.post('{{ route('save.practice.data') }}', data)
-                  .then(function (response) {
-                      console.log(response);
-                  })
-                  .catch(function (error) {
-                      console.log(error);
-                  });
-                 
             </script>
 
             <style>
-              body, html {
-                height: 100%; /* Make sure the body takes up the full viewport height */
-                margin: 0;
+            body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
+
 
               .content {
                 display: flex;
@@ -102,11 +67,12 @@
               @if ($condition == 1 || $condition == 2)
               <div>
                 <p>
-                  Dans cette étude, vous jouerez le rôle d'abeilles chargées de récolter du pollen pour la ruche.<br><br>
 
-                  Chacune d'entre vous est spécialisée dans un type spécifique de fleurs.<br><br>
+                  Pour le jeu collaboratif, imaginez d'être une abeille travailleuse chargée de la recolte du pollen et la production de miel.<br><br>
 
-                  Abeille violet, tu seras chargée des fleurs violets, et abeille jaunes, tu seras chargée des fleurs violets.<br><br>
+                  Chacune d'entre vous est spécialisée dans un type spécifique de fleurs requis par l'ancienne recepte de la ruche.<br><br>
+
+                  Abeille violet, vous serez chargée des fleurs violets, et abeille jaunes, vous serez seras chargée des fleurs jaunes.<br><br>
                   
                   Votre objectif est de remplir un pot de miel.<br><br>
                 </p>
@@ -122,14 +88,14 @@
                 </div>
               </div>
               <script src="/js/keydown_handler.js"></script>
-              @elseif ($condition == 3 || $condition == 5) 
+              @elseif ($condition == 3 || $condition == 4) 
               <div>
                 <p>
-                  Dans cette étude, vous jouerez le rôle d'abeille chargé de récolter du pollen pour la ruche.<br><br>
+                  Pour le jeu, imaginez d'être une abeille travailleuse chargée de la recolte du pollen et la production de miel. <br><br>
 
-                  Chaque abeille est spécialisée dans un type spécifique de fleurs.<br><br>
+                  Chaque abeille est spécialisée dans un type spécifique de fleurs requis par l'ancienne recepte de la ruche.<br><br>
 
-                  Abeille violet, tu seras chargée des fleurs violet, les fleurs jaunes peuvent être ignorées.<br><br>
+                  Dans votre cas, dès que vous êtes une abeille violet, vous serez chargée des fleurs violets, les fleurs jaunes peuvent être ignorées.<br><br>
                   
                   L'objectif est de remplir un pot de miel.<br><br>
                 </p>
@@ -140,16 +106,16 @@
                   appuyez sur le bouton violet.</b>
                 </div>
               </div>
-              <script src="/js/keydown_handler_1player.js"></script>
+              <script src="/js/keydown_handler_1player_purple.js"></script>
               @else
               <p>
-                  Dans cette étude, vous jouerez le rôle d'abeille chargé de récolter du pollen pour la ruche.<br><br>
+                Pour le jeu, imaginez d'être une abeille travailleuse chargée de la recolte du pollen et la production de miel. <br><br>
 
-                  Chaque abeille est spécialisée dans un type spécifique de fleurs.<br><br>
+                Chaque abeille est spécialisée dans un type spécifique de fleurs requis par l'ancienne recepte de la ruche.<br><br>
 
-                  Abeille violet, tu seras chargée des fleurs violet, les fleurs jaunes peuvent être ignorées.<br><br>
-                  
-                  L'objectif est de remplir un pot de miel.<br><br>
+                Dans votre cas, dès que vous êtes une abeille jaune, vous serez chargée des fleurs jaunes, les fleurs violets peuvent être ignorées.<br><br>
+
+                L'objectif est de remplir un pot de miel.<br><br>
                 </p>
 
                       <div class="container">
@@ -158,7 +124,7 @@
                       </div>
                       </div>
 
-                      <script src="/js/keydown_handler_1player.js">
+                      <script src="/js/keydown_handler_1player_yellow.js">
                       <script/>
               @endif
 

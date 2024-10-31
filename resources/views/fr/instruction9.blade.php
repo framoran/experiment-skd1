@@ -85,21 +85,48 @@
                       // Find the image elements by their IDs
                       let flower1 = document.getElementById('flower');
                       let flower2 = document.getElementById('flower2');
+                      let flower3 = document.getElementById('flower3');
 
                       // Determine the appropriate image based on accuracy
-                      if (accuracy > 0.5) {
+                      if (accuracy >= 0.8) {
                           if (flower1) {
-                              flower1.src = '{{ asset("images/honeypot_full.png") }}';
+                              flower1.src = '{{ asset("images/HP_full_duo.png") }}';
                           }
                           if (flower2) {
-                              flower2.src = '{{ asset("images/honeypot_full.png") }}';
+                              flower2.src = '{{ asset("images/HP_full_purple.png") }}';
                           }
-                      } else {
+                          if (flower3) {
+                              flower3.src = '{{ asset("images/HP_full_yellow.png") }}';
+                          }
+                        } else if (accuracy >= 0.6 && accuracy < 0.8) {
                           if (flower1) {
-                              flower1.src = '{{ asset("images/honeypot_half_full.png") }}';
+                              flower1.src = '{{ asset("images/HP_35_duo.png") }}';
                           }
                           if (flower2) {
-                              flower2.src = '{{ asset("images/honeypot_half_full.png") }}';
+                              flower2.src = '{{ asset("images/HP_34_purple.png") }}';
+                          }
+                          if (flower3) {
+                              flower3.src = '{{ asset("images/HP_34_yellow.png") }}';
+                          } 
+                        } else if (accuracy >= 0.40 && accuracy < 0.6) {
+                          if (flower1) {
+                              flower1.src = '{{ asset("images/HP_HalfFull_duo.png") }}';
+                          }
+                          if (flower2) {
+                              flower2.src = '{{ asset("images/HP_HalfFull_purple.png") }}';
+                          }
+                          if (flower3) {
+                              flower3.src = '{{ asset("images/HP_HalfFull_yellow.png") }}';
+                          }
+                        } else{
+                          if (flower1) {
+                              flower1.src = '{{ asset("images/HP_14_duo.png") }}';
+                          }
+                          if (flower2) {
+                              flower2.src = '{{ asset("images/HP_14_purple.png") }}';
+                          }
+                          if (flower3) {
+                              flower3.src = '{{ asset("images/HP_14_yellow.png") }}';
                           }
                       }
                   });
@@ -107,10 +134,16 @@
             </script>
 
             <style>
-                body, html {
-                    height: 100%;
-                    margin: 0;
-                }
+            body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
+              }
+
                 .content {
                     display: flex;
                     justify-content: center;
@@ -129,11 +162,11 @@
                     border-radius: 15px;
                 }
                 .box1 {
-                    background-color: #0080FF;
+                    background-color: #rgb(255, 102, 255);
                     line-height: 2;
                 }
                 .box2 {
-                    background-color: orange;
+                    background-color: rgb(255, 255, 51);
                     line-height: 2;
                 }
             </style>
@@ -144,17 +177,30 @@
                     <div>
                         <p>
                             Le jeu est terminé! Voici le résultat de vos efforts: <br><br>
-                            <img id="flower" src="" alt="honeypot" width="200" height="200"><br><br>
+                            <img id="flower" src="" alt="honeypot" width="600" height="600"><br><br>
                             Bien fait! <br><br>
+
                             Veuillez attendre l'experimentatrice SVP. <br>
                         </p>
                     </div>
-                @else
+                @elseif ($condition == 3 || $condition == 4)
                     <div>
                         <p>
                             Le jeu est terminé! Voici le résultat de vos efforts: <br><br>
-                            <img id="flower2" src="" alt="honeypot" width="200" height="200"><br><br>
+                            <img id="flower2" src="" alt="honeypot" width="600" height="600"><br><br>
                             Bien fait! <br><br>
+
+                            Veuillez attendre l'experimentatrice SVP. <br>
+                        </p>
+                    </div>
+
+                    @else
+                    <div>
+                        <p>
+                            Le jeu est terminé! Voici le résultat de vos efforts: <br><br>
+                            <img id="flower3" src="" alt="honeypot" width="600" height="600"><br><br>
+                            Bien fait! <br><br>
+
                             Veuillez attendre l'experimentatrice SVP. <br>
                         </p>
                     </div>

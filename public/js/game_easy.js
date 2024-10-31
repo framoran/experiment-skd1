@@ -9,7 +9,7 @@ const flowers2_points = 30; // default
 const collide_rock = 30; // default
 const fire_rock_success = 30; // default
 const fill_fuel = 300; // default
-const speed_g = 1; // default (min should be 1 and max 4 incrementing with 0.5)
+const speed_g = 0.5; // default (min should be 1 and max 4 incrementing with 0.5)
 const time_to_refuel = 60000; // default (min 10 seconds and max 60)
 const task_length = 310000;
 

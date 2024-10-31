@@ -19,10 +19,16 @@
             </script>
             <style>
 
-            body, html {
-                height: 100%; /* Make sure the body takes up the full viewport height */
-                margin: 0;
+              body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
+
 
               .content {
                 display: flex;
@@ -65,7 +71,7 @@
 
                 Le film est maintenant terminé. <br /><br />
 
-                Dans les pages suivantes, vous trouverez les instructions pour le jeu collaboratif. <br /><br />
+                Sur les pages suivantes, vous trouverez les instructions pour le jeu collaboratif. <br /><br />
                 
                 <div class="container">
                   <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
@@ -76,12 +82,12 @@
               	</div>
                   <script src="/js/keydown_handler.js">
                 <script/>
-              @elseif ($condition == 3 || $condition == 5) 
+              @elseif ($condition == 3 || $condition == 4) 
               <div>
 
                 Le film est maintenant terminé. <br /><br />
 
-                Dans les pages suivantes, vous trouverez les instructions pour le jeu.<br /><br />
+                Sur les pages suivantes, vous trouverez les instructions pour le jeu.<br /><br />
                 
                 <div class="container">
                   <div class="box1"> <b>Pour passer à la page suivante,<br> 
@@ -89,13 +95,13 @@
                 </div>
               	</div>
 
-                  <script src="/js/keydown_handler_1player.js">
+                  <script src="/js/keydown_handler_1player_purple.js">
                 <script/>
                 @else
                     <div>
                     Le film est maintenant terminé. <br /><br />
 
-                    Dans les pages suivantes, vous trouverez les instructions pour le jeu.<br /><br />
+                    Sur les pages suivantes, vous trouverez les instructions pour le jeu.<br /><br />
                       <p>
 
                       <div class="container">
@@ -104,7 +110,7 @@
                       </div>
                       </div>
 
-                      <script src="/js/keydown_handler_1player.js">
+                      <script src="/js/keydown_handler_1player_yellow.js">
                       <script/>
               @endif
             </div>

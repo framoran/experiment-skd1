@@ -23,6 +23,10 @@
                   height: 100%; /* Ensure the body takes up the full viewport height */
                   margin: 0;
                   overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
 
               .content {
@@ -75,6 +79,8 @@
 
                       Vérifiez sur votre bureau : vous trouverez une abeille de couleur <b>violet</b></span> ou <b>jaune</b></span>.<br><br>
 
+                      Cela sert à vous indiquer si vous êtes l'abeille violet ou jaune. <br><br>
+
                       Dans les diapositives suivantes, vous trouverez davantage d'instructions.<br><br>
 
                       <div class="container">
@@ -89,7 +95,7 @@
               
               <script src="/js/keydown_handler.js">
               <script/>
-                    @elseif ($condition == 3 || $condition == 5)
+                    @elseif ($condition == 3 || $condition == 4)
                     <div>
 
                       Bienvenue à cette étude et merci de votre participation. <br><br>
@@ -103,7 +109,7 @@
                       </div>
                       </div>
                     
-                    <script src="/js/keydown_handler_1player.js">
+                    <script src="/js/keydown_handler_1player_purple.js">
                     <script/>
                     @else
                     <div>
@@ -119,7 +125,7 @@
                       </div>
                       </div>
 
-                      <script src="/js/keydown_handler_1player.js">
+                      <script src="/js/keydown_handler_1player_yellow.js">
                       <script/>
             </div>
       

@@ -16,10 +16,16 @@
             </script>
             <style>
 
-            body, html {
-                height: 100%; /* Make sure the body takes up the full viewport height */
-                margin: 0;
+              body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/craiyon_231414_honeycomb.png'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
+
 
               .content {
                 display: flex;
@@ -64,7 +70,7 @@
 
                     Nous mesurerons votre activité cardiovasculaire grâce aux quatre électrodes qui vous ont été appliquées par l’expérimentatrice et au brassard pour la pression artérielle. <br /><br />
 
-                    Veuillez trouver une position confortable que vous puissiez maintenir pendant toute l'expérience et vous déplacer le moins possible.<br /><br />
+                    Veuillez trouver une position confortable que vous puissiez maintenir pendant toute l'expérience et de bouger le moins possible.<br /><br />
                     
                     <div class="container">
                         <div class="box1"> <b>Abeille violet : pour passer à la page suivante, <br>
@@ -77,14 +83,14 @@
                     <script src="/js/keydown_handler.js">
                     <script/>
 
-                  @elseif ($condition == 3 || $condition == 5) 
+                  @elseif ($condition == 3 || $condition == 4) 
 
                     <div>
                       Dans cette étude, nous nous intéressons à votre activité cardiovasculaire à deux phases spécifiques : la phase de repos et la phase de jeu.<br /><br />
 
                       Nous mesurerons votre activité cardiovasculaire grâce aux quatre électrodes qui vous ont été appliquées par l’expérimentatrice et au brassard pour la pression artérielle. <br /><br />
 
-                      Veuillez trouver une position confortable que vous puissiez maintenir pendant toute l'expérience et vous déplacer le moins possible.<br /><br />
+                      Veuillez trouver une position confortable que vous puissiez maintenir pendant toute l'expérience et de bouger le moins possible.<br /><br />
                       <p>
 
                       <div class="container">
@@ -93,7 +99,7 @@
                       </div>
                     </div>
 
-                    <script src="/js/keydown_handler_1player.js">
+                    <script src="/js/keydown_handler_1player_purple.js">
                     <script/>
                     @else
                     <div>
@@ -110,7 +116,7 @@
                       </div>
                       </div>
 
-                      <script src="/js/keydown_handler_1player.js">
+                      <script src="/js/keydown_handler_1player_yellow.js">
                       <script/>
                   @endif 
           	</div>

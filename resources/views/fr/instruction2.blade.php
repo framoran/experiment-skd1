@@ -17,9 +17,14 @@
             </script>
             <style>
 
-            body, html {
-                height: 100%; /* Make sure the body takes up the full viewport height */
-                margin: 0;
+              body, html {
+                  height: 100%; /* Ensure the body takes up the full viewport height */
+                  margin: 0;
+                  overflow: hidden; /* Prevent the page from scrolling */
+                  background-image: url('/images/background.jpg'); /* Replace with the path to your image */
+                  background-size: cover; /* Ensure the image covers the entire viewport */
+                  background-position: center; /* Center the background image */
+                  background-repeat: no-repeat; /* Prevent the background from repeating */
               }
 
               .content {
@@ -90,7 +95,7 @@
               </div>
       </div>
 
-      <script src="/js/keydown_handler.js">
+      <script src="/js/keydown_handler_purple.js">
       <script/>
 
       @else
@@ -111,7 +116,7 @@
             appuyez sur le bouton bleu.</b></div>
             </div>
       </div>
-      <script src="/js/keydown_handler_1player.js">
+      <script src="/js/keydown_handler_1player_yellow.js">
         <script/>
       @endif
     @endcomponent
