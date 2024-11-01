@@ -80,54 +80,43 @@
                   // Image replacement based on accuracy
                   document.addEventListener("DOMContentLoaded", function() {
                       // Find the image elements by their IDs
-                      let flower1 = document.getElementById('flower');
+                      let flower1 = document.getElementById('flower1');
                       let flower2 = document.getElementById('flower2');
                       let flower3 = document.getElementById('flower3');
 
-                      // Determine the appropriate image based on accuracy
-                      if (accuracy >= 0.8) {
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_full_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_full_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_full_yellow.png") }}';
-                          }
-                        } else if (accuracy >= 0.6 && accuracy < 0.8) {
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_35_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_34_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_34_yellow.png") }}';
-                          } 
-                        } else if (accuracy >= 0.4 && accuracy < 0.6) {
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_HalfFull_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_HalfFull_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_HalfFull_yellow.png") }}';
-                          }
-                        } else{
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_14_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_14_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_14_yellow.png") }}';
-                          }
-                      }
-                  });
-                    
+                    // Logic for flower1 image based on overall accuracy (acc_mean)
+                    if (acc_mean >= 0.8) {
+                        if (flower1) flower1.src = '{{ asset("images/HP_full_duo.png") }}';
+                    } else if (acc_mean >= 0.6) {
+                        if (flower1) flower1.src = '{{ asset("images/HP_35_duo.png") }}';
+                    } else if (acc_mean >= 0.4) {
+                        if (flower1) flower1.src = '{{ asset("images/HP_HalfFull_duo.png") }}';
+                    } else {
+                        if (flower1) flower1.src = '{{ asset("images/HP_14_duo.png") }}';
+                    }
+
+                    // Logic for flower2 image based on player1 accuracy (acc_player1)
+                    if (acc_player1 >= 0.8) {
+                        if (flower2) flower2.src = '{{ asset("images/HP_full_purple.png") }}';
+                    } else if (acc_player1 >= 0.6) {
+                        if (flower2) flower2.src = '{{ asset("images/HP_35_purple.png") }}';
+                    } else if (acc_player1 >= 0.4) {
+                        if (flower2) flower2.src = '{{ asset("images/HP_HalfFull_purple.png") }}';
+                    } else {
+                        if (flower2) flower2.src = '{{ asset("images/HP_14_purple.png") }}';
+                    }
+
+                    // Logic for flower3 image based on player2 accuracy (acc_player2)
+                    if (acc_player2 >= 0.8) {
+                        if (flower3) flower3.src = '{{ asset("images/HP_full_yellow.png") }}';
+                    } else if (acc_player2 >= 0.6) {
+                        if (flower3) flower3.src = '{{ asset("images/HP_34_yellow.png") }}';
+                    } else if (acc_player2 >= 0.4) {
+                        if (flower3) flower3.src = '{{ asset("images/HP_HalfFull_yellow.png") }}';
+                    } else {
+                        if (flower3) flower3.src = '{{ asset("images/HP_14_yellow.png") }}';
+                    }
+                });
             </script>
 
             <style>
@@ -174,7 +163,7 @@
                     <div>
                         <p>
                             Le jeu est terminé! Voici le résultat de vos efforts: <br><br>
-                            <img id="flower" src="" alt="honeypot" width="600" height="600"><br><br>
+                            <img id="flower1" src="" alt="honeypot" width="600" height="600"><br><br>
                             Bien fait! <br><br>
 
                             Veuillez attendre l'experimentatrice SVP. <br>
