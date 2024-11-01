@@ -64,21 +64,18 @@
                     });
 
                 // Count the number of elements in each array
-                  let flower_task_count = flower_task.length;
-                  let flower_task2_count = flower2_task.length;
-                  let missedFlower_task_count = missedFlower_task.length;
-                  let missedFlower_task2_count = missedFlower2_task.length;
+                let acc_player1 = flower_task.length / (flower_task.length + missedFlower_task.length);
+                let acc_player2 = flower2_task.length / (flower2_task.length + missedFlower2_task.length);
 
-                  // Calculate accuracy: (flower_task_count + flower_task2_count) / (missedFlower_task_count + missedFlower_task2_count)
-                  let total_flower_count = flower_task_count + flower_task2_count;
-                  let total_missed_count = missedFlower_task_count + missedFlower_task2_count;
+                let acc_mean = (acc_player1+acc_player2)/2;
+            
+                  console.log('catched flower 1:', flower_task.length);
+                  console.log('missed flower1:', missedFlower_task.length);
 
-                  // Ensure no division by zero in case there are no missed flowers
-                  let accuracy = (total_missed_count > 0) 
-                      ? (total_flower_count / total_missed_count) 
-                      : 0;
-
-                  console.log('Accuracy:', accuracy);
+                  console.log('catched flower 2:', flower2_task.length);
+                  console.log('missed flower2:', missedFlower2_task.length);
+                
+                  console.log('Accuracy:', acc_mean);
                   
                   // Image replacement based on accuracy
                   document.addEventListener("DOMContentLoaded", function() {
@@ -108,7 +105,7 @@
                           if (flower3) {
                               flower3.src = '{{ asset("images/HP_34_yellow.png") }}';
                           } 
-                        } else if (accuracy >= 0.40 && accuracy < 0.6) {
+                        } else if (accuracy >= 0.4 && accuracy < 0.6) {
                           if (flower1) {
                               flower1.src = '{{ asset("images/HP_HalfFull_duo.png") }}';
                           }
