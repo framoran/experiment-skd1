@@ -69,7 +69,7 @@
                 <p>
                 Selon l'ancienne recette, il faut recolter le 80% des fleurs trouvés par deux abeilles en 5 minutes.<br></br>
                 
-                À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que les fleurs que vous recueilli étaient suffisants!<br></br>
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !<br></br>
 
                  <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_duo.png') }}" alt="honeypot" width="600" height="600"><br><br>
@@ -94,7 +94,7 @@
                 <p>
                 Malheureusement, l'ancienne recette de la ruche est un peu effacée, donc on ne sait pas clairement combien de fleurs sont nécessaires.<br></br>
                 
-                À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que les fleurs que vous recueilli étaient suffisants!<br></br>
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !<br></br>
 
                  <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_duo.png') }}" alt="honeypot" width="600" height="600"><br><br>
@@ -119,7 +119,7 @@
                 <p>
                 Selon l'ancienne recette, il faut recolter le 80% des fleurs trouvés par une abeille en 5 minutes.<br></br>
                 
-                À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que les fleurs que vous recueilli étaient suffisants!<br></br>
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !<br></br>
 
                 <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_purple.png') }}" alt="honeypot" width="600" height="600"><br><br>
@@ -140,7 +140,7 @@
                 <p>
                 Malheureusement, l'ancienne recette de la ruche est un peu effacée, donc on ne sait pas clairement combien de fleurs sont nécessaires.<br></br>
                 
-                À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que les fleurs que vous recueilli étaient suffisantsi!<br></br>
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !<br></br>
 
                 <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_purple.png') }}" alt="honeypot" width="600" height="600"><br><br>
@@ -162,7 +162,7 @@
                 <p>
                 Selon l'ancienne recette, il faut recolter le 80% des fleurs trouvés par une abeille en 5 minutes.<br></br>
                 
-                 À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que les fleurs que vous recueilli étaient suffisants!<br></br>
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !<br></br>
 
                 <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_yellow.png') }}" alt="honeypot" width="600" height="600"><br><br>
@@ -184,7 +184,7 @@
                           <p>
                           Malheureusement, l'ancienne recette de la ruche est un peu effacée, donc on ne sait pas clairement combien de fleurs sont nécessaires.<br></br>
                           
-                          Essayez donc de recueillir le plus de fleurs possible! À la fin des 5 minutes, si ce pot de miel est complètement rempli, sa signifie que les fleurs que vous recueilli étaient suffisants!<br></br>
+                          À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !<br></br>
 
                           <!-- Add the honey jar image here -->
                           <img src="{{ asset('images/HP_empty_yellow.png') }}" alt="honeypot" width="600" height="600"><br><br>
