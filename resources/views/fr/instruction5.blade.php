@@ -72,7 +72,7 @@
 
                   Chacune d'entre vous est spécialisée dans un type spécifique de fleurs requis par l'ancienne recepte de la ruche.<br><br>
 
-                  Abeille violet, vous serez chargée des fleurs violets, et abeille jaune, vous serez seras chargée des fleurs jaunes.<br><br>
+                  Abeille violet, vous serez chargée des fleurs violets, et abeille jaune, vous serez chargée des fleurs jaunes.<br><br>
                   
                   Votre objectif est de remplir un pot de miel.<br><br>
                 </p>
