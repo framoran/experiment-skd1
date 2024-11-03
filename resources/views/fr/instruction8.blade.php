@@ -74,7 +74,7 @@
                  <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_duo.png') }}" alt="honeypot" width="600" height="600"><br><br>
 
-                <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à accomplir ensemble !<br></br>
+                <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à produire ensemble !<br></br>
 
                 Bon collaboration et amusez-vous bien !<br></br>
                 </p>
@@ -99,7 +99,7 @@
                  <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_duo.png') }}" alt="honeypot" width="600" height="600"><br><br>
 
-                <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à accomplir ensemble !<br></br>
+                <b>Attention :</b> dans la ruche, il n'y a pas de place pour l'égoïsme, donc il ne sera pas montré ce que chaque individu a contribué, mais ce que vous avez réussi à produire ensemble !<br></br>
 
                 Bon collaboration et amusez-vous bien !<br></br>
                 </p>
@@ -119,7 +119,7 @@
                 <p>
                 Selon l'ancienne recette, il faut recolter le 80% des fleurs trouvés par une abeille en 5 minutes.<br></br>
                 
-                À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !br></br>
+                À la fin des 5 minutes, si ce pot de miel est complètement rempli, cela signifie que les fleurs que vous avez recueillies étaient suffisantes !</br>
 
                 <!-- Add the honey jar image here -->
                  <img src="{{ asset('images/HP_empty_purple.png') }}" alt="honeypot" width="600" height="600"><br><br>
