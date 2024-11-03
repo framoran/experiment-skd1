@@ -69,7 +69,7 @@
                 <p>
                 Parfait !<br></br>
 
-                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
+                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu (qui sera identique à l'entraînement).<br></br>
 
                 Attention: Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>
@@ -88,7 +88,7 @@
                 <p>
                 Parfait !<br></br>
 
-                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
+                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu (qui sera identique à l'entraînement).<br></br>
 
                 Attention: le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>
@@ -107,7 +107,7 @@
                 <p>
                 Parfait !<br></br>
 
-                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu.<br></br>
+                Maintenant que vous avez eu la possibilité de vous familiariser avec les commandes, vous aurez la possibilité de passer au jeu(qui sera identique à l'entraînement).<br></br>
 
                 Attention: Le jeu va durer environ 5 minutes et nous alons mesurer votre activité cardiovasculaire tout le long, donc essayez de bouger le moins possible.<br></br>
                 </p>

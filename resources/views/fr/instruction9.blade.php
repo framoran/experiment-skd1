@@ -15,120 +15,109 @@
             <!-- Include Axios from CDN -->
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-            <script>
-                // Function to get a cookie by name
-                function getCookie(name) {
-                    let cookieArr = document.cookie.split(";");
-                    for (let i = 0; i < cookieArr.length; i++) {
-                        let cookiePair = cookieArr[i].split("=");
-                        if (name == cookiePair[0].trim()) {
-                            return decodeURIComponent(cookiePair[1]);
+                <script>
+                    // Function to get a cookie by name
+                    function getCookie(name) {
+                        let cookieArr = document.cookie.split(";");
+                        for (let i = 0; i < cookieArr.length; i++) {
+                            let cookiePair = cookieArr[i].split("=");
+                            if (name == cookiePair[0].trim()) {
+                                return decodeURIComponent(cookiePair[1]);
+                            }
                         }
+                        return null;
                     }
-                    return null;
-                }
 
-                // Get the data from the cookies
-                let flower_practice = getCookie("flower_practice");
-                let flower2_practice = getCookie("flower2_practice");
-                let missedFlower_practice = getCookie("missedFlower_practice");
-                let missedFlower2_practice = getCookie("missedFlower2_practice");
-                let draw_practice = getCookie("drawing_practice");
-                let flower_task = getCookie("flower_task");
-                let flower2_task = getCookie("flower2_task");
-                let missedFlower_task = getCookie("missedFlower_task");
-                let missedFlower2_task = getCookie("missedFlower2_task");
-                let draw_task = getCookie("draw_task");
+                    // Get the data from the cookies
+                    let flower_practice = getCookie("flower_practice");
+                    let flower2_practice = getCookie("flower2_practice");
+                    let missedFlower_practice = getCookie("missedFlower_practice");
+                    let missedFlower2_practice = getCookie("missedFlower2_practice");
+                    let draw_practice = getCookie("drawing_practice");
+                    let flower_task = getCookie("flower_task");
+                    let flower2_task = getCookie("flower2_task");
+                    let missedFlower_task = getCookie("missedFlower_task");
+                    let missedFlower2_task = getCookie("missedFlower2_task");
+                    let draw_task = getCookie("draw_task");
 
-                // Prepare the data to send
-                let data = {
-                    flower_practice: flower_practice,
-                    flower2_practice: flower2_practice,
-                    missedFlower_practice: missedFlower_practice,
-                    missedFlower2_practice: missedFlower2_practice,
-                    draw_practice: draw_practice,
-                    flower_task: flower_task,
-                    flower2_task: flower2_task,
-                    missedFlower_task: missedFlower_task,
-                    missedFlower2_task: missedFlower2_task,
-                    draw_task: draw_task
-                };
+                    // Prepare the data to send
+                    let data = {
+                        flower_practice: flower_practice,
+                        flower2_practice: flower2_practice,
+                        missedFlower_practice: missedFlower_practice,
+                        missedFlower2_practice: missedFlower2_practice,
+                        draw_practice: draw_practice,
+                        flower_task: flower_task,
+                        flower2_task: flower2_task,
+                        missedFlower_task: missedFlower_task,
+                        missedFlower2_task: missedFlower2_task,
+                        draw_task: draw_task
+                    };
 
-                // Send the data via Axios
-                axios.post('/{{ app()->getLocale() }}/save', data)
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
+                    // Send the data via Axios
+                    axios.post('/{{ app()->getLocale() }}/save', data)
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
+                    // Calculate accuracies
+                    let acc_player1 = flower_task.length / (flower_task.length + missedFlower_task.length);
+                    let acc_player2 = flower2_task.length / (flower2_task.length + missedFlower2_task.length);
+
+                    let acc_mean = (acc_player1 + acc_player2) / 2;
+
+                    console.log('catched flower 1:', flower_task.length);
+                    console.log('missed flower1:', missedFlower_task.length);
+
+                    console.log('catched flower 2:', flower2_task.length);
+                    console.log('missed flower2:', missedFlower2_task.length);
+
+                    console.log('Accuracy:', acc_mean);
+
+                    // Image replacement based on accuracy
+                    document.addEventListener("DOMContentLoaded", function() {
+                        // Find the image elements by their IDs
+                        let flower1 = document.getElementById('flower');
+                        let flower2 = document.getElementById('flower2');
+                        let flower3 = document.getElementById('flower3');
+
+                        // Logic for flower1 image based on overall accuracy (acc_mean)
+                        if (acc_mean >= 0.8) {
+                            if (flower1) flower1.src = '{{ asset("images/HP_full_duo.png") }}';
+                        } else if (acc_mean >= 0.6) {
+                            if (flower1) flower1.src = '{{ asset("images/HP_35_duo.png") }}';
+                        } else if (acc_mean >= 0.4) {
+                            if (flower1) flower1.src = '{{ asset("images/HP_HalfFull_duo.png") }}';
+                        } else {
+                            if (flower1) flower1.src = '{{ asset("images/HP_14_duo.png") }}';
+                        }
+
+                        // Logic for flower2 image based on player1 accuracy (acc_player1)
+                        if (acc_player1 >= 0.8) {
+                            if (flower2) flower2.src = '{{ asset("images/HP_full_purple.png") }}';
+                        } else if (acc_player1 >= 0.6) {
+                            if (flower2) flower2.src = '{{ asset("images/HP_35_purple.png") }}';
+                        } else if (acc_player1 >= 0.4) {
+                            if (flower2) flower2.src = '{{ asset("images/HP_HalfFull_purple.png") }}';
+                        } else {
+                            if (flower2) flower2.src = '{{ asset("images/HP_14_purple.png") }}';
+                        }
+
+                        // Logic for flower3 image based on player2 accuracy (acc_player2)
+                        if (acc_player2 >= 0.8) {
+                            if (flower3) flower3.src = '{{ asset("images/HP_full_yellow.png") }}';
+                        } else if (acc_player2 >= 0.6) {
+                            if (flower3) flower3.src = '{{ asset("images/HP_34_yellow.png") }}';
+                        } else if (acc_player2 >= 0.4) {
+                            if (flower3) flower3.src = '{{ asset("images/HP_HalfFull_yellow.png") }}';
+                        } else {
+                            if (flower3) flower3.src = '{{ asset("images/HP_14_yellow.png") }}';
+                        }
                     });
-
-                // Count the number of elements in each array
-                let acc_player1 = flower_task.length / (flower_task.length + missedFlower_task.length);
-                let acc_player2 = flower2_task.length / (flower2_task.length + missedFlower2_task.length);
-
-                let acc_mean = (acc_player1+acc_player2)/2;
-            
-                  console.log('catched flower 1:', flower_task.length);
-                  console.log('missed flower1:', missedFlower_task.length);
-
-                  console.log('catched flower 2:', flower2_task.length);
-                  console.log('missed flower2:', missedFlower2_task.length);
-                
-                  console.log('Accuracy:', acc_mean);
-                  
-                  // Image replacement based on accuracy
-                  document.addEventListener("DOMContentLoaded", function() {
-                      // Find the image elements by their IDs
-                      let flower1 = document.getElementById('flower');
-                      let flower2 = document.getElementById('flower2');
-                      let flower3 = document.getElementById('flower3');
-
-                      // Determine the appropriate image based on accuracy
-                      if (accuracy >= 0.8) {
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_full_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_full_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_full_yellow.png") }}';
-                          }
-                        } else if (accuracy >= 0.6 && accuracy < 0.8) {
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_35_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_34_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_34_yellow.png") }}';
-                          } 
-                        } else if (accuracy >= 0.4 && accuracy < 0.6) {
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_HalfFull_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_HalfFull_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_HalfFull_yellow.png") }}';
-                          }
-                        } else{
-                          if (flower1) {
-                              flower1.src = '{{ asset("images/HP_14_duo.png") }}';
-                          }
-                          if (flower2) {
-                              flower2.src = '{{ asset("images/HP_14_purple.png") }}';
-                          }
-                          if (flower3) {
-                              flower3.src = '{{ asset("images/HP_14_yellow.png") }}';
-                          }
-                      }
-                  });
-                    
-            </script>
+                </script>
 
             <style>
             body, html {
